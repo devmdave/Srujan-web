@@ -24,33 +24,31 @@ export default function WishlistDrawer() {
     <div className="fixed inset-0 z-50 overflow-hidden" role="dialog" aria-modal="true">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/40 backdrop-blur-xs transition-opacity"
+        className="fixed inset-0 bg-[#16204A]/60 transition-opacity"
         onClick={() => setIsDrawerOpen(false)}
       />
 
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-[#FAF6EF] shadow-2xl flex flex-col border-l border-[#F0E6D6]">
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-6">
+        <div className="w-screen max-w-md bg-[#FAF6EF] flex flex-col border-l border-[#E2DACB]">
           {/* Header */}
-          <div className="p-5 border-b border-[#F0E6D6] bg-[#F0E6D6]/60 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="p-2 bg-[#FAF6EF] rounded-full text-[#C2552E] shadow-xs">
-                <Heart className="w-5 h-5 fill-[#C2552E]" />
-              </div>
+          <div className="p-5 border-b border-[#E2DACB] bg-[#EFE8DC] flex items-center justify-between">
+            <div className="flex items-center gap-2.5">
+              <Heart className="w-4 h-4 fill-[#2A3F8F] text-[#2A3F8F]" />
               <div>
-                <h2 className="font-serif font-bold text-lg text-[#2B2522]">
-                  Saved Designs ({wishlist.length})
+                <h2 className="font-serif text-base font-semibold text-[#1F2430]">
+                  Saved Pieces ({wishlist.length})
                 </h2>
-                <p className="text-xs text-[#5C534E]">Your handpicked favorites</p>
+                <p className="text-[11px] text-[#717A8C]">Your personal collection</p>
               </div>
             </div>
 
             <button
               type="button"
               onClick={() => setIsDrawerOpen(false)}
-              className="p-2 rounded-lg text-[#2B2522] hover:bg-[#FAF6EF] transition-colors"
+              className="p-1.5 text-[#1F2430] hover:bg-white rounded-xs transition-colors"
               aria-label="Close wishlist"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
           </div>
 
@@ -58,70 +56,65 @@ export default function WishlistDrawer() {
           <div className="flex-1 overflow-y-auto p-5">
             {wishlist.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center text-center p-6">
-                <div className="w-16 h-16 rounded-full bg-[#F0E6D6] flex items-center justify-center text-[#5C534E] mb-4">
-                  <Heart className="w-8 h-8 stroke-1" />
-                </div>
-                <h3 className="font-serif text-lg font-semibold text-[#2B2522] mb-1">
+                <Heart className="w-8 h-8 stroke-1 text-[#717A8C] mb-3" />
+                <h3 className="font-serif text-base text-[#1F2430] mb-1">
                   Your wishlist is empty
                 </h3>
-                <p className="text-xs text-[#5C534E] max-w-xs mb-6 leading-relaxed">
-                  Click the heart icon on any hand-painted design in our catalog to save it here for a combined inquiry.
+                <p className="text-xs text-[#717A8C] max-w-xs mb-6 leading-relaxed">
+                  Save pieces while browsing the catalog to ask for custom sizing and prices together.
                 </p>
                 <button
                   type="button"
                   onClick={() => setIsDrawerOpen(false)}
-                  className="px-5 py-2.5 rounded-full bg-[#2F3E75] text-[#FAF6EF] text-xs font-semibold hover:bg-[#222E57] transition-colors"
+                  className="px-4 py-2 rounded-xs bg-[#2A3F8F] text-white text-xs font-semibold hover:bg-[#203173] transition-colors"
                 >
-                  Explore Collection
+                  Browse Collection
                 </button>
               </div>
             ) : (
               <div className="space-y-4">
-                <div className="bg-[#F0E6D6]/70 rounded-xl p-3.5 text-xs text-[#2B2522] border border-[#E2D3BE]/80">
-                  <span className="font-semibold text-[#C2552E]">Artist Note: </span>
-                  Since each design is painted by hand to order, there is no checkout cart. You can send all saved designs directly in one WhatsApp message to get quotes and customization advice!
+                <div className="bg-[#EFE8DC] p-3 text-xs text-[#1F2430] border border-[#E2DACB] rounded-xs">
+                  <span className="font-semibold text-[#2A3F8F]">Note: </span>
+                  Every piece is painted by hand upon order. You can send all your saved pieces together in one WhatsApp message.
                 </div>
 
-                <div className="divide-y divide-[#F0E6D6]">
+                <div className="divide-y divide-[#E2DACB]">
                   {wishlist.map((item) => (
-                    <div key={item.id} className="py-3.5 flex gap-3.5 items-center">
-                      <div className="w-16 h-16 relative rounded-lg overflow-hidden bg-[#F0E6D6] shrink-0 border border-[#E2D3BE]">
+                    <div key={item.id} className="py-3 flex gap-3 items-center">
+                      <div className="w-14 h-14 relative overflow-hidden bg-[#FAF6EF] shrink-0 border border-[#E2DACB] rounded-xs">
                         <Image
                           src={item.images[0]}
                           alt={item.name}
                           fill
                           className="object-cover"
-                          sizes="64px"
+                          sizes="56px"
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <span className="text-[10px] font-semibold tracking-wider uppercase text-[#2F3E75]">
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-[#717A8C]">
                           {item.categoryLabel}
                         </span>
-                        <h4 className="font-serif font-bold text-sm text-[#2B2522] truncate">
+                        <h4 className="font-serif text-sm text-[#1F2430] truncate">
                           {item.name}
                         </h4>
-                        <p className="text-[11px] text-[#5C534E] truncate">
-                          Can be painted on: {item.availableOn.slice(0, 2).join(", ")}
-                        </p>
-                        <div className="mt-1">
+                        <div className="mt-0.5">
                           <Link
                             href={`/shop/${item.id}`}
                             onClick={() => setIsDrawerOpen(false)}
-                            className="text-[11px] text-[#C2552E] font-medium hover:underline inline-flex items-center gap-1"
+                            className="text-[11px] text-[#2A3F8F] hover:underline inline-flex items-center gap-1"
                           >
                             <span>View story</span>
-                            <ArrowRight className="w-3 h-3" />
+                            <ArrowRight className="w-2.5 h-2.5" />
                           </Link>
                         </div>
                       </div>
                       <button
                         type="button"
                         onClick={() => removeFromWishlist(item.id)}
-                        className="p-2 text-[#7E726B] hover:text-[#C2552E] rounded-lg hover:bg-[#F0E6D6] transition-colors"
+                        className="p-1.5 text-[#717A8C] hover:text-[#1F2430] transition-colors"
                         title="Remove from wishlist"
                       >
-                        <Trash2 className="w-4 h-4" />
+                        <Trash2 className="w-3.5 h-3.5" />
                       </button>
                     </div>
                   ))}
@@ -132,31 +125,32 @@ export default function WishlistDrawer() {
 
           {/* Footer actions */}
           {wishlist.length > 0 && (
-            <div className="p-5 border-t border-[#F0E6D6] bg-[#FAF6EF] space-y-3">
+            <div className="p-4 border-t border-[#E2DACB] bg-[#EFE8DC] space-y-2.5">
+              {/* Primary Srujan Blue button with white text */}
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-full bg-[#C2552E] hover:bg-[#A64421] text-white font-semibold text-sm shadow-md transition-all duration-200"
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white font-semibold text-xs tracking-wide transition-colors"
               >
-                <MessageCircle className="w-5 h-5 fill-white" />
-                <span>DM My Wishlist on WhatsApp</span>
+                <MessageCircle className="w-4 h-4 fill-white" />
+                <span>DM Wishlist on WhatsApp</span>
               </a>
 
               <div className="flex items-center justify-between text-xs pt-1">
                 <button
                   type="button"
                   onClick={clearWishlist}
-                  className="text-[#7E726B] hover:text-[#C2552E] underline"
+                  className="text-[#717A8C] hover:text-[#1F2430] underline"
                 >
-                  Clear all items
+                  Clear all
                 </button>
                 <button
                   type="button"
                   onClick={() => setIsDrawerOpen(false)}
-                  className="text-[#2F3E75] font-medium hover:underline"
+                  className="text-[#1F2430] font-medium hover:underline"
                 >
-                  Keep browsing
+                  Continue browsing
                 </button>
               </div>
             </div>

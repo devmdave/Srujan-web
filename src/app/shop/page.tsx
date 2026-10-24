@@ -8,11 +8,10 @@ import PaintStrokeDivider from "@/components/PaintStrokeDivider";
 import {
   Search,
   Filter,
-  Sparkles,
   ArrowUpDown,
   MessageCircle,
   X,
-  HelpCircle,
+  Info,
 } from "lucide-react";
 import { siteConfig } from "@/config/siteConfig";
 
@@ -27,11 +26,9 @@ function ShopContent() {
   // Filter & Sort
   const filteredDesigns = useMemo(() => {
     return DESIGNS.filter((design) => {
-      // Category filter
       const matchesCategory =
         selectedCategory === "all" || design.category === selectedCategory;
 
-      // Search filter
       const q = searchQuery.toLowerCase().trim();
       const matchesSearch =
         !q ||
@@ -59,45 +56,35 @@ function ShopContent() {
     CATEGORIES.find((c) => c.id === selectedCategory)?.label || "All Designs";
 
   return (
-    <div className="py-10 sm:py-14 bg-[#FAF6EF]">
+    <div className="py-10 sm:py-16 bg-[#FAF6EF] text-[#1F2430]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0A526]/20 text-[#2B2522] text-xs font-semibold mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-[#E0A526]" />
-            <span>Pure Handcrafted Catalog</span>
-          </div>
-
-          <h1 className="text-3xl sm:text-5xl font-serif font-bold text-[#2B2522] tracking-tight">
-            The Srujan Collection
+        <div className="max-w-2xl mb-10">
+          <span className="text-[11px] font-sans tracking-widest uppercase text-[#717A8C]">
+            Catalog
+          </span>
+          <h1 className="text-3xl sm:text-5xl font-serif text-[#1F2430] mt-1 tracking-tight">
+            The Collection
           </h1>
-
-          <p className="text-sm sm:text-base text-[#5C534E] mt-3 leading-relaxed">
-            Every motif here is individually hand-painted with professional textile pigments. We don&apos;t display prices because every piece is customized to your preferred fabric, silhouette, and size.
+          <p className="text-xs sm:text-sm text-[#4B5263] mt-2 leading-relaxed">
+            Every piece is painted by hand upon order. There are no prices shown here because we tailor the fabric, silhouette, and size to you. Click “DM for Price” to ask the artist directly.
           </p>
 
-          {/* DM Ordering Note Banner */}
-          <div className="mt-5 p-4 rounded-2xl bg-[#F0E6D6] border border-[#E2D3BE] text-xs text-[#2B2522] flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
-            <div className="flex items-start gap-2.5">
-              <HelpCircle className="w-4 h-4 text-[#C2552E] shrink-0 mt-0.5" />
-              <div>
-                <strong className="font-semibold text-[#2B2522]">
-                  How to order any piece:
-                </strong>{" "}
-                Click <span className="font-bold text-[#C2552E]">“DM for Price”</span> on any card to message the artist directly on WhatsApp with your size and preferred garment.
-              </div>
+          {/* Simple DM notice strip */}
+          <div className="mt-4 p-3 bg-[#EFE8DC] border border-[#E2DACB] rounded-xs text-xs text-[#1F2430] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
+            <div className="flex items-center gap-2">
+              <Info className="w-3.5 h-3.5 text-[#2A3F8F] shrink-0" />
+              <span>Click “DM for Price” on any piece to chat on WhatsApp.</span>
             </div>
-
             <a
               href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-                "Hi Srujan! I'd like to ask about custom pricing for your collection."
+                "Hi Srujan, I would like to ask about custom pricing for your collection."
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="shrink-0 px-4 py-2 rounded-xl bg-[#C2552E] hover:bg-[#A64421] text-white font-semibold text-xs inline-flex items-center gap-1.5 shadow-xs"
+              className="px-3 py-1 bg-[#2A3F8F] hover:bg-[#203173] text-white text-[11px] font-semibold tracking-wider uppercase rounded-xs shrink-0 transition-colors"
             >
-              <MessageCircle className="w-3.5 h-3.5 fill-white" />
-              <span>Ask a Question</span>
+              Ask on WhatsApp
             </a>
           </div>
         </div>
@@ -105,7 +92,7 @@ function ShopContent() {
         {/* Filter Controls Bar */}
         <div className="space-y-4 mb-8">
           {/* Category Chips Scroll */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
             {CATEGORIES.map((category) => {
               const isSelected = selectedCategory === category.id;
               return (
@@ -113,10 +100,10 @@ function ShopContent() {
                   key={category.id}
                   type="button"
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 ${
+                  className={`px-3 py-1.5 rounded-xs text-xs tracking-wider uppercase whitespace-nowrap transition-colors border ${
                     isSelected
-                      ? "bg-[#2F3E75] text-[#FAF6EF] shadow-sm"
-                      : "bg-[#F0E6D6] text-[#2B2522] hover:bg-[#E2D3BE]/80 border border-[#E2D3BE]"
+                      ? "bg-[#2A3F8F] text-white border-[#2A3F8F] font-semibold"
+                      : "bg-[#EFE8DC] text-[#1F2430] border-[#E2DACB] hover:border-[#1F2430]/40"
                   }`}
                 >
                   {category.label}
@@ -128,45 +115,44 @@ function ShopContent() {
 
           {/* Search & Sort Row */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2">
-            {/* Search Input */}
+            {/* Search Input with thin border */}
             <div className="relative flex-1 max-w-md">
-              <Search className="w-4 h-4 text-[#7E726B] absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Search className="w-3.5 h-3.5 text-[#717A8C] absolute left-3 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
-                placeholder="Search motifs, garments (e.g. Peacock, Kurti, Warli)..."
+                placeholder="Search by motif or garment (e.g. Peacock, Kurti, Warli)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-[#FAF6EF] text-xs text-[#2B2522] border border-[#E2D3BE] focus:outline-none focus:ring-2 focus:ring-[#C2552E]/30 focus:border-[#C2552E] placeholder:text-[#7E726B]"
+                className="w-full pl-9 pr-8 py-2 rounded-xs bg-[#FAF6EF] text-xs text-[#1F2430] border border-[#E2DACB] focus:outline-none focus:border-[#2A3F8F] placeholder:text-[#717A8C]"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#7E726B] hover:text-[#2B2522]"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#717A8C] hover:text-[#1F2430]"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="w-3.5 h-3.5" />
                 </button>
               )}
             </div>
 
             {/* Sort & Count */}
-            <div className="flex items-center justify-between sm:justify-end gap-3">
-              <span className="text-xs text-[#5C534E]">
-                Showing <strong className="text-[#2B2522]">{filteredDesigns.length}</strong> piece
-                {filteredDesigns.length === 1 ? "" : "s"}
+            <div className="flex items-center justify-between sm:justify-end gap-3 text-xs">
+              <span className="text-[#717A8C]">
+                {filteredDesigns.length} piece{filteredDesigns.length === 1 ? "" : "s"}
               </span>
 
-              <div className="flex items-center gap-1.5 bg-[#F0E6D6] px-3 py-1.5 rounded-xl border border-[#E2D3BE] text-xs">
-                <ArrowUpDown className="w-3.5 h-3.5 text-[#5C534E]" />
-                <span className="text-[#5C534E] hidden sm:inline">Sort:</span>
+              <div className="flex items-center gap-1.5 bg-[#EFE8DC] px-2.5 py-1.5 rounded-xs border border-[#E2DACB]">
+                <ArrowUpDown className="w-3 h-3 text-[#717A8C]" />
+                <span className="text-[#717A8C] hidden sm:inline">Sort:</span>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as any)}
-                  className="bg-transparent font-medium text-[#2B2522] focus:outline-none cursor-pointer"
+                  className="bg-transparent font-medium text-[#1F2430] focus:outline-none cursor-pointer"
                 >
                   <option value="featured">Featured First</option>
                   <option value="newest">Newest First</option>
-                  <option value="name">Alphabetical (A-Z)</option>
+                  <option value="name">Alphabetical</option>
                 </select>
               </div>
             </div>
@@ -175,29 +161,29 @@ function ShopContent() {
 
         {/* Active Filters Display */}
         {(selectedCategory !== "all" || searchQuery) && (
-          <div className="flex items-center gap-2 mb-6 text-xs text-[#5C534E] flex-wrap">
-            <span>Active filters:</span>
+          <div className="flex items-center gap-2 mb-6 text-xs text-[#717A8C] flex-wrap">
+            <span>Filtering:</span>
             {selectedCategory !== "all" && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#2F3E75] text-[#FAF6EF]">
-                <span>Category: {activeCategoryLabel}</span>
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-xs bg-[#2A3F8F] text-white">
+                <span>{activeCategoryLabel}</span>
                 <button
                   type="button"
                   onClick={() => setSelectedCategory("all")}
                   className="hover:opacity-75"
                 >
-                  <X className="w-3 h-3" />
+                  <X className="w-2.5 h-2.5" />
                 </button>
               </span>
             )}
             {searchQuery && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#F0E6D6] text-[#2B2522] border border-[#E2D3BE]">
-                <span>Query: &ldquo;{searchQuery}&rdquo;</span>
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-xs bg-[#EFE8DC] text-[#1F2430] border border-[#E2DACB]">
+                <span>&ldquo;{searchQuery}&rdquo;</span>
                 <button
                   type="button"
                   onClick={() => setSearchQuery("")}
                   className="hover:opacity-75"
                 >
-                  <X className="w-3 h-3" />
+                  <X className="w-2.5 h-2.5" />
                 </button>
               </span>
             )}
@@ -207,9 +193,9 @@ function ShopContent() {
                 setSelectedCategory("all");
                 setSearchQuery("");
               }}
-              className="text-[#C2552E] hover:underline font-medium ml-1"
+              className="text-[#2A3F8F] hover:underline font-medium ml-1"
             >
-              Reset all
+              Reset
             </button>
           </div>
         )}
@@ -222,13 +208,13 @@ function ShopContent() {
             ))}
           </div>
         ) : (
-          <div className="bg-[#F0E6D6]/60 rounded-3xl p-12 text-center border border-[#E2D3BE] my-8">
-            <Filter className="w-10 h-10 text-[#7E726B] mx-auto mb-3" />
-            <h3 className="font-serif font-bold text-xl text-[#2B2522] mb-1">
-              No matching hand-painted pieces found
+          <div className="bg-[#EFE8DC] rounded-xs p-12 text-center border border-[#E2DACB] my-8">
+            <Filter className="w-8 h-8 text-[#717A8C] mx-auto mb-3" />
+            <h3 className="font-serif text-lg text-[#1F2430] mb-1">
+              No matching pieces found
             </h3>
-            <p className="text-xs text-[#5C534E] max-w-md mx-auto mb-6">
-              Try choosing another category or clearing your search. Or, request a completely custom motif!
+            <p className="text-xs text-[#717A8C] max-w-sm mx-auto mb-5">
+              Try another category, or ask the artist directly if we can paint your idea.
             </p>
             <div className="flex items-center justify-center gap-3">
               <button
@@ -237,17 +223,17 @@ function ShopContent() {
                   setSelectedCategory("all");
                   setSearchQuery("");
                 }}
-                className="px-5 py-2.5 rounded-full bg-[#2F3E75] text-white text-xs font-semibold"
+                className="px-4 py-2 rounded-xs border border-[#1F2430] text-[#1F2430] text-xs font-semibold"
               >
-                Clear all filters
+                Clear filters
               </button>
               <a
                 href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-                  "Hi Srujan! I didn't see the exact design I was looking for in your catalog. Can you paint a custom one?"
+                  "Hi Srujan, I didn't see the exact motif I was looking for. Can you paint a custom design?"
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded-full bg-[#C2552E] text-white text-xs font-semibold"
+                className="px-4 py-2 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white text-xs font-semibold"
               >
                 Request Custom Motif
               </a>
@@ -256,7 +242,7 @@ function ShopContent() {
         )}
       </div>
 
-      <PaintStrokeDivider color="mustard" className="mt-14" />
+      <PaintStrokeDivider color="sand" className="mt-14" />
     </div>
   );
 }
@@ -266,10 +252,7 @@ export default function ShopPage() {
     <Suspense
       fallback={
         <div className="min-h-screen flex items-center justify-center bg-[#FAF6EF]">
-          <div className="text-center">
-            <span className="w-10 h-10 border-4 border-[#2F3E75] border-t-transparent rounded-full animate-spin inline-block" />
-            <p className="text-sm font-serif mt-3 text-[#2B2522]">Loading Srujan Catalog...</p>
-          </div>
+          <p className="text-xs font-serif text-[#717A8C]">Loading Srujan Collection...</p>
         </div>
       }
     >

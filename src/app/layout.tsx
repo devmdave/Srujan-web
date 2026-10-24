@@ -51,7 +51,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${playfair.variable} ${jakarta.variable}`}>
-      <body className="min-h-screen bg-[#FAF6EF] text-[#2B2522] font-sans antialiased flex flex-col selection:bg-[#C2552E] selection:text-white">
+      <body className="min-h-screen bg-[#FAF6EF] text-[#1F2430] font-sans antialiased flex flex-col selection:bg-[#2A3F8F] selection:text-white">
         <WishlistProvider>
           <Header />
           <main className="flex-1">{children}</main>

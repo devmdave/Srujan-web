@@ -8,20 +8,18 @@ import { siteConfig, getProductWhatsAppUrl } from "@/config/siteConfig";
 import { useWishlist } from "@/context/WishlistContext";
 import DesignCard from "@/components/DesignCard";
 import PaintStrokeDivider from "@/components/PaintStrokeDivider";
+import InstagramIcon from "@/components/icons/InstagramIcon";
 import {
   Heart,
   MessageCircle,
-  Sparkles,
   Share2,
   ChevronRight,
   ShieldCheck,
   Clock,
   Shirt,
-  Info,
   Check,
   ZoomIn,
 } from "lucide-react";
-import InstagramIcon from "@/components/icons/InstagramIcon";
 
 interface ProductDetailClientProps {
   design: DesignItem;
@@ -75,26 +73,26 @@ export default function ProductDetailClient({
   };
 
   return (
-    <div className="py-8 sm:py-12 bg-[#FAF6EF]">
+    <div className="py-8 sm:py-14 bg-[#FAF6EF] text-[#1F2430]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumbs */}
-        <nav className="flex items-center text-xs text-[#5C534E] mb-6 sm:mb-8 flex-wrap gap-1">
-          <Link href="/" className="hover:text-[#2B2522]">
+        <nav className="flex items-center text-xs text-[#717A8C] mb-6 sm:mb-8 flex-wrap gap-1">
+          <Link href="/" className="hover:text-[#1F2430]">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-[#7E726B]" />
-          <Link href="/shop" className="hover:text-[#2B2522]">
+          <ChevronRight className="w-3.5 h-3.5 text-[#717A8C]" />
+          <Link href="/shop" className="hover:text-[#1F2430]">
             Collection
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-[#7E726B]" />
+          <ChevronRight className="w-3.5 h-3.5 text-[#717A8C]" />
           <Link
             href={`/shop?category=${design.category}`}
-            className="hover:text-[#2B2522]"
+            className="hover:text-[#1F2430]"
           >
             {design.categoryLabel}
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-[#7E726B]" />
-          <span className="font-semibold text-[#2B2522] truncate max-w-xs">
+          <ChevronRight className="w-3.5 h-3.5 text-[#717A8C]" />
+          <span className="font-semibold text-[#1F2430] truncate max-w-xs">
             {design.name}
           </span>
         </nav>
@@ -103,9 +101,9 @@ export default function ProductDetailClient({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* LEFT: Image Gallery with Zoom */}
           <div className="lg:col-span-7 space-y-4">
-            {/* Main Featured Image Container */}
+            {/* Main Featured Image Container with Neutral Backdrop */}
             <div
-              className={`relative aspect-4/3 sm:aspect-square w-full rounded-3xl overflow-hidden bg-[#F0E6D6] border-2 border-[#E2D3BE] shadow-md group cursor-zoom-in ${
+              className={`relative aspect-4/3 sm:aspect-square w-full rounded-xs overflow-hidden bg-[#FAF6EF] border border-[#E2DACB] group cursor-zoom-in ${
                 isZoomed ? "cursor-zoom-out" : ""
               }`}
               onClick={() => setIsZoomed(!isZoomed)}
@@ -116,33 +114,33 @@ export default function ProductDetailClient({
                 fill
                 priority
                 className={`object-cover transition-transform duration-300 ${
-                  isZoomed ? "scale-150" : "group-hover:scale-105"
+                  isZoomed ? "scale-140" : "group-hover:scale-102"
                 }`}
                 sizes="(max-width: 1024px) 100vw, 600px"
               />
 
               {/* Badges on top */}
-              <div className="absolute top-4 left-4 flex flex-col gap-2 z-10 pointer-events-none">
+              <div className="absolute top-3 left-3 flex flex-col gap-1 z-10 pointer-events-none">
                 {design.isNew && (
-                  <span className="px-3 py-1 rounded-full bg-[#E0A526] text-[#2B2522] text-xs font-bold shadow-xs">
-                    ✦ New Studio Motif
+                  <span className="px-2 py-0.5 rounded-xs bg-[#2A3F8F] text-white text-[10px] uppercase font-semibold tracking-wider">
+                    New Motif
                   </span>
                 )}
-                <span className="px-3 py-1 rounded-full bg-[#FAF6EF]/90 backdrop-blur-xs text-[#2B2522] text-xs font-medium border border-[#E2D3BE]">
-                  100% Hand-Painted
+                <span className="px-2 py-0.5 rounded-xs bg-white text-[#1F2430] text-[10px] uppercase font-medium tracking-wider border border-[#E2DACB]">
+                  Hand-painted
                 </span>
               </div>
 
               {/* Zoom hint badge */}
-              <div className="absolute bottom-4 right-4 bg-[#FAF6EF]/85 backdrop-blur-xs px-3 py-1.5 rounded-full text-[11px] text-[#2B2522] border border-[#E2D3BE] flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
-                <ZoomIn className="w-3.5 h-3.5" />
-                <span>{isZoomed ? "Click to reset" : "Click to zoom brushwork"}</span>
+              <div className="absolute bottom-3 right-3 bg-white px-2.5 py-1 rounded-xs text-[10px] uppercase tracking-wider text-[#1F2430] border border-[#E2DACB] flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
+                <ZoomIn className="w-3 h-3" />
+                <span>{isZoomed ? "Reset zoom" : "Click to inspect brushwork"}</span>
               </div>
             </div>
 
             {/* Thumbnail switcher (if multiple images) */}
             {design.images.length > 1 && (
-              <div className="flex items-center gap-3 overflow-x-auto pb-2">
+              <div className="flex items-center gap-2 overflow-x-auto pb-1">
                 {design.images.map((img, idx) => (
                   <button
                     key={idx}
@@ -151,10 +149,10 @@ export default function ProductDetailClient({
                       setActiveImageIndex(idx);
                       setIsZoomed(false);
                     }}
-                    className={`relative w-20 h-20 rounded-xl overflow-hidden shrink-0 border-2 transition-all ${
+                    className={`relative w-16 h-16 rounded-xs overflow-hidden shrink-0 border transition-all ${
                       activeImageIndex === idx
-                        ? "border-[#C2552E] ring-2 ring-[#C2552E]/30 scale-102"
-                        : "border-[#E2D3BE] opacity-75 hover:opacity-100"
+                        ? "border-[#2A3F8F] ring-1 ring-[#2A3F8F]"
+                        : "border-[#E2DACB] opacity-70 hover:opacity-100"
                     }`}
                   >
                     <Image
@@ -162,24 +160,21 @@ export default function ProductDetailClient({
                       alt={`Thumbnail ${idx + 1}`}
                       fill
                       className="object-cover"
-                      sizes="80px"
+                      sizes="64px"
                     />
                   </button>
                 ))}
               </div>
             )}
 
-            {/* Artistic Note Box under Gallery */}
-            <div className="bg-[#F0E6D6]/80 rounded-2xl p-5 border border-[#E2D3BE] text-xs text-[#2B2522] flex items-start gap-3">
-              <Sparkles className="w-5 h-5 text-[#E0A526] shrink-0 mt-0.5" />
-              <div>
-                <strong className="font-serif font-bold text-sm text-[#2B2522] block mb-0.5">
-                  Handcrafted Individuality Notice:
-                </strong>
-                <p className="text-[#5C534E] leading-relaxed">
-                  Each piece is painted individually by hand using hair brushes and mixed pigments. Slight variations in stroke thickness, color bleeding, and petal curves are not defects — they are the authentic soul of handmade Indian art.
-                </p>
-              </div>
+            {/* Quiet notice box under Gallery */}
+            <div className="bg-[#EFE8DC] rounded-xs p-4 border border-[#E2DACB] text-xs text-[#1F2430] space-y-1">
+              <strong className="font-semibold block text-[#1F2430]">
+                Handmade Individuality
+              </strong>
+              <p className="text-[#4B5263] leading-relaxed">
+                Each piece is painted freehand with fine brushes and mixed pigments. Slight variations in stroke pressure, floral contours, and dye saturation are the natural signature of authentic handmade craft.
+              </p>
             </div>
           </div>
 
@@ -187,7 +182,7 @@ export default function ProductDetailClient({
           <div className="lg:col-span-5 space-y-6">
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-semibold tracking-widest uppercase text-[#2F3E75]">
+                <span className="text-[11px] font-sans tracking-widest uppercase text-[#717A8C]">
                   {design.categoryLabel}
                 </span>
 
@@ -196,24 +191,24 @@ export default function ProductDetailClient({
                   <button
                     type="button"
                     onClick={handleCopyLink}
-                    className="p-2 rounded-full bg-[#F0E6D6] hover:bg-[#E2D3BE] text-[#2B2522] text-xs transition-colors"
+                    className="p-1.5 rounded-xs border border-[#E2DACB] bg-white hover:bg-[#FAF6EF] text-[#1F2430] text-xs transition-colors"
                     title="Copy design link"
                     aria-label="Share design"
                   >
-                    {copiedLink ? <Check className="w-4 h-4 text-[#2F5D4B]" /> : <Share2 className="w-4 h-4" />}
+                    {copiedLink ? <Check className="w-3.5 h-3.5 text-[#2F5D4B]" /> : <Share2 className="w-3.5 h-3.5" />}
                   </button>
 
                   {/* Wishlist toggle */}
                   <button
                     type="button"
                     onClick={() => toggleWishlist(design)}
-                    className="p-2 rounded-full bg-[#F0E6D6] hover:bg-[#E2D3BE] text-[#2B2522] transition-colors"
+                    className="p-1.5 rounded-xs border border-[#E2DACB] bg-white hover:bg-[#FAF6EF] text-[#1F2430] transition-colors"
                     aria-label={isSaved ? "Remove from wishlist" : "Save to wishlist"}
-                    title={isSaved ? "Saved in wishlist" : "Add to wishlist"}
+                    title={isSaved ? "Saved" : "Save to wishlist"}
                   >
                     <Heart
-                      className={`w-4 h-4 transition-colors ${
-                        isSaved ? "fill-[#C2552E] text-[#C2552E]" : "text-[#2B2522]"
+                      className={`w-3.5 h-3.5 transition-colors ${
+                        isSaved ? "fill-[#2A3F8F] text-[#2A3F8F]" : "text-[#717A8C]"
                       }`}
                     />
                   </button>
@@ -221,43 +216,43 @@ export default function ProductDetailClient({
               </div>
 
               {/* Title */}
-              <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#2B2522] tracking-tight">
+              <h1 className="text-3xl sm:text-4xl font-serif text-[#1F2430] tracking-tight">
                 {design.name}
               </h1>
 
               {/* Lead Time & Handmade tag */}
-              <div className="mt-2.5 flex items-center gap-3 text-xs text-[#5C534E]">
+              <div className="mt-2 flex items-center gap-3 text-xs text-[#717A8C]">
                 <span className="inline-flex items-center gap-1 text-[#2F5D4B] font-medium">
                   <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>Permanent Heat-Set Colors</span>
+                  <span>Washable & Heat-Cured</span>
                 </span>
                 <span>•</span>
                 <span className="inline-flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5 text-[#E0A526]" />
-                  <span>Studio Lead Time: {design.leadTimeDays}</span>
+                  <Clock className="w-3.5 h-3.5 text-[#717A8C]" />
+                  <span>Lead Time: {design.leadTimeDays}</span>
                 </span>
               </div>
             </div>
 
             {/* Short Story & Inspiration */}
-            <div className="bg-[#FAF6EF] border-l-3 border-[#C2552E] pl-4 py-1">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#C2552E] mb-1">
-                Story & Inspiration
-              </h3>
-              <p className="text-xs sm:text-sm text-[#5C534E] italic font-serif leading-relaxed">
+            <div className="border-l-2 border-[#2A3F8F] pl-3 py-0.5">
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-[#717A8C] block mb-1">
+                Inspiration
+              </span>
+              <p className="text-xs sm:text-sm text-[#4B5263] italic font-serif leading-relaxed">
                 &ldquo;{design.story}&rdquo;
               </p>
             </div>
 
-            <p className="text-xs sm:text-sm text-[#5C534E] leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#4B5263] leading-relaxed">
               {design.description}
             </p>
 
             {/* Interactive Options: "Available to Paint On" */}
-            <div className="space-y-4 pt-3 border-t border-[#E2D3BE]">
+            <div className="space-y-4 pt-4 border-t border-[#E2DACB]">
               <div>
-                <label className="block text-xs font-bold text-[#2B2522] uppercase tracking-wider mb-2">
-                  1. Choose Garment / Silhouette to Paint On:
+                <label className="block text-xs font-semibold text-[#1F2430] uppercase tracking-wider mb-2">
+                  1. Choose silhouette to paint on:
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {design.availableOn.map((item) => {
@@ -267,15 +262,15 @@ export default function ProductDetailClient({
                         key={item}
                         type="button"
                         onClick={() => setSelectedProductType(item)}
-                        className={`p-2.5 rounded-xl text-left text-xs font-medium border transition-all ${
+                        className={`p-2.5 rounded-xs text-left text-xs transition-colors border ${
                           isSelected
-                            ? "bg-[#2F3E75] text-[#FAF6EF] border-[#2F3E75] shadow-xs"
-                            : "bg-[#F0E6D6] text-[#2B2522] border-[#E2D3BE] hover:bg-[#E2D3BE]"
+                            ? "bg-[#2A3F8F] text-white border-[#2A3F8F] font-semibold"
+                            : "bg-[#EFE8DC] text-[#1F2430] border-[#E2DACB] hover:border-[#1F2430]/40"
                         }`}
                       >
                         <div className="flex items-center justify-between">
                           <span>{item}</span>
-                          {isSelected && <Check className="w-3.5 h-3.5 text-[#E0A526]" />}
+                          {isSelected && <Check className="w-3 h-3 text-white" />}
                         </div>
                       </button>
                     );
@@ -283,13 +278,13 @@ export default function ProductDetailClient({
                 </div>
               </div>
 
-              {/* Color Swatches (Display & select) */}
+              {/* Color Swatches */}
               <div>
-                <label className="block text-xs font-bold text-[#2B2522] uppercase tracking-wider mb-2">
-                  2. Preferred Fabric Color:{" "}
-                  <span className="font-normal text-[#5C534E]">{selectedColor}</span>
+                <label className="block text-xs font-semibold text-[#1F2430] uppercase tracking-wider mb-2">
+                  2. Fabric shade:{" "}
+                  <span className="font-normal text-[#717A8C]">{selectedColor}</span>
                 </label>
-                <div className="flex items-center gap-2.5 flex-wrap">
+                <div className="flex items-center gap-2 flex-wrap">
                   {design.colors.map((color) => {
                     const isSelected = selectedColor === color.name;
                     return (
@@ -297,14 +292,14 @@ export default function ProductDetailClient({
                         key={color.name}
                         type="button"
                         onClick={() => setSelectedColor(color.name)}
-                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs border transition-all ${
+                        className={`flex items-center gap-1.5 px-2.5 py-1 rounded-xs text-xs border transition-colors ${
                           isSelected
-                            ? "border-[#C2552E] bg-white ring-2 ring-[#C2552E]/30 font-semibold"
-                            : "border-[#E2D3BE] bg-[#F0E6D6] text-[#2B2522]"
+                            ? "border-[#2A3F8F] bg-white ring-1 ring-[#2A3F8F] font-semibold text-[#1F2430]"
+                            : "border-[#E2DACB] bg-[#EFE8DC] text-[#1F2430]"
                         }`}
                       >
                         <span
-                          className="w-3.5 h-3.5 rounded-full border border-black/20"
+                          className="w-3 h-3 rounded-xs border border-black/20"
                           style={{ backgroundColor: color.hex }}
                         />
                         <span>{color.name}</span>
@@ -314,11 +309,10 @@ export default function ProductDetailClient({
                 </div>
               </div>
 
-              {/* Size options (Display & select) */}
+              {/* Size options */}
               <div>
-                <label className="block text-xs font-bold text-[#2B2522] uppercase tracking-wider mb-2">
-                  3. Size Selection:{" "}
-                  <span className="font-normal text-[#5C534E]">{selectedSize}</span>
+                <label className="block text-xs font-semibold text-[#1F2430] uppercase tracking-wider mb-2">
+                  3. Size: <span className="font-normal text-[#717A8C]">{selectedSize}</span>
                 </label>
                 <div className="flex items-center gap-1.5 flex-wrap">
                   {design.sizes.map((size) => {
@@ -328,10 +322,10 @@ export default function ProductDetailClient({
                         key={size}
                         type="button"
                         onClick={() => setSelectedSize(size)}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${
+                        className={`px-2.5 py-1 rounded-xs text-xs transition-colors border ${
                           isSelected
-                            ? "bg-[#2B2522] text-[#FAF6EF] border-[#2B2522]"
-                            : "bg-[#F0E6D6] text-[#2B2522] border-[#E2D3BE] hover:bg-[#E2D3BE]"
+                            ? "bg-[#1F2430] text-white border-[#1F2430] font-semibold"
+                            : "bg-[#EFE8DC] text-[#1F2430] border-[#E2DACB] hover:border-[#1F2430]/40"
                         }`}
                       >
                         {size}
@@ -339,53 +333,44 @@ export default function ProductDetailClient({
                     );
                   })}
                 </div>
-                <p className="text-[11px] text-[#7E726B] mt-1.5">
-                  ✦ Custom tailor-made measurements are gladly accepted during our WhatsApp chat.
-                </p>
               </div>
             </div>
 
             {/* Core Ordering Flow Action Box */}
-            <div className="pt-4 space-y-3">
-              {/* Notice why DM */}
-              <div className="p-3.5 rounded-xl bg-[#F0E6D6] border border-[#E2D3BE] text-xs text-[#2B2522]">
-                <span className="font-bold text-[#C2552E]">No Online Cart / Checkout: </span>
-                Every piece is painted fresh upon order. Clicking below sends your chosen garment, size, and design details straight to the artist on WhatsApp.
-              </div>
-
-              {/* Primary Action Button: "DM for Price" in Terracotta #C2552E */}
+            <div className="pt-2 space-y-2.5">
+              {/* Primary Action Button: Srujan Blue on Light Background */}
               <a
                 href={productWhatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2.5 py-4 px-6 rounded-2xl bg-[#C2552E] hover:bg-[#A64421] text-white font-bold text-base shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 text-center"
+                className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white font-semibold text-xs tracking-wider uppercase transition-colors text-center"
               >
-                <MessageCircle className="w-5 h-5 fill-white shrink-0" />
+                <MessageCircle className="w-4 h-4 fill-white shrink-0" />
                 <span>DM for Price on WhatsApp</span>
               </a>
 
-              {/* Secondary Action: "Order on Instagram" */}
+              {/* Secondary Action: Outlined Blue Border on Light Background */}
               <a
                 href={siteConfig.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-2xl bg-[#FAF6EF] hover:bg-white text-[#2F3E75] border-2 border-[#2F3E75] font-semibold text-xs transition-colors text-center"
+                className="w-full flex items-center justify-center gap-2 py-2.5 px-6 rounded-xs border border-[#2A3F8F] text-[#2A3F8F] hover:bg-[#2A3F8F] hover:text-white font-semibold text-xs tracking-wider uppercase transition-colors text-center"
               >
-                <InstagramIcon className="w-4 h-4 text-[#2F3E75]" />
+                <InstagramIcon className="w-3.5 h-3.5" />
                 <span>Order on Instagram (@{siteConfig.instagramHandle})</span>
               </a>
             </div>
 
-            {/* Care Instructions Accordion/List */}
-            <div className="pt-4 border-t border-[#E2D3BE]">
-              <h3 className="text-xs font-bold text-[#2B2522] uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
-                <Shirt className="w-4 h-4 text-[#C2552E]" />
+            {/* Care Instructions */}
+            <div className="pt-4 border-t border-[#E2DACB]">
+              <h3 className="text-xs font-semibold text-[#1F2430] uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                <Shirt className="w-3.5 h-3.5 text-[#2A3F8F]" />
                 <span>Fabric Care Instructions</span>
               </h3>
-              <ul className="space-y-1.5 text-xs text-[#5C534E]">
+              <ul className="space-y-1 text-xs text-[#4B5263]">
                 {design.careInstructions.map((instruction, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
-                    <span className="text-[#E0A526] font-bold">•</span>
+                  <li key={idx} className="flex items-start gap-1.5">
+                    <span className="text-[#2A3F8F]">•</span>
                     <span>{instruction}</span>
                   </li>
                 ))}
@@ -396,21 +381,21 @@ export default function ProductDetailClient({
 
         {/* RELATED DESIGNS SECTION */}
         {relatedDesigns.length > 0 && (
-          <div className="mt-20 pt-12 border-t border-[#E2D3BE]">
+          <div className="mt-16 sm:mt-20 pt-10 border-t border-[#E2DACB]">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
               <div>
-                <span className="text-xs font-semibold tracking-widest text-[#2F3E75] uppercase">
-                  More Artistry
+                <span className="text-[11px] font-sans tracking-widest uppercase text-[#717A8C]">
+                  Related Pieces
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#2B2522] mt-1">
+                <h2 className="text-2xl font-serif text-[#1F2430] mt-1">
                   You Might Also Admire
                 </h2>
               </div>
               <Link
                 href="/shop"
-                className="mt-2 sm:mt-0 text-xs font-semibold text-[#C2552E] hover:underline"
+                className="mt-2 sm:mt-0 text-xs font-semibold uppercase tracking-wider text-[#2A3F8F] hover:underline"
               >
-                View all collection →
+                View collection →
               </Link>
             </div>
 
@@ -423,7 +408,7 @@ export default function ProductDetailClient({
         )}
       </div>
 
-      <PaintStrokeDivider color="mustard" className="mt-16" />
+      <PaintStrokeDivider color="sand" className="mt-16" />
     </div>
   );
 }

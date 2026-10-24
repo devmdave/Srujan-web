@@ -10,8 +10,6 @@ import {
   Menu,
   X,
   MessageCircle,
-  Sparkles,
-  Palette,
   ExternalLink,
 } from "lucide-react";
 
@@ -30,95 +28,91 @@ export default function Header() {
   ];
 
   const quickWhatsAppUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-    "Hi Srujan! I'm browsing your hand-painted catalog and would love to ask a quick question."
+    "Hi Srujan, I was looking at your catalog and would love to ask a quick question."
   )}`;
 
   return (
     <>
-      {/* Top announcement bar */}
-      <div className="bg-[#222E57] text-[#FAF6EF] text-xs py-1.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2 border-b border-[#3d4d8c]">
-        <Sparkles className="w-3.5 h-3.5 text-[#E0A526]" />
-        <span>100% Hand-Painted Wearable Art & Bespoke Fabric Commissions</span>
-        <span className="hidden sm:inline text-[#E0A526]">•</span>
-        <span className="hidden sm:inline">No mass production, every stroke unique</span>
+      {/* Top subtle announcement bar */}
+      <div className="bg-[#0F1633] text-[#FAF6EF]/90 text-[11px] py-2 px-4 text-center font-normal tracking-wide flex items-center justify-center gap-2 border-b border-white/10">
+        <span>Hand-painted wearable art on natural Indian fabrics</span>
+        <span className="hidden sm:inline text-white/40">•</span>
+        <span className="hidden sm:inline text-white/80">Every piece painted individually</span>
       </div>
 
       {/* Main Header */}
-      <header className="sticky top-0 z-40 bg-[#2F3E75] text-[#FAF6EF] shadow-md transition-colors duration-200">
+      <header className="sticky top-0 z-40 bg-[#16204A] text-white border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Logo & Tagline */}
-            <div className="flex items-center gap-3">
+            {/* Logo */}
+            <div className="flex items-center gap-4">
               <Link
                 href="/"
                 className="group flex flex-col justify-center"
                 title={`${siteConfig.brandName} - ${siteConfig.brandSlogan}`}
               >
-                <div className="flex items-center gap-2">
-                  <span className="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-[#FAF6EF] group-hover:text-[#F0E6D6] transition-colors">
-                    {siteConfig.brandName}
-                  </span>
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#E0A526] group-hover:scale-125 transition-transform" />
-                </div>
-                <span className="text-[11px] sm:text-xs text-[#FAF6EF]/80 font-serif italic tracking-wide -mt-1 hidden sm:block">
+                <span className="text-2xl sm:text-3xl font-serif tracking-tight text-white group-hover:text-[#FAF6EF]/90 transition-colors">
+                  {siteConfig.brandName}
+                </span>
+                <span className="text-[10px] text-white/70 font-sans tracking-widest uppercase -mt-0.5 hidden sm:block">
                   {siteConfig.brandSlogan}
                 </span>
               </Link>
             </div>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
+            <nav className="hidden md:flex items-center space-x-1 lg:space-x-4">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-150 relative ${
+                    className={`px-3 py-1.5 text-xs tracking-wider uppercase transition-colors relative ${
                       isActive
-                        ? "text-[#FAF6EF] bg-[#222E57] font-semibold"
-                        : "text-[#FAF6EF]/90 hover:text-white hover:bg-[#394B8C]"
+                        ? "text-white font-semibold"
+                        : "text-white/80 hover:text-white"
                     }`}
                   >
                     {link.label}
                     {isActive && (
-                      <span className="absolute bottom-0.5 left-3 right-3 h-0.5 bg-[#E0A526] rounded-full" />
+                      <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-white" />
                     )}
                   </Link>
                 );
               })}
             </nav>
 
-            {/* Actions: Wishlist Heart + DM WhatsApp CTA */}
-            <div className="flex items-center gap-2 sm:gap-3">
+            {/* Actions: Wishlist + Button on Dark Background */}
+            <div className="flex items-center gap-3">
               {/* Wishlist Button */}
               <button
                 type="button"
                 onClick={() => setIsDrawerOpen(true)}
-                className="relative p-2.5 rounded-full bg-[#222E57] hover:bg-[#394B8C] text-[#FAF6EF] transition-colors focus:outline-none focus:ring-2 focus:ring-[#E0A526]"
-                title="View your saved wishlist"
+                className="relative p-2 rounded-xs text-white/90 hover:text-white hover:bg-white/10 transition-colors focus:outline-none"
+                title="View your saved pieces"
                 aria-label={`Wishlist with ${wishlist.length} items`}
               >
                 <Heart
                   className={`w-5 h-5 transition-transform ${
-                    wishlist.length > 0 ? "fill-[#C2552E] text-[#C2552E] scale-110" : ""
+                    wishlist.length > 0 ? "fill-white text-white" : ""
                   }`}
                 />
                 {wishlist.length > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-[#E0A526] text-[#2B2522] text-[11px] font-bold rounded-full w-5 h-5 flex items-center justify-center border-2 border-[#2F3E75]">
+                  <span className="absolute -top-1 -right-1 bg-[#2A3F8F] text-white text-[10px] font-bold rounded-xs w-4 h-4 flex items-center justify-center border border-white/40">
                     {wishlist.length}
                   </span>
                 )}
               </button>
 
-              {/* Primary Action Button: DM on WhatsApp */}
+              {/* Button on dark background: White button with Deep Indigo text */}
               <a
                 href={quickWhatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#C2552E] hover:bg-[#A64421] text-white text-sm font-semibold shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
+                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xs bg-white text-[#16204A] hover:bg-[#FAF6EF] text-xs font-semibold tracking-wide transition-colors"
               >
-                <MessageCircle className="w-4 h-4 fill-white" />
+                <MessageCircle className="w-3.5 h-3.5 fill-[#16204A]" />
                 <span>DM on WhatsApp</span>
               </a>
 
@@ -126,7 +120,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 rounded-lg bg-[#222E57] text-[#FAF6EF] hover:bg-[#394B8C] transition-colors"
+                className="md:hidden p-2 text-white hover:bg-white/10 rounded-xs transition-colors"
                 aria-label="Toggle navigation menu"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -137,7 +131,7 @@ export default function Header() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#222E57] border-t border-[#3d4d8c] px-4 pt-3 pb-6 animate-in slide-in-from-top-2 duration-200">
+          <div className="md:hidden bg-[#0F1633] border-t border-white/10 px-4 pt-3 pb-6">
             <div className="flex flex-col space-y-2 mb-4">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
@@ -146,37 +140,36 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`px-4 py-2.5 rounded-lg text-base font-medium flex items-center justify-between ${
+                    className={`px-3 py-2 text-xs uppercase tracking-wider ${
                       isActive
-                        ? "bg-[#C2552E] text-white font-semibold"
-                        : "text-[#FAF6EF] hover:bg-[#2F3E75]"
+                        ? "bg-white text-[#16204A] font-semibold rounded-xs"
+                        : "text-white/80 hover:text-white"
                     }`}
                   >
-                    <span>{link.label}</span>
-                    {isActive && <span className="text-xs">● Active</span>}
+                    {link.label}
                   </Link>
                 );
               })}
             </div>
 
-            <div className="pt-3 border-t border-[#3d4d8c] flex flex-col gap-2.5">
+            <div className="pt-3 border-t border-white/10 flex flex-col gap-2">
               <a
                 href={quickWhatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#C2552E] text-white font-medium text-sm shadow-sm"
+                className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xs bg-white text-[#16204A] font-semibold text-xs"
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>DM Artist on WhatsApp</span>
+                <MessageCircle className="w-3.5 h-3.5" />
+                <span>Message on WhatsApp</span>
               </a>
               <a
                 href={siteConfig.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#2F3E75] text-[#FAF6EF] text-sm hover:bg-[#394B8C] transition-colors"
+                className="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-xs border border-white/30 text-white text-xs hover:bg-white/10 transition-colors"
               >
                 <span>@{siteConfig.instagramHandle} on Instagram</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <ExternalLink className="w-3 h-3" />
               </a>
             </div>
           </div>

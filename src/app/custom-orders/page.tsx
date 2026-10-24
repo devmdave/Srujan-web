@@ -1,30 +1,24 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import { siteConfig, getCustomOrderWhatsAppUrl } from "@/config/siteConfig";
 import PaintStrokeDivider from "@/components/PaintStrokeDivider";
+import InstagramIcon from "@/components/icons/InstagramIcon";
 import {
   Palette,
   MessageCircle,
   Gift,
   Users,
-  Sparkles,
-  Calendar,
-  Send,
-  CheckCircle2,
-  Brush,
   Heart,
-  HelpCircle,
+  Calendar,
 } from "lucide-react";
-import InstagramIcon from "@/components/icons/InstagramIcon";
 
 export default function CustomOrdersPage() {
   const [name, setName] = useState("");
   const [itemType, setItemType] = useState("Handmade T-Shirt");
   const [idea, setIdea] = useState("");
   const [deadline, setDeadline] = useState("");
-  const [fabricColor, setFabricColor] = useState("Warm Sand #F0E6D6");
+  const [fabricColor, setFabricColor] = useState("Warm Sand #EFE8DC");
 
   const customOrderWhatsAppUrl = getCustomOrderWhatsAppUrl({
     name: name.trim(),
@@ -37,86 +31,81 @@ export default function CustomOrdersPage() {
   const occasions = [
     {
       icon: Gift,
-      title: "Anniversary & Couple Sets",
-      desc: "Coordinated motifs, romantic botanical flourishes, or matching hand-painted Jabha and Kurti ensembles.",
+      title: "Anniversary & Couple Pieces",
+      desc: "Coordinated motifs, botanical flourishes, or matching hand-painted sets.",
     },
     {
       icon: Heart,
-      title: "Name & Monogram Gifts",
-      desc: "Personalized calligraphy or Devnagari scripts painted delicately on raw linen or canvas.",
+      title: "Names & Monograms",
+      desc: "Personalized script or subtle calligraphy painted on linen or raw canvas.",
     },
     {
-      icon: Sparkles,
-      title: "Wedding Trousseau & Mehendi",
-      desc: "Festive motifs like Pichwai Kamdhenu, temple lotuses, or marigolds for bridesmaid stoles & kurtas.",
+      icon: Calendar,
+      title: "Festive & Wedding Ensembles",
+      desc: "Temple lotuses, Kamdhenu, or floral vines for festive occasions.",
     },
     {
       icon: Users,
-      title: "Bulk & Corporate Keepsakes",
-      desc: "Handcrafted tote bags, diaries, or sustainable fabric gifts that stand out from mundane corporate merchandise.",
+      title: "Custom Keepsakes",
+      desc: "Handcrafted canvas totes or fabric pieces for special milestones.",
     },
   ];
 
   return (
-    <div className="py-10 sm:py-16 bg-[#FAF6EF]">
+    <div className="py-10 sm:py-16 bg-[#FAF6EF] text-[#1F2430]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#E0A526]/20 text-[#2B2522] text-xs font-semibold mb-3">
-            <Palette className="w-4 h-4 text-[#E0A526]" />
-            <span>Bespoke Hand-Painted Commissions</span>
-          </div>
-
-          <h1 className="text-3xl sm:text-5xl font-serif font-bold text-[#2B2522] tracking-tight">
+        <div className="max-w-2xl mb-12">
+          <span className="text-[11px] font-sans tracking-widest uppercase text-[#717A8C]">
+            Bespoke Commissions
+          </span>
+          <h1 className="text-3xl sm:text-5xl font-serif text-[#1F2430] mt-1 tracking-tight">
             Order a Custom Piece
           </h1>
-
-          <p className="text-sm sm:text-base text-[#5C534E] mt-3 leading-relaxed">
-            Have a personal story you want to wear? A favorite quote, your family flower, or a gift for someone dearest to you? We translate your sentiment into living brushstrokes.
+          <p className="text-xs sm:text-sm text-[#4B5263] mt-2 leading-relaxed">
+            Have a personal thought, a favorite flower, or a gift for someone dear? We paint directly on fabric based on your vision.
           </p>
         </div>
 
         {/* 4 Occasion Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
           {occasions.map((occ, idx) => {
             const IconC = occ.icon;
             return (
               <div
                 key={idx}
-                className="bg-[#F0E6D6]/70 rounded-2xl p-6 border border-[#E2D3BE] flex flex-col justify-between hover:bg-[#F0E6D6] transition-colors"
+                className="bg-[#EFE8DC] p-5 rounded-xs border border-[#E2DACB] flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-[#2F3E75] text-[#FAF6EF] flex items-center justify-center mb-4">
-                    <IconC className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-serif font-bold text-lg text-[#2B2522] mb-1.5">
+                  <IconC className="w-4 h-4 text-[#2A3F8F] mb-3" />
+                  <h3 className="font-serif text-base text-[#1F2430] mb-1.5">
                     {occ.title}
                   </h3>
-                  <p className="text-xs text-[#5C534E] leading-relaxed">
+                  <p className="text-xs text-[#4B5263] leading-relaxed">
                     {occ.desc}
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-[#E2D3BE]/60 text-[11px] font-semibold text-[#C2552E]">
-                  Available on all fabrics
+                <div className="mt-4 pt-3 border-t border-[#E2DACB] text-[10px] uppercase font-semibold text-[#717A8C]">
+                  On your chosen fabric
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Custom Order Form & Process Details */}
+        {/* Custom Order Form & Steps */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Left: Interactive Custom Inquiry Form */}
-          <div className="lg:col-span-7 bg-[#F0E6D6] rounded-3xl p-6 sm:p-10 border border-[#E2D3BE] shadow-md">
+          {/* Left: Custom Inquiry Form */}
+          <div className="lg:col-span-7 bg-[#EFE8DC] p-6 sm:p-8 rounded-xs border border-[#E2DACB]">
             <div className="mb-6">
-              <span className="text-xs font-bold text-[#C2552E] uppercase tracking-wider">
-                Direct WhatsApp Inquiry Generator
+              <span className="text-[10px] uppercase font-semibold tracking-wider text-[#717A8C]">
+                WhatsApp Inquiry Form
               </span>
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#2B2522] mt-1">
+              <h2 className="text-xl sm:text-2xl font-serif text-[#1F2430] mt-1">
                 Tell Us What You Envision
               </h2>
-              <p className="text-xs text-[#5C534E] mt-1.5">
-                Fill out the details below. When you click the button, a formatted message will open instantly in WhatsApp directly to the artist!
+              <p className="text-xs text-[#4B5263] mt-1">
+                Fill out the details below. Clicking the button opens WhatsApp with your pre-filled inquiry.
               </p>
             </div>
 
@@ -129,8 +118,8 @@ export default function CustomOrdersPage() {
             >
               {/* Name */}
               <div>
-                <label className="block font-semibold text-[#2B2522] mb-1.5">
-                  Your Full Name
+                <label className="block font-semibold text-[#1F2430] mb-1">
+                  Your Name
                 </label>
                 <input
                   type="text"
@@ -138,20 +127,20 @@ export default function CustomOrdersPage() {
                   placeholder="e.g. Radhika Sharma"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-[#FAF6EF] text-[#2B2522] border border-[#E2D3BE] focus:outline-none focus:ring-2 focus:ring-[#C2552E]/30 focus:border-[#C2552E]"
+                  className="w-full px-3.5 py-2.5 rounded-xs bg-[#FAF6EF] text-[#1F2430] border border-[#E2DACB] focus:outline-none focus:border-[#2A3F8F]"
                 />
               </div>
 
-              {/* Item Type */}
+              {/* Item Type & Fabric Color */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block font-semibold text-[#2B2522] mb-1.5">
-                    What Item Would You Like Us to Paint?
+                  <label className="block font-semibold text-[#1F2430] mb-1">
+                    Garment / Silhouette
                   </label>
                   <select
                     value={itemType}
                     onChange={(e) => setItemType(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#FAF6EF] text-[#2B2522] border border-[#E2D3BE] focus:outline-none focus:ring-2 focus:ring-[#C2552E]/30 focus:border-[#C2552E] cursor-pointer"
+                    className="w-full px-3.5 py-2.5 rounded-xs bg-[#FAF6EF] text-[#1F2430] border border-[#E2DACB] focus:outline-none focus:border-[#2A3F8F] cursor-pointer"
                   >
                     <option value="T-Shirt (Bio-Wash Cotton)">T-Shirt (Bio-Wash Cotton)</option>
                     <option value="Men's Linen Shirt">Men&apos;s Linen Shirt</option>
@@ -160,30 +149,29 @@ export default function CustomOrdersPage() {
                     <option value="Heavy Canvas Tote Bag">Heavy Canvas Tote Bag</option>
                     <option value="Cotton Pillow / Cushion Covers">Cotton Pillow / Cushion Covers</option>
                     <option value="Tussar Silk Stole / Dupatta">Tussar Silk Stole / Dupatta</option>
-                    <option value="My Own Fabric (I will courier to studio)">
-                      My Own Fabric (I will courier to studio)
+                    <option value="My Own Fabric (couriered to studio)">
+                      My Own Fabric (couriered to studio)
                     </option>
                     <option value="Other Custom Artwork">Other Custom Artwork</option>
                   </select>
                 </div>
 
-                {/* Fabric Color */}
                 <div>
-                  <label className="block font-semibold text-[#2B2522] mb-1.5">
-                    Preferred Fabric Color
+                  <label className="block font-semibold text-[#1F2430] mb-1">
+                    Fabric Shade
                   </label>
                   <select
                     value={fabricColor}
                     onChange={(e) => setFabricColor(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#FAF6EF] text-[#2B2522] border border-[#E2D3BE] focus:outline-none focus:ring-2 focus:ring-[#C2552E]/30 focus:border-[#C2552E] cursor-pointer"
+                    className="w-full px-3.5 py-2.5 rounded-xs bg-[#FAF6EF] text-[#1F2430] border border-[#E2DACB] focus:outline-none focus:border-[#2A3F8F] cursor-pointer"
                   >
-                    <option value="Warm Sand #F0E6D6">Warm Sand</option>
+                    <option value="Warm Sand #EFE8DC">Warm Sand</option>
                     <option value="Cotton White #FAF6EF">Cotton White</option>
-                    <option value="Raw Charcoal #2B2522">Raw Charcoal</option>
-                    <option value="Deep Indigo #2F3E75">Deep Indigo</option>
-                    <option value="Sage / Deep Green">Sage / Deep Green</option>
-                    <option value="Earthy Mustard">Earthy Mustard</option>
-                    <option value="Not sure / Open to artist recommendation">
+                    <option value="Charcoal Ink #1F2430">Charcoal Ink</option>
+                    <option value="Srujan Blue #2A3F8F">Srujan Blue</option>
+                    <option value="Deep Indigo #16204A">Deep Indigo</option>
+                    <option value="Sage / Deep Green">Deep Green</option>
+                    <option value="Open to artist recommendation">
                       Open to artist recommendation
                     </option>
                   </select>
@@ -192,122 +180,103 @@ export default function CustomOrdersPage() {
 
               {/* Idea / Motif details */}
               <div>
-                <label className="block font-semibold text-[#2B2522] mb-1.5">
-                  Describe Your Motif / Concept Idea
+                <label className="block font-semibold text-[#1F2430] mb-1">
+                  Describe Your Motif Idea
                 </label>
                 <textarea
                   rows={4}
                   required
-                  placeholder="e.g. A couple portrait silhouette with marigold vines, or a peacock feather with personalized wedding initials on the chest placket..."
+                  placeholder="e.g. A peacock feather motif along the placket, or lotus buds on a sand kurti..."
                   value={idea}
                   onChange={(e) => setIdea(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-[#FAF6EF] text-[#2B2522] border border-[#E2D3BE] focus:outline-none focus:ring-2 focus:ring-[#C2552E]/30 focus:border-[#C2552E] placeholder:text-[#7E726B]"
+                  className="w-full px-3.5 py-2.5 rounded-xs bg-[#FAF6EF] text-[#1F2430] border border-[#E2DACB] focus:outline-none focus:border-[#2A3F8F] placeholder:text-[#717A8C]"
                 />
               </div>
 
               {/* Deadline */}
               <div>
-                <label className="block font-semibold text-[#2B2522] mb-1.5">
+                <label className="block font-semibold text-[#1F2430] mb-1">
                   Needed By Date (Optional)
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. In 2 weeks, or by 15th November for a birthday"
+                  placeholder="e.g. By 15th November for a birthday"
                   value={deadline}
                   onChange={(e) => setDeadline(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-[#FAF6EF] text-[#2B2522] border border-[#E2D3BE] focus:outline-none focus:ring-2 focus:ring-[#C2552E]/30 focus:border-[#C2552E]"
+                  className="w-full px-3.5 py-2.5 rounded-xs bg-[#FAF6EF] text-[#1F2430] border border-[#E2DACB] focus:outline-none focus:border-[#2A3F8F]"
                 />
               </div>
 
-              {/* Submit Button (Opens WhatsApp with pre-filled details) */}
-              <div className="pt-3">
+              {/* Primary button: Srujan Blue on light background */}
+              <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-4 px-6 rounded-2xl bg-[#C2552E] hover:bg-[#A64421] text-white font-bold text-sm shadow-md transition-all duration-200 flex items-center justify-center gap-2.5"
+                  className="w-full py-3 px-4 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white font-semibold text-xs tracking-wider uppercase transition-colors flex items-center justify-center gap-2"
                 >
-                  <MessageCircle className="w-5 h-5 fill-white" />
-                  <span>Send Custom Inquiry via WhatsApp</span>
+                  <MessageCircle className="w-4 h-4 fill-white" />
+                  <span>Send Inquiry via WhatsApp</span>
                 </button>
-                <p className="text-[11px] text-[#5C534E] text-center mt-2">
-                  No advance payment needed to discuss. We will share a sketch and quotation first.
+                <p className="text-[11px] text-[#717A8C] text-center mt-2">
+                  No payment needed to inquire. We share sketches and estimates first.
                 </p>
               </div>
             </form>
           </div>
 
-          {/* Right: How Custom Orders Unfold & FAQs */}
+          {/* Right: How Custom Orders Work */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-[#FAF6EF] rounded-3xl p-6 sm:p-8 border border-[#E2D3BE]">
-              <h3 className="font-serif font-bold text-xl text-[#2B2522] mb-4">
-                How Custom Commissions Work
+            <div className="bg-[#FAF6EF] p-6 rounded-xs border border-[#E2DACB]">
+              <h3 className="font-serif text-lg text-[#1F2430] mb-3">
+                How Custom Orders Work
               </h3>
 
-              <div className="space-y-4 text-xs text-[#5C534E]">
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#E0A526] text-[#2B2522] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
-                    1
-                  </div>
-                  <div>
-                    <strong className="text-[#2B2522] block font-semibold">
-                      Discussion & Rough Charcoal Sketch
-                    </strong>
-                    We chat over WhatsApp, understand your concept, and share a rough sketch and placement mock-up.
-                  </div>
+              <div className="space-y-4 text-xs text-[#4B5263]">
+                <div>
+                  <strong className="text-[#1F2430] block font-semibold">
+                    1. Conversation & Sketch
+                  </strong>
+                  We discuss your idea over WhatsApp and share a rough sketch and placement guide.
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#E0A526] text-[#2B2522] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
-                    2
-                  </div>
-                  <div>
-                    <strong className="text-[#2B2522] block font-semibold">
-                      Fabric & Sizing Confirmation
-                    </strong>
-                    We provide the exact garment measurements or receive your own courier fabric at our studio.
-                  </div>
+                <div>
+                  <strong className="text-[#1F2430] block font-semibold">
+                    2. Fabric & Sizing
+                  </strong>
+                  We confirm garment measurements or receive your own courier fabric at our studio.
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#E0A526] text-[#2B2522] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
-                    3
-                  </div>
-                  <div>
-                    <strong className="text-[#2B2522] block font-semibold">
-                      Hand-Painting & Video Work-in-Progress
-                    </strong>
-                    We send you a photo or short video clip while your piece is being painted at our studio table.
-                  </div>
+                <div>
+                  <strong className="text-[#1F2430] block font-semibold">
+                    3. Painting in Studio
+                  </strong>
+                  The artist paints the piece by hand with permanent fabric pigments.
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#E0A526] text-[#2B2522] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
-                    4
-                  </div>
-                  <div>
-                    <strong className="text-[#2B2522] block font-semibold">
-                      Heat-Fixing & Safe Dispatch
-                    </strong>
-                    The pigment is steam cured for permanent washability and dispatched with live courier tracking.
-                  </div>
+                <div>
+                  <strong className="text-[#1F2430] block font-semibold">
+                    4. Heat-Fixing & Dispatch
+                  </strong>
+                  The artwork is steam-ironed for washability and couriered with tracking.
                 </div>
               </div>
             </div>
 
-            {/* Prefer Instagram Box */}
-            <div className="bg-[#2F3E75] text-[#FAF6EF] rounded-3xl p-6 sm:p-8">
-              <h3 className="font-serif font-bold text-lg mb-2">
-                Prefer to chat on Instagram?
+            {/* Dark Box: Deep Indigo #16204A with white button */}
+            <div className="bg-[#16204A] text-white p-6 rounded-xs border border-white/10">
+              <h3 className="font-serif text-base mb-1.5">
+                Prefer Instagram?
               </h3>
-              <p className="text-xs text-[#FAF6EF]/80 mb-5 leading-relaxed">
-                Send us your reference pins or screenshots directly in our DMs. We are active daily!
+              <p className="text-xs text-white/80 mb-4 leading-relaxed">
+                Send your inspiration pins or screenshots directly to our Instagram inbox.
               </p>
+              {/* White button on dark section */}
               <a
                 href={siteConfig.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-[#2F3E75] font-semibold text-xs shadow-sm hover:bg-[#FAF6EF] transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xs bg-white text-[#16204A] hover:bg-[#FAF6EF] font-semibold text-xs tracking-wider uppercase transition-colors"
               >
-                <InstagramIcon className="w-4 h-4" />
+                <InstagramIcon className="w-3.5 h-3.5" />
                 <span>DM @{siteConfig.instagramHandle}</span>
               </a>
             </div>

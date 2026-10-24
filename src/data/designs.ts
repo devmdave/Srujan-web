@@ -1,7 +1,7 @@
 /**
  * Srujan - Catalog Data
  * 
- * You can add, edit, or remove designs here.
+ * Central data file for all hand-painted designs.
  * No prices are listed because every piece is painted to order.
  */
 
@@ -57,15 +57,15 @@ export const DESIGNS: DesignItem[] = [
       "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=80",
     ],
     description:
-      "A fluid, freehand rendition of India's sacred peacock plume, painted with emerald green, lapis indigo, and delicate gold shimmer accents.",
+      "A fluid, freehand rendition of a peacock plume painted in deep indigo, sage green, and charcoal linework.",
     story:
-      "Inspired by the monsoon dawn in Gujarat when wild peacocks wander through village courtyards. Each eye of the feather is laid down with three distinct coats of pigment to achieve radiant dimensional depth.",
+      "Inspired by wild peacocks in village courtyards at dawn. Each eye of the feather is layered with three distinct brush strokes to create quiet dimensional depth.",
     availableOn: ["100% Organic Cotton T-Shirt", "Linen Half-Sleeve Shirt", "Oversized Drop-Shoulder Tee"],
     colors: [
       { name: "Cotton White", hex: "#FAF6EF" },
-      { name: "Warm Sand", hex: "#F0E6D6" },
-      { name: "Raw Charcoal", hex: "#2B2522" },
-      { name: "Vintage Indigo", hex: "#2F3E75" },
+      { name: "Warm Sand", hex: "#EFE8DC" },
+      { name: "Charcoal Ink", hex: "#1F2430" },
+      { name: "Deep Indigo", hex: "#16204A" },
     ],
     sizes: ["XS", "S", "M", "L", "XL", "XXL", "Custom Tailored"],
     isFeatured: true,
@@ -89,13 +89,13 @@ export const DESIGNS: DesignItem[] = [
       "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=1000&q=80",
     ],
     description:
-      "An evocative botanical spine flowing along the front button placket, adorned with curling leaves, flowering buds, and songbirds.",
+      "An evocative botanical spine flowing along the front placket, adorned with curling leaves and fine linework.",
     story:
-      "The Kalpavriksha or wish-fulfilling tree symbolizes shelter, resilience, and interconnected nature. Painted using deep terracotta and ochre shades with needle-fine liner brush strokes.",
+      "The Kalpavriksha tree symbolizes shelter and quiet resilience. Painted using deep indigo and charcoal washes with needle-fine liner brushes.",
     availableOn: ["Pure Cotton Slub Shirt", "Raw Linen Mandarin Collar Shirt", "Kurti Top"],
     colors: [
       { name: "Off-White Khadi", hex: "#FAF6EF" },
-      { name: "Earthy Sand", hex: "#F0E6D6" },
+      { name: "Warm Sand", hex: "#EFE8DC" },
       { name: "Olive Tint", hex: "#D8DEC9" },
     ],
     sizes: ["S", "M", "L", "XL", "XXL", "Custom Fit"],
@@ -103,14 +103,14 @@ export const DESIGNS: DesignItem[] = [
     isNew: false,
     leadTimeDays: "5-7 days",
     careInstructions: [
-      "Hand wash with eco-friendly detergent",
+      "Hand wash with gentle detergent",
       "Air dry in shade to preserve pigment vitality",
       "Warm iron on reverse side",
     ],
   },
   {
     id: "kutch-sunset-jabha",
-    name: "Kutch Sunset Mirrored Dunes",
+    name: "Kutch Mirrored Dunes Jabha",
     category: "jabhas",
     categoryLabel: "Jabhas",
     images: [
@@ -119,14 +119,14 @@ export const DESIGNS: DesignItem[] = [
       "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=1000&q=80",
     ],
     description:
-      "Traditional Indian comfort meets contemporary brushwork. A relaxed, collarless Jabha featuring geometric sunset waves and warm tribal borders.",
+      "A relaxed, collarless Jabha featuring geometric dune waves and quiet tribal borders across the chest.",
     story:
-      "The Jabha is an authentic staple of Gujarat and Western India — breezy, soulful, and timeless. Here, we brush warm mustard yellows and burnt sienna across the chest and cuffs, reminiscent of evening light settling over the Great Rann.",
+      "The Jabha is an authentic staple of Gujarat — airy, comfortable, and timeless. Here, we brush indigo strokes across the placket and cuffs.",
     availableOn: ["Handloom Cotton Jabha", "Khadi Short Kurta", "Comfort Unisex Tunic"],
     colors: [
-      { name: "Bleached Cotton", hex: "#FAF6EF" },
-      { name: "Warm Mustard", hex: "#E0A526" },
-      { name: "Natural Sand", hex: "#F0E6D6" },
+      { name: "Cotton White", hex: "#FAF6EF" },
+      { name: "Warm Sand", hex: "#EFE8DC" },
+      { name: "Deep Indigo", hex: "#16204A" },
     ],
     sizes: ["S", "M", "L", "XL", "XXL"],
     isFeatured: true,
@@ -149,13 +149,13 @@ export const DESIGNS: DesignItem[] = [
       "https://images.unsplash.com/photo-1574634534894-89d7576c8259?auto=format&fit=crop&w=1000&q=80",
     ],
     description:
-      "Heavyweight 400 GSM natural canvas tote painted with auspicious twin fish and blooming water lilies in authentic Madhubani cross-hatch strokes.",
+      "Heavyweight natural canvas tote painted with twin fish and blooming water lilies in Madhubani cross-hatch strokes.",
     story:
-      "In folk folklore, the twin fish symbolize abundance and fearless movement against the current. Built for daily markets, book lovers, and college carryalls with reinforced box stitching.",
+      "In folk tradition, twin fish symbolize abundance and calm movement. Made for books and everyday markets with reinforced box stitching.",
     availableOn: ["100% Cotton Heavy Canvas Tote with Inner Pocket", "Mini Book Sling"],
     colors: [
-      { name: "Natural Raw Canvas", hex: "#F0E6D6" },
-      { name: "Midnight Charcoal", hex: "#2B2522" },
+      { name: "Natural Raw Canvas", hex: "#EFE8DC" },
+      { name: "Charcoal Ink", hex: "#1F2430" },
     ],
     sizes: ["Standard 16x15 inches with 11-inch drop strap"],
     isFeatured: true,
@@ -169,7 +169,7 @@ export const DESIGNS: DesignItem[] = [
   },
   {
     id: "pichwai-kamdhenu-kurti",
-    name: "Kamdhenu & Golden Lotus Kurti",
+    name: "Kamdhenu & Lotus Kurti",
     category: "kurtis-dresses",
     categoryLabel: "Kurtis & Dresses",
     images: [
@@ -178,15 +178,15 @@ export const DESIGNS: DesignItem[] = [
       "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=80",
     ],
     description:
-      "A regal A-line straight kurti adorned with hand-painted sacred cows and floating pink lotus blossoms inspired by 400-year-old Nathdwara Pichwai art.",
+      "A straight cotton kurti adorned with hand-painted sacred cows and floating lotus blossoms inspired by Nathdwara Pichwai heritage.",
     story:
-      "Pichwai paintings traditionally hang behind temple deities. We adapt this temple heritage into graceful, everyday celebration wear using gold leaf pigment highlights and fine camel hair brush strokes.",
+      "We adapt temple art heritage into wearable, everyday clothing using subtle brush strokes on handspun cotton.",
     availableOn: ["Pure Chanderi Silk-Cotton Kurti", "South Handloom Cotton Kurti", "Long Tiered Maxi Dress"],
     colors: [
       { name: "Ivory Cotton", hex: "#FAF6EF" },
       { name: "Sage Deep Green", hex: "#2F5D4B" },
-      { name: "Terracotta Glow", hex: "#C2552E" },
-      { name: "Royal Indigo", hex: "#2F3E75" },
+      { name: "Deep Indigo", hex: "#16204A" },
+      { name: "Srujan Blue", hex: "#2A3F8F" },
     ],
     sizes: ["XS", "S", "M", "L", "XL", "XXL", "Custom Measurements"],
     isFeatured: true,
@@ -209,14 +209,14 @@ export const DESIGNS: DesignItem[] = [
       "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80",
     ],
     description:
-      "Fiery scarlet and orange Gulmohar floral sprays brushed diagonally across textured handwoven slub cotton cushions.",
+      "Subtle botanical branches brushed diagonally across textured handwoven slub cotton cushions.",
     story:
-      "During peak Indian summer, Gulmohar trees paint the sky on fire. We captured those flamboyant blossoms onto cushion covers that breathe vitality and warmth into your living room or reading nook.",
+      "Inspired by the afternoon shade under flowering Gulmohar branches, bringing warmth into a quiet reading room.",
     availableOn: ["Heavy Slub Cotton 16x16 Cushion Cover", "Textured Linen 18x18 Cushion Cover", "Lumbar Pillow (12x20)"],
     colors: [
-      { name: "Warm Sand", hex: "#F0E6D6" },
+      { name: "Warm Sand", hex: "#EFE8DC" },
       { name: "Cotton White", hex: "#FAF6EF" },
-      { name: "Raw Charcoal", hex: "#2B2522" },
+      { name: "Charcoal Ink", hex: "#1F2430" },
     ],
     sizes: ["16 x 16 inches", "18 x 18 inches", "12 x 20 inches"],
     isFeatured: true,
@@ -231,7 +231,7 @@ export const DESIGNS: DesignItem[] = [
   },
   {
     id: "rani-bagh-marigold-stole",
-    name: "Genda Phool (Marigold) Silk Stole",
+    name: "Phool Silk Stole",
     category: "others",
     categoryLabel: "Stoles & Decor",
     images: [
@@ -239,14 +239,14 @@ export const DESIGNS: DesignItem[] = [
       "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80",
     ],
     description:
-      "A lightweight tussar silk stole scattered with hand-painted saffron and yellow marigolds that flutter like celebratory confetti.",
+      "A lightweight tussar silk stole scattered with hand-painted delicate floral petals.",
     story:
-      "Marigolds are the soul of Indian festivals, welcomes, and beginnings. Each petal is dabbed with wet-on-wet technique so colors softly bleed into natural silk fibers.",
+      "Each petal is dabbed with wet-on-wet brush technique so pigment softly diffuses into natural silk threads.",
     availableOn: ["Pure Cotton-Silk Stole (2.2m)", "Chiffon Dupatta (2.5m)", "Framed Fabric Wall Tapestry"],
     colors: [
       { name: "Raw Unbleached Ecru", hex: "#FAF6EF" },
-      { name: "Mustard Sunrise", hex: "#E0A526" },
-      { name: "Deep Indigo", hex: "#2F3E75" },
+      { name: "Srujan Blue", hex: "#2A3F8F" },
+      { name: "Deep Indigo", hex: "#16204A" },
     ],
     sizes: ["Stole: 22 x 80 inches", "Dupatta: 36 x 98 inches"],
     isFeatured: true,
@@ -254,7 +254,7 @@ export const DESIGNS: DesignItem[] = [
     leadTimeDays: "5-7 days",
     careInstructions: [
       "Dry clean recommended for first wash",
-      "Subsequent washes: hand rinse in cold water with liquid silk detergent",
+      "Subsequent washes: hand rinse in cold water with mild liquid soap",
       "Steam iron while lightly damp",
     ],
   },
@@ -268,14 +268,14 @@ export const DESIGNS: DesignItem[] = [
       "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=80",
     ],
     description:
-      "Minimalist tribal rhythm depicted in charcoal ink and terracotta tones, showcasing circular dancers moving to the rustic Tarpa trumpet.",
+      "Minimalist tribal rhythm depicted in charcoal ink, showcasing circular dancers moving together.",
     story:
-      "Rooted in the ancient Warli tribe of Maharashtra, this art is painted with rhythmic geometry using triangular human forms holding hands in circular harmony with mother nature.",
+      "Rooted in ancient Warli art, painted with simple geometric triangular forms holding hands in harmony.",
     availableOn: ["Combed Cotton Bio-Wash Tee", "Heavyweight Boxy Fit Tee", "Canvas Tote"],
     colors: [
-      { name: "Warm Sand", hex: "#F0E6D6" },
-      { name: "Terracotta Earth", hex: "#C2552E" },
-      { name: "Charcoal Ash", hex: "#2B2522" },
+      { name: "Warm Sand", hex: "#EFE8DC" },
+      { name: "Deep Green", hex: "#2F5D4B" },
+      { name: "Charcoal Ink", hex: "#1F2430" },
     ],
     sizes: ["XS", "S", "M", "L", "XL", "XXL"],
     isFeatured: false,
@@ -289,7 +289,7 @@ export const DESIGNS: DesignItem[] = [
   },
   {
     id: "monsoon-megh-cranes-shirt",
-    name: "Monsoon Clouds & Flying Cranes",
+    name: "Monsoon Clouds & Cranes",
     category: "shirts",
     categoryLabel: "Shirts",
     images: [
@@ -297,14 +297,14 @@ export const DESIGNS: DesignItem[] = [
       "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=1000&q=80",
     ],
     description:
-      "A serene painterly composition of storm clouds drifting across the shoulder with a pair of Japanese/Indian cranes soaring across the chest.",
+      "A serene painterly composition of storm clouds drifting across the shoulder with a pair of cranes across the chest.",
     story:
-      "Designed for those who view shirts as their canvas. Atmospheric indigo gradients meet crisp white brush strokes that create an illusion of misty monsoon rain.",
+      "Designed for those who view shirts as their canvas. Atmospheric indigo gradients meet crisp white brush strokes.",
     availableOn: ["100% Breathable Linen Resort Shirt", "Slub Cotton Button-Down"],
     colors: [
       { name: "Cotton White", hex: "#FAF6EF" },
-      { name: "Indigo Blue", hex: "#2F3E75" },
-      { name: "Sage Mist", hex: "#D8DEC9" },
+      { name: "Srujan Blue", hex: "#2A3F8F" },
+      { name: "Deep Indigo", hex: "#16204A" },
     ],
     sizes: ["S", "M", "L", "XL", "XXL"],
     isFeatured: false,
@@ -327,14 +327,14 @@ export const DESIGNS: DesignItem[] = [
       "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=1000&q=80",
     ],
     description:
-      "Inspired by Sindhi & Kachchhi Ajrakh symmetry. Hand-painted stars and octagonal florets painted with natural indigo and madder red hues.",
+      "Inspired by traditional Ajrakh symmetry, painted freehand in indigo and deep charcoal hues.",
     story:
-      "Rather than block carving, our artist hand-strokes each star freehand, giving this traditional geometric pattern an organic, breathing human pulse.",
+      "Rather than block carving, our artist hand-strokes each star freehand, giving geometric patterns an organic pulse.",
     availableOn: ["Traditional Khadi Jabha", "Long Sleeve Mandarin Shirt"],
     colors: [
-      { name: "Unbleached Sand", hex: "#F0E6D6" },
-      { name: "Deep Indigo", hex: "#2F3E75" },
-      { name: "Terracotta Red", hex: "#C2552E" },
+      { name: "Warm Sand", hex: "#EFE8DC" },
+      { name: "Deep Indigo", hex: "#16204A" },
+      { name: "Charcoal Ink", hex: "#1F2430" },
     ],
     sizes: ["S", "M", "L", "XL", "XXL"],
     isFeatured: false,
@@ -348,7 +348,7 @@ export const DESIGNS: DesignItem[] = [
   },
   {
     id: "champa-jasmine-pillow-cover",
-    name: "Champa & Night Jasmine Cushion",
+    name: "Champa & Jasmine Cushion",
     category: "pillow-covers",
     categoryLabel: "Pillow Covers",
     images: [
@@ -356,14 +356,14 @@ export const DESIGNS: DesignItem[] = [
       "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1000&q=80",
     ],
     description:
-      "Delicate yellow plumeria (Champa) and sweet Parijat blossoms scattered as if fallen onto the morning grass.",
+      "Delicate plumeria and sweet jasmine blossoms scattered as if fallen onto morning cloth.",
     story:
-      "Fragrant garden nostalgia rendered in subtle white gouache and warm mustard pigment on heavy woven cotton canvas.",
+      "Garden nostalgia rendered in subtle white gouache and indigo linework on heavy woven cotton canvas.",
     availableOn: ["Heavy Slub Cotton 16x16 Cushion", "18x18 Cushion", "Bed Runner (Custom)"],
     colors: [
-      { name: "Warm Sand", hex: "#F0E6D6" },
+      { name: "Warm Sand", hex: "#EFE8DC" },
       { name: "Forest Deep Green", hex: "#2F5D4B" },
-      { name: "Charcoal Ink", hex: "#2B2522" },
+      { name: "Charcoal Ink", hex: "#1F2430" },
     ],
     sizes: ["16 x 16 inches", "18 x 18 inches"],
     isFeatured: false,
@@ -385,14 +385,14 @@ export const DESIGNS: DesignItem[] = [
       "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=80",
     ],
     description:
-      "A poetic tiered flared cotton dress hand-painted with the rare purplish-blue blossoms of the Western Ghats blooming over rolling indigo gradients.",
+      "A tiered flared cotton dress hand-painted with purplish-blue blossoms over rolling indigo brushwork.",
     story:
-      "The legendary Neelakurinji flower blooms only once every twelve years in Munnar. We painted its story along the flared hemline so it sways like mist in the hills with every step.",
+      "The rare Neelakurinji flower blooms once every twelve years in the hills. We painted its story along the flared hemline.",
     availableOn: ["Tiered Flared Cotton Maxi Dress", "Sleeveless Anarkali Kurti", "Linen Tunic"],
     colors: [
       { name: "Cotton White", hex: "#FAF6EF" },
-      { name: "Deep Indigo", hex: "#2F3E75" },
-      { name: "Vintage Lavender Sand", hex: "#F0E6D6" },
+      { name: "Deep Indigo", hex: "#16204A" },
+      { name: "Warm Sand", hex: "#EFE8DC" },
     ],
     sizes: ["XS", "S", "M", "L", "XL", "XXL", "Custom Measurements"],
     isFeatured: true,

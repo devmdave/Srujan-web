@@ -3,17 +3,13 @@
 import React, { useState } from "react";
 import { siteConfig, createWhatsAppUrl } from "@/config/siteConfig";
 import PaintStrokeDivider from "@/components/PaintStrokeDivider";
+import InstagramIcon from "@/components/icons/InstagramIcon";
 import {
   MessageCircle,
   Mail,
   MapPin,
   Clock,
-  Sparkles,
-  Send,
-  Phone,
-  CheckCircle2,
 } from "lucide-react";
-import InstagramIcon from "@/components/icons/InstagramIcon";
 
 export default function ContactPage() {
   const [senderName, setSenderName] = useState("");
@@ -21,56 +17,53 @@ export default function ContactPage() {
   const [message, setMessage] = useState("");
 
   const directWhatsAppLink = createWhatsAppUrl(
-    `Hi Srujan! My name is ${senderName || "a visitor"}. Regarding ${topic}: ${
-      message || "I'd love to chat about your hand-painted pieces!"
+    `Hi Srujan, my name is ${senderName || "a visitor"}. Regarding ${topic}: ${
+      message || "I would love to chat about your hand-painted pieces."
     }`
   );
 
   return (
-    <div className="py-10 sm:py-16 bg-[#FAF6EF]">
+    <div className="py-10 sm:py-16 bg-[#FAF6EF] text-[#1F2430]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#E0A526]/20 text-[#2B2522] text-xs font-semibold mb-3">
-            <Sparkles className="w-4 h-4 text-[#E0A526]" />
-            <span>We Love Hearing From You</span>
-          </div>
-
-          <h1 className="text-3xl sm:text-5xl font-serif font-bold text-[#2B2522] tracking-tight">
-            Connect With the Srujan Studio
+        <div className="max-w-2xl mb-12">
+          <span className="text-[11px] font-sans tracking-widest uppercase text-[#717A8C]">
+            Direct Channels
+          </span>
+          <h1 className="text-3xl sm:text-5xl font-serif text-[#1F2430] mt-1 tracking-tight">
+            Contact the Studio
           </h1>
-
-          <p className="text-sm sm:text-base text-[#5C534E] mt-3 leading-relaxed">
-            Whether you want a quote on an existing motif, have an idea for a customized wedding gift, or just want to talk about fabric paints — we’re here.
+          <p className="text-xs sm:text-sm text-[#4B5263] mt-2 leading-relaxed">
+            Whether you want a quote on an existing piece, have a custom wedding inquiry, or want to discuss fabric painting — reach out directly.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Left Column: Direct Contact Channels */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 space-y-4">
             {/* WhatsApp Card */}
-            <div className="bg-[#F0E6D6] rounded-3xl p-6 sm:p-7 border border-[#E2D3BE] shadow-xs">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#25D366] text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <MessageCircle className="w-6 h-6 fill-white" />
+            <div className="bg-[#EFE8DC] p-5 rounded-xs border border-[#E2DACB]">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-xs bg-[#2A3F8F] text-white flex items-center justify-center shrink-0">
+                  <MessageCircle className="w-4 h-4 fill-white" />
                 </div>
                 <div className="flex-1">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#C2552E]">
-                    Fastest Response (Direct DM)
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#717A8C]">
+                    Direct Chat
                   </span>
-                  <h3 className="font-serif font-bold text-lg text-[#2B2522] mt-0.5">
-                    WhatsApp Chat
+                  <h3 className="font-serif text-base text-[#1F2430] mt-0.5">
+                    WhatsApp
                   </h3>
-                  <p className="text-xs text-[#5C534E] mt-1 leading-relaxed">
-                    Chat directly with the artist to discuss designs, sizes, and price quotes.
+                  <p className="text-xs text-[#4B5263] mt-0.5 leading-relaxed">
+                    Fastest way to talk sizing, fabric shades, and quotes with the artist.
                   </p>
                   <a
                     href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-                      "Hi Srujan! I'm reaching out from your website contact page."
+                      "Hi Srujan, I am reaching out from your website contact page."
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-semibold shadow-xs transition-colors"
+                    className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white text-xs font-semibold tracking-wider uppercase transition-colors"
                   >
                     <span>Message {siteConfig.whatsappDisplayNumber}</span>
                   </a>
@@ -79,26 +72,26 @@ export default function ContactPage() {
             </div>
 
             {/* Instagram Card */}
-            <div className="bg-[#F0E6D6] rounded-3xl p-6 sm:p-7 border border-[#E2D3BE] shadow-xs">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#2F3E75] text-[#FAF6EF] flex items-center justify-center shrink-0 shadow-sm">
-                  <InstagramIcon className="w-6 h-6" />
+            <div className="bg-[#EFE8DC] p-5 rounded-xs border border-[#E2DACB]">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-xs bg-[#16204A] text-white flex items-center justify-center shrink-0">
+                  <InstagramIcon className="w-4 h-4" />
                 </div>
                 <div className="flex-1">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#2F3E75]">
-                    Visual Portfolio & Daily DMs
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#717A8C]">
+                    Visual Portfolio
                   </span>
-                  <h3 className="font-serif font-bold text-lg text-[#2B2522] mt-0.5">
+                  <h3 className="font-serif text-base text-[#1F2430] mt-0.5">
                     Instagram DMs
                   </h3>
-                  <p className="text-xs text-[#5C534E] mt-1 leading-relaxed">
-                    Send reference photos, reels, or questions straight to our Instagram inbox.
+                  <p className="text-xs text-[#4B5263] mt-0.5 leading-relaxed">
+                    Send photos, references, or queries directly to our studio inbox.
                   </p>
                   <a
                     href={siteConfig.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#2F3E75] hover:bg-[#222E57] text-[#FAF6EF] text-xs font-semibold shadow-xs transition-colors"
+                    className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xs border border-[#2A3F8F] text-[#2A3F8F] hover:bg-[#2A3F8F] hover:text-white text-xs font-semibold tracking-wider uppercase transition-colors"
                   >
                     <span>@{siteConfig.instagramHandle}</span>
                   </a>
@@ -106,40 +99,40 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Email & Location details */}
-            <div className="bg-[#FAF6EF] rounded-3xl p-6 sm:p-7 border border-[#E2D3BE] space-y-4 text-xs text-[#5C534E]">
-              <div className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-[#C2552E] shrink-0 mt-0.5" />
+            {/* Details Card */}
+            <div className="bg-[#FAF6EF] p-5 rounded-xs border border-[#E2DACB] space-y-3 text-xs text-[#4B5263]">
+              <div className="flex items-start gap-2.5">
+                <Mail className="w-3.5 h-3.5 text-[#2A3F8F] shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-[#2B2522] block font-semibold">
-                    Email Inquiries
+                  <strong className="text-[#1F2430] block font-semibold">
+                    Email
                   </strong>
                   <a
                     href={`mailto:${siteConfig.email}`}
-                    className="hover:underline text-[#2F3E75] font-medium"
+                    className="hover:underline text-[#2A3F8F]"
                   >
                     {siteConfig.email}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#C2552E] shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-3.5 h-3.5 text-[#2A3F8F] shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-[#2B2522] block font-semibold">
-                    Studio Locations
+                  <strong className="text-[#1F2430] block font-semibold">
+                    Location
                   </strong>
                   <span>{siteConfig.location}</span>
-                  <p className="text-[11px] text-[#7E726B] mt-0.5">
-                    Visits by prior WhatsApp appointment only.
+                  <p className="text-[11px] text-[#717A8C] mt-0.5">
+                    Visits by prior WhatsApp appointment.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3">
-                <Clock className="w-4 h-4 text-[#C2552E] shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2.5">
+                <Clock className="w-3.5 h-3.5 text-[#2A3F8F] shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-[#2B2522] block font-semibold">
+                  <strong className="text-[#1F2430] block font-semibold">
                     Studio Hours
                   </strong>
                   <span>Monday – Saturday: 10:00 AM – 7:30 PM IST</span>
@@ -148,16 +141,16 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Right Column: Quick WhatsApp Message Composer */}
-          <div className="lg:col-span-7 bg-[#F0E6D6] rounded-3xl p-6 sm:p-10 border border-[#E2D3BE] shadow-md">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#C2552E]">
-              Quick Message Composer
+          {/* Right Column: Message Composer */}
+          <div className="lg:col-span-7 bg-[#EFE8DC] p-6 sm:p-8 rounded-xs border border-[#E2DACB]">
+            <span className="text-[10px] uppercase font-semibold tracking-wider text-[#717A8C]">
+              Direct Message
             </span>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#2B2522] mt-1 mb-2">
-              Send a Direct Note to the Artist
+            <h2 className="text-xl sm:text-2xl font-serif text-[#1F2430] mt-1 mb-2">
+              Send a Note to the Artist
             </h2>
-            <p className="text-xs text-[#5C534E] mb-6 leading-relaxed">
-              Type your note below. We will format it and immediately launch WhatsApp so you can send it in one tap!
+            <p className="text-xs text-[#4B5263] mb-6 leading-relaxed">
+              Type your note below. We will format it and open WhatsApp so you can send it in one tap.
             </p>
 
             <form
@@ -168,7 +161,7 @@ export default function ContactPage() {
               className="space-y-4 text-xs"
             >
               <div>
-                <label className="block font-semibold text-[#2B2522] mb-1.5">
+                <label className="block font-semibold text-[#1F2430] mb-1">
                   Your Name
                 </label>
                 <input
@@ -177,18 +170,18 @@ export default function ContactPage() {
                   placeholder="e.g. Aarav Mehta"
                   value={senderName}
                   onChange={(e) => setSenderName(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-[#FAF6EF] text-[#2B2522] border border-[#E2D3BE] focus:outline-none focus:ring-2 focus:ring-[#C2552E]/30 focus:border-[#C2552E]"
+                  className="w-full px-3.5 py-2.5 rounded-xs bg-[#FAF6EF] text-[#1F2430] border border-[#E2DACB] focus:outline-none focus:border-[#2A3F8F]"
                 />
               </div>
 
               <div>
-                <label className="block font-semibold text-[#2B2522] mb-1.5">
-                  What is this regarding?
+                <label className="block font-semibold text-[#1F2430] mb-1">
+                  Topic
                 </label>
                 <select
                   value={topic}
                   onChange={(e) => setTopic(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-[#FAF6EF] text-[#2B2522] border border-[#E2D3BE] focus:outline-none focus:ring-2 focus:ring-[#C2552E]/30 focus:border-[#C2552E] cursor-pointer"
+                  className="w-full px-3.5 py-2.5 rounded-xs bg-[#FAF6EF] text-[#1F2430] border border-[#E2DACB] focus:outline-none focus:border-[#2A3F8F] cursor-pointer"
                 >
                   <option value="Price inquiry on a specific design">
                     Price inquiry on a specific design
@@ -202,30 +195,31 @@ export default function ContactPage() {
                   <option value="Shipping or Delivery question">
                     Shipping or Delivery question
                   </option>
-                  <option value="General feedback or question">
-                    General feedback or question
+                  <option value="General question">
+                    General question
                   </option>
                 </select>
               </div>
 
               <div>
-                <label className="block font-semibold text-[#2B2522] mb-1.5">
-                  Your Message / Question
+                <label className="block font-semibold text-[#1F2430] mb-1">
+                  Your Message
                 </label>
                 <textarea
                   rows={4}
                   required
-                  placeholder="Tell us what you'd like to ask..."
+                  placeholder="Tell us what you would like to know..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-[#FAF6EF] text-[#2B2522] border border-[#E2D3BE] focus:outline-none focus:ring-2 focus:ring-[#C2552E]/30 focus:border-[#C2552E]"
+                  className="w-full px-3.5 py-2.5 rounded-xs bg-[#FAF6EF] text-[#1F2430] border border-[#E2DACB] focus:outline-none focus:border-[#2A3F8F]"
                 />
               </div>
 
+              {/* Primary button: Srujan Blue on light background */}
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-4 px-6 rounded-2xl bg-[#C2552E] hover:bg-[#A64421] text-white font-bold text-sm shadow-md transition-all duration-200 flex items-center justify-center gap-2"
+                  className="w-full py-3 px-4 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white font-semibold text-xs tracking-wider uppercase transition-colors flex items-center justify-center gap-2"
                 >
                   <MessageCircle className="w-4 h-4 fill-white" />
                   <span>Send via WhatsApp</span>
@@ -236,7 +230,7 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <PaintStrokeDivider color="mustard" className="mt-16" />
+      <PaintStrokeDivider color="sand" className="mt-16" />
     </div>
   );
 }
