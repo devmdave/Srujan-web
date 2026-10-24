@@ -62,8 +62,8 @@ export const COLLECTIONS: CollectionInfo[] = [
   {
     id: "festive-decor",
     title: "HANDMADE FESTIVE DECOR",
-    tagline: "CARRY THE FESTIVAL WITH U 🥰",
-    theme: "dark",
+    tagline: "Celebrate every occasion with timeless charm and beautifully handcrafted details.",
+    theme: "light",
   },
 ];
 

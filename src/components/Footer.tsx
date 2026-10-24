@@ -1,8 +1,10 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/config/siteConfig";
+import navbarLogo from "@/assets/navbar_logo.png";
 import {
   MessageCircle,
   Mail,
@@ -83,16 +85,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
           {/* Brand Column */}
           <div className="lg:col-span-4">
-            <Link href="/" className="inline-block mb-3">
-              <span className="text-2xl font-serif tracking-tight text-white">
-                {siteConfig.brandName}
-              </span>
-              <p className="text-xs text-white/70 font-sans tracking-wider uppercase mt-0.5">
-                {siteConfig.brandMeaning}
-              </p>
+            <Link href="/" className="inline-block mb-3" title={siteConfig.brandName}>
+              <Image
+                src={navbarLogo}
+                alt={siteConfig.brandName}
+                className="h-24 sm:h-28 md:h-32 w-auto object-contain -ml-2.5 sm:-ml-3"
+                style={{ width: "auto" }}
+                priority
+              />
             </Link>
             <p className="text-xs text-white/80 leading-relaxed max-w-sm mb-6">
-              Wearable art painted by hand on unbleached cotton, khadi, and linen. No screen printing, no mass production — just quiet, honest craftsmanship.
+              Wearable art, Painted by hand.
             </p>
 
             <div className="flex items-center gap-2">
