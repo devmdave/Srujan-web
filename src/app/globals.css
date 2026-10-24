@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cotton-white: #FAF6EF;
+  --color-warm-sand: #F0E6D6;
+  --color-warm-sand-light: #F7EFE4;
+  --color-warm-sand-dark: #E2D3BE;
+  --color-charcoal-ink: #2B2522;
+  --color-charcoal-muted: #5C534E;
+  --color-charcoal-light: #7E726B;
+  --color-terracotta: #C2552E;
+  --color-terracotta-hover: #A64421;
+  --color-terracotta-light: #F6DFD7;
+  --color-indigo: #2F3E75;
+  --color-indigo-dark: #222E57;
+  --color-indigo-light: #E9ECF7;
+  --color-mustard: #E0A526;
+  --color-mustard-hover: #C6901D;
+  --color-mustard-light: #FDF3DB;
+  --color-deep-green: #2F5D4B;
+  --color-deep-green-dark: #234739;
+  --color-deep-green-light: #E7EFEA;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #1EBE5D;
+
+  --font-serif: var(--font-serif), Georgia, serif;
+  --font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --bg-cotton-white: #FAF6EF;
+  --bg-warm-sand: #F0E6D6;
+  --text-charcoal-ink: #2B2522;
+  --color-terracotta: #C2552E;
+  --color-indigo: #2F3E75;
+  --color-mustard: #E0A526;
+  --color-deep-green: #2F5D4B;
+  --color-whatsapp: #25D366;
+}
+
+/* Subtle handcrafted fabric texture overlay */
+body {
+  background-color: #FAF6EF;
+  color: #2B2522;
+  background-image: radial-gradient(#2B2522 0.4px, transparent 0.4px),
+    radial-gradient(#C2552E 0.3px, transparent 0.3px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+  background-color: #FAF6EF;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F0E6D6;
+}
+::-webkit-scrollbar-thumb {
+  background: #C2552E;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A64421;
+}
+
+/* Handcrafted brush-stroke underline animation */
+.brush-underline {
+  position: relative;
+  display: inline-block;
+}
+.brush-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 6px;
+  background-color: #E0A526;
+  border-radius: 9999px;
+  opacity: 0.75;
+  transform: rotate(-1deg);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  z-index: -1;
+}
+.brush-underline:hover::after {
+  transform: rotate(0deg) scaleX(1.05);
+  opacity: 0.95;
+}
+
+/* Subtle hand-drawn border effect */
+.border-handcrafted {
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+/* Pulse animation for WhatsApp badge */
+@keyframes softPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-pulse {
+  animation: softPulse 2.5s infinite;
+}
