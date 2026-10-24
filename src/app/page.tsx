@@ -317,27 +317,24 @@ export default function HomePage() {
         return (
           <section
             key={collection.id}
-            className={`py-14 sm:py-20 border-t ${
-              isDark
-                ? "bg-[#16204A] text-white border-white/10"
-                : "bg-[#FAF6EF] text-[#1F2430] border-[#E2DACB]"
-            }`}
+            className={`py-14 sm:py-20 border-t ${isDark
+              ? "bg-[#16204A] text-white border-white/10"
+              : "bg-[#FAF6EF] text-[#1F2430] border-[#E2DACB]"
+              }`}
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               {/* Heading Area: Title + Tagline on Left, Works Button on Right (Desktop) / Below (Mobile) */}
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
                 <div className="max-w-2xl">
                   <h2
-                    className={`text-2xl sm:text-4xl font-serif uppercase tracking-tight ${
-                      isDark ? "text-white" : "text-[#1F2430]"
-                    }`}
+                    className={`text-2xl sm:text-4xl font-serif uppercase tracking-tight ${isDark ? "text-white" : "text-[#1F2430]"
+                      }`}
                   >
                     {collection.title}
                   </h2>
                   <p
-                    className={`text-xs sm:text-sm mt-1.5 font-sans leading-relaxed ${
-                      isDark ? "text-white/80" : "text-[#4B5263]"
-                    }`}
+                    className={`text-xs sm:text-sm mt-1.5 font-sans leading-relaxed ${isDark ? "text-white/80" : "text-[#4B5263]"
+                      }`}
                   >
                     {collection.tagline}
                   </p>
@@ -347,11 +344,10 @@ export default function HomePage() {
                 <div className="shrink-0">
                   <Link
                     href={`/shop?collection=${collection.id}`}
-                    className={`inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xs text-xs font-semibold tracking-wider uppercase transition-colors ${
-                      isDark
-                        ? "bg-white text-[#16204A] hover:bg-[#FAF6EF]"
-                        : "bg-[#2A3F8F] text-white hover:bg-[#203173]"
-                    }`}
+                    className={`inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xs text-xs font-semibold tracking-wider uppercase transition-colors ${isDark
+                      ? "bg-white text-[#16204A] hover:bg-[#FAF6EF]"
+                      : "bg-[#2A3F8F] text-white hover:bg-[#203173]"
+                      }`}
                   >
                     <span>Works</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -455,58 +451,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. PROCESS STRIP (Quiet, Behind-the-Scenes) */}
-      <section className="py-16 sm:py-20 bg-[#FAF6EF]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-xl mb-12">
-            <span className="text-[11px] font-sans tracking-widest uppercase text-[#717A8C]">
-              In the Studio
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-serif text-[#1F2430] mt-1">
-              How a Piece is Made
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {processSteps.map((step) => {
-              const IconComp = step.icon;
-              return (
-                <div
-                  key={step.num}
-                  className="border border-[#E2DACB] bg-[#EFE8DC] p-5 rounded-xs flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <IconComp className="w-4 h-4 text-[#2A3F8F]" />
-                      <span className="text-xs font-mono text-[#717A8C]">
-                        {step.num}
-                      </span>
-                    </div>
-
-                    <h3 className="font-serif text-base text-[#1F2430] mb-2">
-                      {step.title}
-                    </h3>
-
-                    <p className="text-xs text-[#4B5263] leading-relaxed">
-                      {step.desc}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* 7. WORDS FROM WEARERS (Editorial Quote Cards) */}
       <section className="py-16 sm:py-20 bg-[#EFE8DC] border-t border-[#E2DACB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-xl mb-12">
-            <span className="text-[11px] font-sans tracking-widest uppercase text-[#717A8C]">
-              Notes from Clients
+            <span className="text-[11px] font-sans tracking-widest text-[#717A8C]">
+              What they say about us?
             </span>
             <h2 className="text-2xl sm:text-3xl font-serif text-[#1F2430] mt-1">
-              Words From Wearers
+              Testimonials
             </h2>
           </div>
 
@@ -540,11 +493,11 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
             <div>
-              <span className="text-[11px] font-sans tracking-widest uppercase text-[#717A8C]">
-                Studio Journal
+              <span className="text-[11px] font-sans tracking-widest text-[#717A8C]">
+                Best Works Delivered untill now
               </span>
               <h2 className="text-2xl sm:text-3xl font-serif text-[#1F2430] mt-1">
-                Recent Works on Instagram
+                Our Recent Handpainted Works
               </h2>
             </div>
 
