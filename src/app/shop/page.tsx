@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { CATEGORIES, DESIGNS } from "@/data/designs";
+import { CATEGORIES, DESIGNS, COLLECTIONS } from "@/data/designs";
 import DesignCard from "@/components/DesignCard";
 import PaintStrokeDivider from "@/components/PaintStrokeDivider";
 import {
@@ -18,8 +18,10 @@ import { siteConfig } from "@/config/siteConfig";
 function ShopContent() {
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get("category") || "all";
+  const initialCollection = searchParams.get("collection") || "all";
 
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
+  const [selectedCollection, setSelectedCollection] = useState<string>(initialCollection);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState<"featured" | "newest" | "name">("featured");
 
@@ -29,6 +31,9 @@ function ShopContent() {
       const matchesCategory =
         selectedCategory === "all" || design.category === selectedCategory;
 
+      const matchesCollection =
+        selectedCollection === "all" || design.collection === selectedCollection;
+
       const q = searchQuery.toLowerCase().trim();
       const matchesSearch =
         !q ||
@@ -37,7 +42,7 @@ function ShopContent() {
         design.categoryLabel.toLowerCase().includes(q) ||
         design.availableOn.some((item) => item.toLowerCase().includes(q));
 
-      return matchesCategory && matchesSearch;
+      return matchesCategory && matchesCollection && matchesSearch;
     }).sort((a, b) => {
       if (sortBy === "featured") {
         return (b.isFeatured ? 1 : 0) - (a.isFeatured ? 1 : 0);
@@ -50,7 +55,7 @@ function ShopContent() {
       }
       return 0;
     });
-  }, [selectedCategory, searchQuery, sortBy]);
+  }, [selectedCategory, selectedCollection, searchQuery, sortBy]);
 
   const activeCategoryLabel =
     CATEGORIES.find((c) => c.id === selectedCategory)?.label || "All Designs";
@@ -160,12 +165,28 @@ function ShopContent() {
         </div>
 
         {/* Active Filters Display */}
-        {(selectedCategory !== "all" || searchQuery) && (
+        {(selectedCategory !== "all" || selectedCollection !== "all" || searchQuery) && (
           <div className="flex items-center gap-2 mb-6 text-xs text-[#717A8C] flex-wrap">
             <span>Filtering:</span>
+            {selectedCollection !== "all" && (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-xs bg-[#2A3F8F] text-white">
+                <span>
+                  Collection:{" "}
+                  {COLLECTIONS.find((c) => c.id === selectedCollection)?.title ||
+                    selectedCollection}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setSelectedCollection("all")}
+                  className="hover:opacity-75"
+                >
+                  <X className="w-2.5 h-2.5" />
+                </button>
+              </span>
+            )}
             {selectedCategory !== "all" && (
               <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-xs bg-[#2A3F8F] text-white">
-                <span>{activeCategoryLabel}</span>
+                <span>Category: {activeCategoryLabel}</span>
                 <button
                   type="button"
                   onClick={() => setSelectedCategory("all")}
@@ -191,6 +212,7 @@ function ShopContent() {
               type="button"
               onClick={() => {
                 setSelectedCategory("all");
+                setSelectedCollection("all");
                 setSearchQuery("");
               }}
               className="text-[#2A3F8F] hover:underline font-medium ml-1"

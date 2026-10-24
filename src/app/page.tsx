@@ -2,10 +2,15 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/config/siteConfig";
-import { DESIGNS } from "@/data/designs";
+import { DESIGNS, COLLECTIONS } from "@/data/designs";
 import DesignCard from "@/components/DesignCard";
 import PaintStrokeDivider from "@/components/PaintStrokeDivider";
 import InstagramIcon from "@/components/icons/InstagramIcon";
+import tshirtCategoryImg from "@/assets/category_images/tshirt.jpeg";
+import shirtCategoryImg from "@/assets/category_images/shirt.jpeg";
+import kurtaCategoryImg from "@/assets/category_images/kurta.jpeg";
+import totebagsCategoryImg from "@/assets/category_images/totebags.jpeg";
+import pillowcoverCategoryImg from "@/assets/category_images/pillowcover.jpg";
 import {
   ArrowRight,
   MessageCircle,
@@ -23,25 +28,25 @@ export default function HomePage() {
       id: "t-shirts",
       name: "T-Shirts",
       desc: "Bio-washed cotton & relaxed fits",
-      image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80",
+      image: tshirtCategoryImg,
     },
     {
       id: "shirts",
       name: "Shirts",
       desc: "Textured linen and slub cotton",
-      image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80",
+      image: shirtCategoryImg,
     },
     {
       id: "jabhas",
-      name: "Jabhas",
+      name: "Jabhas (Kurtas)",
       desc: "Traditional, airy kurtas",
-      image: "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&w=800&q=80",
+      image: kurtaCategoryImg,
     },
     {
       id: "tote-bags",
       name: "Tote Bags",
       desc: "Heavy canvas carryalls",
-      image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80",
+      image: totebagsCategoryImg,
     },
     {
       id: "kurtis-dresses",
@@ -53,13 +58,7 @@ export default function HomePage() {
       id: "pillow-covers",
       name: "Pillow Covers",
       desc: "Heavy woven cotton cushions",
-      image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      id: "others",
-      name: "Stoles & Decor",
-      desc: "Tussar silk stoles & tapestries",
-      image: "https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?auto=format&fit=crop&w=800&q=80",
+      image: pillowcoverCategoryImg,
     },
   ];
 
@@ -308,37 +307,68 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. FEATURED DESIGNS */}
-      <section className="py-16 sm:py-20 bg-[#FAF6EF]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
-            <div>
-              <span className="text-[11px] font-sans tracking-widest uppercase text-[#717A8C]">
-                Portfolio
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-serif text-[#1F2430] mt-1">
-                Featured Pieces
-              </h2>
-              <p className="text-xs text-[#717A8C] mt-1">
-                Every piece is painted on demand. Click “DM for Price” to ask the artist about sizes and options.
-              </p>
+      {/* 4. THEMED COLLECTION SECTIONS (E-COMMERCE ROW FORMAT) */}
+      {COLLECTIONS.map((collection) => {
+        const isDark = collection.theme === "dark";
+        const collectionDesigns = DESIGNS.filter(
+          (d) => d.collection === collection.id
+        ).slice(0, 4);
+
+        return (
+          <section
+            key={collection.id}
+            className={`py-14 sm:py-20 border-t ${
+              isDark
+                ? "bg-[#16204A] text-white border-white/10"
+                : "bg-[#FAF6EF] text-[#1F2430] border-[#E2DACB]"
+            }`}
+          >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              {/* Heading Area: Title + Tagline on Left, Works Button on Right (Desktop) / Below (Mobile) */}
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
+                <div className="max-w-2xl">
+                  <h2
+                    className={`text-2xl sm:text-4xl font-serif uppercase tracking-tight ${
+                      isDark ? "text-white" : "text-[#1F2430]"
+                    }`}
+                  >
+                    {collection.title}
+                  </h2>
+                  <p
+                    className={`text-xs sm:text-sm mt-1.5 font-sans leading-relaxed ${
+                      isDark ? "text-white/80" : "text-[#4B5263]"
+                    }`}
+                  >
+                    {collection.tagline}
+                  </p>
+                </div>
+
+                {/* "Works" button sits on right of heading on desktop, below tagline on mobile */}
+                <div className="shrink-0">
+                  <Link
+                    href={`/shop?collection=${collection.id}`}
+                    className={`inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xs text-xs font-semibold tracking-wider uppercase transition-colors ${
+                      isDark
+                        ? "bg-white text-[#16204A] hover:bg-[#FAF6EF]"
+                        : "bg-[#2A3F8F] text-white hover:bg-[#203173]"
+                    }`}
+                  >
+                    <span>Works</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Uniform Product Cards Grid: 4 columns desktop, 2 on tablet, 2 on mobile */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                {collectionDesigns.map((design) => (
+                  <DesignCard key={design.id} design={design} />
+                ))}
+              </div>
             </div>
-
-            <Link
-              href="/shop"
-              className="mt-3 sm:mt-0 text-xs font-semibold uppercase tracking-wider text-[#2A3F8F] hover:underline"
-            >
-              See all 12 designs →
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredDesigns.map((design) => (
-              <DesignCard key={design.id} design={design} />
-            ))}
-          </div>
-        </div>
-      </section>
+          </section>
+        );
+      })}
 
       {/* Paint Stroke Divider */}
       <PaintStrokeDivider color="blue" />

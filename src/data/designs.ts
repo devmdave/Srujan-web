@@ -14,14 +14,15 @@ export interface DesignItem {
   id: string;
   name: string;
   category:
-    | "t-shirts"
-    | "shirts"
-    | "jabhas"
-    | "tote-bags"
-    | "kurtis-dresses"
-    | "pillow-covers"
-    | "others";
+  | "t-shirts"
+  | "shirts"
+  | "jabhas"
+  | "tote-bags"
+  | "kurtis-dresses"
+  | "pillow-covers";
+
   categoryLabel: string;
+  collection?: "handmade-happiness" | "festive-decor" | string;
   images: string[];
   description: string;
   story: string;
@@ -42,8 +43,29 @@ export const CATEGORIES = [
   { id: "tote-bags", label: "Tote Bags" },
   { id: "kurtis-dresses", label: "Kurtis & Dresses" },
   { id: "pillow-covers", label: "Pillow Covers" },
-  { id: "others", label: "Stoles & Decor" },
 ] as const;
+
+export interface CollectionInfo {
+  id: string;
+  title: string;
+  tagline: string;
+  theme: "light" | "dark";
+}
+
+export const COLLECTIONS: CollectionInfo[] = [
+  {
+    id: "handmade-happiness",
+    title: "HANDMADE HAPPINESS",
+    tagline: "This time, make your festive season special by giving them an authentic look.",
+    theme: "light",
+  },
+  {
+    id: "festive-decor",
+    title: "HANDMADE FESTIVE DECOR",
+    tagline: "CARRY THE FESTIVAL WITH U 🥰",
+    theme: "dark",
+  },
+];
 
 export const DESIGNS: DesignItem[] = [
   {
@@ -51,6 +73,7 @@ export const DESIGNS: DesignItem[] = [
     name: "Mayur Pankh (Peacock Feather)",
     category: "t-shirts",
     categoryLabel: "T-Shirts",
+    collection: "handmade-happiness",
     images: [
       "https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=80",
@@ -83,6 +106,7 @@ export const DESIGNS: DesignItem[] = [
     name: "Tree of Life (Kalamkari Roots)",
     category: "shirts",
     categoryLabel: "Shirts",
+    collection: "handmade-happiness",
     images: [
       "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=1000&q=80",
@@ -103,7 +127,7 @@ export const DESIGNS: DesignItem[] = [
     isNew: false,
     leadTimeDays: "5-7 days",
     careInstructions: [
-      "Hand wash with gentle detergent",
+      "Hand wash with eco-friendly detergent",
       "Air dry in shade to preserve pigment vitality",
       "Warm iron on reverse side",
     ],
@@ -113,6 +137,7 @@ export const DESIGNS: DesignItem[] = [
     name: "Kutch Mirrored Dunes Jabha",
     category: "jabhas",
     categoryLabel: "Jabhas",
+    collection: "handmade-happiness",
     images: [
       "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=1000&q=80",
@@ -143,6 +168,7 @@ export const DESIGNS: DesignItem[] = [
     name: "Matsya & Kamal Canvas Tote",
     category: "tote-bags",
     categoryLabel: "Tote Bags",
+    collection: "festive-decor",
     images: [
       "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1000&q=80",
@@ -172,6 +198,7 @@ export const DESIGNS: DesignItem[] = [
     name: "Kamdhenu & Lotus Kurti",
     category: "kurtis-dresses",
     categoryLabel: "Kurtis & Dresses",
+    collection: "handmade-happiness",
     images: [
       "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1000&q=80",
@@ -203,6 +230,7 @@ export const DESIGNS: DesignItem[] = [
     name: "Gulmohar in Bloom Pillow Covers",
     category: "pillow-covers",
     categoryLabel: "Pillow Covers",
+    collection: "festive-decor",
     images: [
       "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1000&q=80",
@@ -230,39 +258,11 @@ export const DESIGNS: DesignItem[] = [
     ],
   },
   {
-    id: "rani-bagh-marigold-stole",
-    name: "Phool Silk Stole",
-    category: "others",
-    categoryLabel: "Stoles & Decor",
-    images: [
-      "https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80",
-    ],
-    description:
-      "A lightweight tussar silk stole scattered with hand-painted delicate floral petals.",
-    story:
-      "Each petal is dabbed with wet-on-wet brush technique so pigment softly diffuses into natural silk threads.",
-    availableOn: ["Pure Cotton-Silk Stole (2.2m)", "Chiffon Dupatta (2.5m)", "Framed Fabric Wall Tapestry"],
-    colors: [
-      { name: "Raw Unbleached Ecru", hex: "#FAF6EF" },
-      { name: "Srujan Blue", hex: "#2A3F8F" },
-      { name: "Deep Indigo", hex: "#16204A" },
-    ],
-    sizes: ["Stole: 22 x 80 inches", "Dupatta: 36 x 98 inches"],
-    isFeatured: true,
-    isNew: true,
-    leadTimeDays: "5-7 days",
-    careInstructions: [
-      "Dry clean recommended for first wash",
-      "Subsequent washes: hand rinse in cold water with mild liquid soap",
-      "Steam iron while lightly damp",
-    ],
-  },
-  {
     id: "warli-tarpa-dance-tee",
     name: "Warli Rhythm & Tarpa Dance",
     category: "t-shirts",
     categoryLabel: "T-Shirts",
+    collection: "handmade-happiness",
     images: [
       "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=80",
@@ -292,6 +292,7 @@ export const DESIGNS: DesignItem[] = [
     name: "Monsoon Clouds & Cranes",
     category: "shirts",
     categoryLabel: "Shirts",
+    collection: "handmade-happiness",
     images: [
       "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=1000&q=80",
@@ -322,6 +323,7 @@ export const DESIGNS: DesignItem[] = [
     name: "Geometric Bloom Ajrakh Jabha",
     category: "jabhas",
     categoryLabel: "Jabhas",
+    collection: "festive-decor",
     images: [
       "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=1000&q=80",
@@ -351,6 +353,7 @@ export const DESIGNS: DesignItem[] = [
     name: "Champa & Jasmine Cushion",
     category: "pillow-covers",
     categoryLabel: "Pillow Covers",
+    collection: "festive-decor",
     images: [
       "https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1000&q=80",
@@ -380,6 +383,7 @@ export const DESIGNS: DesignItem[] = [
     name: "Neelakurinji Blossom & Indigo Waves",
     category: "kurtis-dresses",
     categoryLabel: "Kurtis & Dresses",
+    collection: "handmade-happiness",
     images: [
       "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=80",

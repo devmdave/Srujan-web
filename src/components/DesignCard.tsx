@@ -6,7 +6,7 @@ import Link from "next/link";
 import { DesignItem } from "@/data/designs";
 import { getProductWhatsAppUrl } from "@/config/siteConfig";
 import { useWishlist } from "@/context/WishlistContext";
-import { Heart, MessageCircle, ArrowUpRight } from "lucide-react";
+import { Heart, MessageCircle } from "lucide-react";
 
 interface DesignCardProps {
   design: DesignItem;
@@ -16,7 +16,7 @@ export default function DesignCard({ design }: DesignCardProps) {
   const { isInWishlist, toggleWishlist } = useWishlist();
   const isSaved = isInWishlist(design.id);
 
-  const defaultProduct = design.availableOn[0] || "Handmade Fabric";
+  const defaultProduct = design.availableOn[0] || design.categoryLabel || "Handmade Piece";
   const whatsappUrl = getProductWhatsAppUrl({
     designName: design.name,
     productType: defaultProduct,
@@ -24,30 +24,43 @@ export default function DesignCard({ design }: DesignCardProps) {
   });
 
   return (
-    <div className="group bg-[#EFE8DC] rounded-xs overflow-hidden border border-[#E2DACB] hover:border-[#1F2430]/30 transition-colors flex flex-col justify-between">
-      {/* Neutral image container */}
-      <div className="relative aspect-4/3 w-full overflow-hidden bg-[#FAF6EF]">
-        <Link href={`/shop/${design.id}`} className="block w-full h-full">
+    <div className="group bg-[#EFE8DC] rounded-xs overflow-hidden border border-[#E2DACB] hover:border-[#1F2430]/40 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+      {/* Product image on top (portrait 4:5 ratio, neutral background) */}
+      <div className="relative aspect-4/5 w-full overflow-hidden bg-[#FAF6EF]">
+        <Link href={`/shop/${design.id}`} className="block w-full h-full relative">
+          {/* Primary image */}
           <Image
             src={design.images[0]}
             alt={design.name}
             fill
-            className="object-cover group-hover:scale-103 transition-transform duration-300 ease-out"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-opacity duration-300"
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
             loading="lazy"
           />
+
+          {/* Hover on desktop: second image fades in */}
+          {design.images[1] && (
+            <Image
+              src={design.images[1]}
+              alt={`${design.name} alternate view`}
+              fill
+              className="object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
+              loading="lazy"
+            />
+          )}
         </Link>
 
-        {/* Badges Overlay */}
-        <div className="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10 pointer-events-none">
-          {design.isNew && (
+        {/* Small "New" badge on image when isNew is true (blue or white, never yellow) */}
+        {design.isNew && (
+          <div className="absolute top-2.5 left-2.5 z-10 pointer-events-none">
             <span className="px-2 py-0.5 rounded-xs bg-[#2A3F8F] text-white text-[10px] uppercase font-semibold tracking-wider">
               New
             </span>
-          )}
-        </div>
+          </div>
+        )}
 
-        {/* Wishlist Button */}
+        {/* Wishlist heart in top-right corner of image */}
         <button
           type="button"
           onClick={() => toggleWishlist(design)}
@@ -63,71 +76,33 @@ export default function DesignCard({ design }: DesignCardProps) {
         </button>
       </div>
 
-      {/* Content */}
-      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+      {/* Content below image */}
+      <div className="p-3.5 sm:p-4 flex-1 flex flex-col justify-between">
         <div>
-          {/* Category */}
-          <div className="flex items-center justify-between mb-1">
-            <span className="text-[10px] uppercase tracking-wider font-semibold text-[#717A8C]">
-              {design.categoryLabel}
-            </span>
-            <span className="text-[10px] text-[#717A8C]">
-              Hand-painted
-            </span>
-          </div>
-
-          {/* Title */}
+          {/* Design name (clicking opens product detail page) */}
           <Link href={`/shop/${design.id}`}>
-            <h3 className="font-serif text-base sm:text-lg text-[#1F2430] group-hover:text-[#2A3F8F] transition-colors line-clamp-1">
+            <h3 className="font-serif text-sm sm:text-base text-[#1F2430] group-hover:text-[#2A3F8F] transition-colors line-clamp-1">
               {design.name}
             </h3>
           </Link>
 
-          {/* Description */}
-          <p className="text-xs text-[#4B5263] line-clamp-2 mt-1 leading-relaxed">
-            {design.description}
+          {/* Product type below name in small grey text */}
+          <p className="text-[11px] text-[#717A8C] mt-0.5 truncate">
+            {design.categoryLabel}
           </p>
-
-          {/* Available On tags */}
-          <div className="mt-3 flex flex-wrap gap-1">
-            {design.availableOn.slice(0, 2).map((item, idx) => (
-              <span
-                key={idx}
-                className="text-[10px] px-1.5 py-0.5 rounded-xs bg-[#FAF6EF] text-[#4B5263] border border-[#E2DACB]"
-              >
-                {item}
-              </span>
-            ))}
-            {design.availableOn.length > 2 && (
-              <span className="text-[10px] text-[#717A8C] self-center">
-                +{design.availableOn.length - 2}
-              </span>
-            )}
-          </div>
         </div>
 
-        {/* Action Row */}
-        <div className="mt-4 pt-3 border-t border-[#E2DACB] flex items-center gap-2">
-          {/* Primary Action Button: Srujan Blue with White text */}
+        {/* "DM for Price" button at bottom of card */}
+        <div className="mt-3 pt-2.5 border-t border-[#E2DACB]">
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white text-xs font-semibold tracking-wide transition-colors text-center"
+            className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white text-xs font-semibold tracking-wide transition-colors text-center"
           >
-            <MessageCircle className="w-3.5 h-3.5 fill-white" />
+            <MessageCircle className="w-3.5 h-3.5 fill-white shrink-0" />
             <span>DM for Price</span>
           </a>
-
-          {/* Secondary Link: Details */}
-          <Link
-            href={`/shop/${design.id}`}
-            className="p-2 rounded-xs bg-[#FAF6EF] hover:bg-white text-[#1F2430] border border-[#E2DACB] transition-colors"
-            title="View full piece"
-            aria-label={`View ${design.name}`}
-          >
-            <ArrowUpRight className="w-4 h-4" />
-          </Link>
         </div>
       </div>
     </div>

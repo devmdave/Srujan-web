@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  allowedDevOrigins: [
+    "localhost",
+    "192.168.29.162",
+    "*.local",
+  ],
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {

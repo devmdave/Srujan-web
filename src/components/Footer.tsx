@@ -199,11 +199,6 @@ export default function Footer() {
                   Pillow Covers
                 </Link>
               </li>
-              <li>
-                <Link href="/shop?category=others" className="hover:text-white transition-colors">
-                  Stoles & Wall Hangings
-                </Link>
-              </li>
             </ul>
           </div>
 

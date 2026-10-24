@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/config/siteConfig";
 import { useWishlist } from "@/context/WishlistContext";
+import navbarLogo from "@/assets/navbar_logo.png";
 import {
   Heart,
   Menu,
@@ -43,20 +45,21 @@ export default function Header() {
       {/* Main Header */}
       <header className="sticky top-0 z-40 bg-[#16204A] text-white border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center">
               <Link
                 href="/"
-                className="group flex flex-col justify-center"
-                title={`${siteConfig.brandName} - ${siteConfig.brandSlogan}`}
+                className="flex items-center p-0 m-0"
+                title="Srujan"
               >
-                <span className="text-2xl sm:text-3xl font-serif tracking-tight text-white group-hover:text-[#FAF6EF]/90 transition-colors">
-                  {siteConfig.brandName}
-                </span>
-                <span className="text-[10px] text-white/70 font-sans tracking-widest uppercase -mt-0.5 hidden sm:block">
-                  {siteConfig.brandSlogan}
-                </span>
+                <Image
+                  src={navbarLogo}
+                  alt="Srujan"
+                  className="h-12 md:h-16 w-auto max-w-none object-contain p-0 m-0"
+                  style={{ width: "auto" }}
+                  priority
+                />
               </Link>
             </div>
 
