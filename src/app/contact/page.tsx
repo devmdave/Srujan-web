@@ -27,13 +27,19 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-2xl mb-12">
-          <span className="text-[11px] font-sans tracking-widest uppercase text-[#717A8C]">
-            Direct Channels
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-serif text-[#1F2430] mt-1 tracking-tight">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="font-gujarati font-medium text-base sm:text-lg tracking-widest text-[#2A3F8F]">
+              સૃજન
+            </span>
+            <span className="text-xs text-[#717A8C]">·</span>
+            <span className="text-[12px] sm:text-[13px] font-body font-semibold tracking-wider uppercase text-[#717A8C]">
+              Sampark · Contact Studio
+            </span>
+          </div>
+          <h1 className="text-[32px] sm:text-[44px] font-heading font-medium text-[#1F2430] mt-1 tracking-normal leading-tight">
             Contact the Studio
           </h1>
-          <p className="text-xs sm:text-sm text-[#4B5263] mt-2 leading-relaxed">
+          <p className="text-[16px] text-[#4B5263] mt-2 leading-[1.6] font-body font-normal">
             Whether you want a quote on an existing piece, have a custom wedding inquiry, or want to discuss fabric painting — reach out directly.
           </p>
         </div>
@@ -51,7 +57,7 @@ export default function ContactPage() {
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-[#717A8C]">
                     Direct Chat
                   </span>
-                  <h3 className="font-serif text-base text-[#1F2430] mt-0.5">
+                  <h3 className="font-heading font-medium text-base text-[#1F2430] mt-0.5">
                     WhatsApp
                   </h3>
                   <p className="text-xs text-[#4B5263] mt-0.5 leading-relaxed">
@@ -63,7 +69,7 @@ export default function ContactPage() {
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white text-xs font-semibold tracking-wider uppercase transition-colors"
+                    className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white text-[14px] font-body font-bold tracking-normal transition-colors"
                   >
                     <span>Message {siteConfig.whatsappDisplayNumber}</span>
                   </a>
@@ -81,7 +87,7 @@ export default function ContactPage() {
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-[#717A8C]">
                     Visual Portfolio
                   </span>
-                  <h3 className="font-serif text-base text-[#1F2430] mt-0.5">
+                  <h3 className="font-heading font-medium text-base text-[#1F2430] mt-0.5">
                     Instagram DMs
                   </h3>
                   <p className="text-xs text-[#4B5263] mt-0.5 leading-relaxed">
@@ -91,7 +97,7 @@ export default function ContactPage() {
                     href={siteConfig.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xs border border-[#2A3F8F] text-[#2A3F8F] hover:bg-[#2A3F8F] hover:text-white text-xs font-semibold tracking-wider uppercase transition-colors"
+                    className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 rounded-xs border border-[#2A3F8F] text-[#2A3F8F] hover:bg-[#2A3F8F] hover:text-white text-[14px] font-body font-bold tracking-normal transition-colors"
                   >
                     <span>@{siteConfig.instagramHandle}</span>
                   </a>
@@ -146,7 +152,7 @@ export default function ContactPage() {
             <span className="text-[10px] uppercase font-semibold tracking-wider text-[#717A8C]">
               Direct Message
             </span>
-            <h2 className="text-xl sm:text-2xl font-serif text-[#1F2430] mt-1 mb-2">
+            <h2 className="text-xl sm:text-2xl font-heading font-medium text-[#1F2430] mt-1 mb-2">
               Send a Note to the Artist
             </h2>
             <p className="text-xs text-[#4B5263] mb-6 leading-relaxed">
@@ -158,7 +164,7 @@ export default function ContactPage() {
                 e.preventDefault();
                 window.open(directWhatsAppLink, "_blank");
               }}
-              className="space-y-4 text-xs"
+              className="space-y-4 text-xs font-body"
             >
               <div>
                 <label className="block font-semibold text-[#1F2430] mb-1">
@@ -215,11 +221,11 @@ export default function ContactPage() {
                 />
               </div>
 
-              {/* Primary button: Srujan Blue on light background */}
+              {/* Primary button: Nunito Sans 700, 14-15px, no all-caps */}
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3 px-4 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white font-semibold text-xs tracking-wider uppercase transition-colors flex items-center justify-center gap-2"
+                  className="w-full py-3.5 px-4 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white font-body font-bold text-[14px] sm:text-[15px] tracking-normal transition-colors flex items-center justify-center gap-2"
                 >
                   <MessageCircle className="w-4 h-4 fill-white" />
                   <span>Send via WhatsApp</span>

@@ -78,13 +78,19 @@ export default function FAQPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-2xl mb-12">
-          <span className="text-[11px] font-sans tracking-widest uppercase text-[#717A8C]">
-            Questions & Care
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-serif text-[#1F2430] mt-1 tracking-tight">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="font-gujarati font-medium text-base sm:text-lg tracking-widest text-[#2A3F8F]">
+              સૃજન
+            </span>
+            <span className="text-xs text-[#717A8C]">·</span>
+            <span className="text-[12px] sm:text-[13px] font-body font-semibold tracking-wider uppercase text-[#717A8C]">
+              Margdarshan · Questions & Care
+            </span>
+          </div>
+          <h1 className="text-[32px] sm:text-[44px] font-heading font-medium text-[#1F2430] mt-1 tracking-normal leading-tight">
             Frequently Asked Questions
           </h1>
-          <p className="text-xs sm:text-sm text-[#4B5263] mt-2 leading-relaxed">
+          <p className="text-[16px] text-[#4B5263] mt-2 leading-[1.6] font-body font-normal">
             Everything you need to know about our fabric paints, washing durability, custom commissions, and the WhatsApp ordering process.
           </p>
         </div>
@@ -131,7 +137,7 @@ export default function FAQPage() {
                   className="w-full p-4 text-left flex items-center justify-between gap-4 focus:outline-none"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-serif text-sm sm:text-base text-[#1F2430]">
+                  <span className="font-heading font-medium text-sm sm:text-base text-[#1F2430]">
                     {faq.q}
                   </span>
                   <ChevronDown
@@ -153,31 +159,31 @@ export default function FAQPage() {
 
         {/* Bottom Dark Box: Deep Indigo #16204A with white buttons */}
         <div className="mt-14 bg-[#16204A] text-white rounded-xs p-8 sm:p-10 border border-white/10 text-left sm:text-center">
-          <h3 className="font-serif text-xl sm:text-2xl text-white mb-2">
+          <h3 className="font-heading font-medium text-xl sm:text-2xl text-white mb-2">
             Have a question not listed here?
           </h3>
           <p className="text-xs text-white/80 max-w-md mx-auto mb-6 leading-relaxed">
             Message us anytime on WhatsApp. We are happy to advise on fabric care, custom sizes, or delivery dates.
           </p>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
-            {/* White button on dark section */}
+            {/* White button on dark section: Nunito Sans 700, 14-15px, no all-caps */}
             <a
               href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
                 "Hi Srujan, I had a quick question about your hand-painted pieces."
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-xs bg-white text-[#16204A] hover:bg-[#FAF6EF] font-semibold text-xs tracking-wider uppercase inline-flex items-center justify-center gap-2"
+              className="px-6 py-3 rounded-xs bg-white text-[#16204A] hover:bg-[#FAF6EF] font-body font-bold text-[14px] sm:text-[15px] tracking-normal inline-flex items-center justify-center gap-2 transition-colors"
             >
               <MessageCircle className="w-3.5 h-3.5 fill-[#16204A]" />
               <span>Ask on WhatsApp</span>
             </a>
-            {/* Outlined white button on dark section */}
+            {/* Outlined white button on dark section: Nunito Sans 700, 14-15px, no all-caps */}
             <a
               href={siteConfig.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-xs border border-white text-white hover:bg-white hover:text-[#16204A] font-semibold text-xs tracking-wider uppercase inline-flex items-center justify-center gap-2"
+              className="px-6 py-3 rounded-xs border border-white text-white hover:bg-white hover:text-[#16204A] font-body font-bold text-[14px] sm:text-[15px] tracking-normal inline-flex items-center justify-center gap-2 transition-colors"
             >
               <InstagramIcon className="w-3.5 h-3.5" />
               <span>DM on Instagram</span>

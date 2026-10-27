@@ -82,7 +82,7 @@ export default function ProductDetailClient({
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-[#717A8C]" />
           <Link href="/shop" className="hover:text-[#1F2430]">
-            Collection
+            Shop
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-[#717A8C]" />
           <Link
@@ -215,19 +215,19 @@ export default function ProductDetailClient({
                 </div>
               </div>
 
-              {/* Title */}
-              <h1 className="text-3xl sm:text-4xl font-serif text-[#1F2430] tracking-tight">
+              {/* Title: Fraunces softer rounded heading */}
+              <h1 className="text-3xl sm:text-4xl font-heading font-medium text-[#1F2430] tracking-normal">
                 {design.name}
               </h1>
 
               {/* Lead Time & Handmade tag */}
-              <div className="mt-2 flex items-center gap-3 text-xs text-[#717A8C]">
-                <span className="inline-flex items-center gap-1 text-[#2F5D4B] font-medium">
+              <div className="mt-2 flex items-center gap-3 text-[13px] font-body text-[#717A8C]">
+                <span className="inline-flex items-center gap-1 text-[#2F5D4B] font-semibold">
                   <ShieldCheck className="w-3.5 h-3.5" />
                   <span>Washable & Heat-Cured</span>
                 </span>
                 <span>•</span>
-                <span className="inline-flex items-center gap-1">
+                <span className="inline-flex items-center gap-1 font-normal">
                   <Clock className="w-3.5 h-3.5 text-[#717A8C]" />
                   <span>Lead Time: {design.leadTimeDays}</span>
                 </span>
@@ -236,15 +236,15 @@ export default function ProductDetailClient({
 
             {/* Short Story & Inspiration */}
             <div className="border-l-2 border-[#2A3F8F] pl-3 py-0.5">
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-[#717A8C] block mb-1">
+              <span className="text-[12px] font-body font-semibold uppercase tracking-wider text-[#717A8C] block mb-1">
                 Inspiration
               </span>
-              <p className="text-xs sm:text-sm text-[#4B5263] italic font-serif leading-relaxed">
+              <p className="text-[15px] sm:text-[16px] text-[#4B5263] italic font-heading font-normal leading-[1.6]">
                 &ldquo;{design.story}&rdquo;
               </p>
             </div>
 
-            <p className="text-xs sm:text-sm text-[#4B5263] leading-relaxed">
+            <p className="text-[16px] text-[#4B5263] leading-[1.6] font-body font-normal">
               {design.description}
             </p>
 
@@ -338,23 +338,23 @@ export default function ProductDetailClient({
 
             {/* Core Ordering Flow Action Box */}
             <div className="pt-2 space-y-2.5">
-              {/* Primary Action Button: Srujan Blue on Light Background */}
+              {/* Primary Action Button: Nunito Sans 700, 14-15px, no all-caps */}
               <a
                 href={productWhatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white font-semibold text-xs tracking-wider uppercase transition-colors text-center"
+                className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white font-body font-bold text-[14px] sm:text-[15px] tracking-normal transition-colors text-center"
               >
                 <MessageCircle className="w-4 h-4 fill-white shrink-0" />
                 <span>DM for Price on WhatsApp</span>
               </a>
 
-              {/* Secondary Action: Outlined Blue Border on Light Background */}
+              {/* Secondary Action: Nunito Sans 700, 14-15px, no all-caps */}
               <a
                 href={siteConfig.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-2.5 px-6 rounded-xs border border-[#2A3F8F] text-[#2A3F8F] hover:bg-[#2A3F8F] hover:text-white font-semibold text-xs tracking-wider uppercase transition-colors text-center"
+                className="w-full flex items-center justify-center gap-2 py-2.5 px-6 rounded-xs border border-[#2A3F8F] text-[#2A3F8F] hover:bg-[#2A3F8F] hover:text-white font-body font-bold text-[14px] sm:text-[15px] tracking-normal transition-colors text-center"
               >
                 <InstagramIcon className="w-3.5 h-3.5" />
                 <span>Order on Instagram (@{siteConfig.instagramHandle})</span>
@@ -384,16 +384,16 @@ export default function ProductDetailClient({
           <div className="mt-16 sm:mt-20 pt-10 border-t border-[#E2DACB]">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
               <div>
-                <span className="text-[11px] font-sans tracking-widest uppercase text-[#717A8C]">
+                <span className="text-[12px] font-body font-semibold tracking-widest uppercase text-[#717A8C]">
                   Related Pieces
                 </span>
-                <h2 className="text-2xl font-serif text-[#1F2430] mt-1">
+                <h2 className="text-[28px] lg:text-[40px] font-heading font-medium text-[#1F2430] leading-tight mt-1">
                   You Might Also Admire
                 </h2>
               </div>
               <Link
                 href="/shop"
-                className="mt-2 sm:mt-0 text-xs font-semibold uppercase tracking-wider text-[#2A3F8F] hover:underline"
+                className="mt-2 sm:mt-0 text-[14px] sm:text-[15px] font-body font-semibold text-[#2A3F8F] hover:underline"
               >
                 View collection →
               </Link>

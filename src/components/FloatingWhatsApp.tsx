@@ -15,7 +15,7 @@ export default function FloatingWhatsApp() {
     <div className="fixed bottom-6 right-5 sm:bottom-8 sm:right-8 z-50 flex items-center">
       {/* Editorial tooltip note */}
       {showTooltip && (
-        <div className="hidden sm:flex items-center gap-2 mr-3 bg-white text-[#1F2430] py-1.5 px-3 rounded-xs border border-[#E2DACB] shadow-xs text-xs">
+        <div className="hidden sm:flex items-center gap-2 mr-3 bg-white text-[#1F2430] py-1.5 px-3 rounded-xs border border-[#E2DACB] shadow-xs text-[13px] font-body font-medium">
           <span>Chat with the artist</span>
           <button
             type="button"

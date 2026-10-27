@@ -16,8 +16,52 @@
   --color-whatsapp: #25D366;
   --color-whatsapp-hover: #1EBE5D;
 
-  --font-serif: var(--font-serif), Georgia, serif;
-  --font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-heading), "Fraunces", Georgia, serif;
+  --font-body: var(--font-body), "Nunito Sans", system-ui, -apple-system, sans-serif;
+  --font-gujarati: var(--font-gujarati), "Noto Serif Gujarati", serif;
+
+  /* Aliases for backwards compatibility */
+  --font-serif: var(--font-heading), "Fraunces", Georgia, serif;
+  --font-sans: var(--font-body), "Nunito Sans", system-ui, -apple-system, sans-serif;
+}
+
+/* Soft, rounded Fraunces typography with serif fallback */
+h1, h2, h3, h4, h5, h6, .font-heading, .font-serif {
+  font-family: var(--font-heading), Georgia, serif;
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+}
+
+.font-body, body, input, select, textarea, button {
+  font-family: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.font-gujarati {
+  font-family: var(--font-gujarati), "Noto Serif Gujarati", serif;
+  font-weight: 500;
+}
+
+/* Traditional Indian Mehrab (Arch) Curvature */
+.mehrab-hero {
+  border-radius: 180px 180px 4px 4px;
+}
+@media (min-width: 640px) {
+  .mehrab-hero {
+    border-radius: 240px 240px 4px 4px;
+  }
+}
+@media (min-width: 1024px) {
+  .mehrab-hero {
+    border-radius: 280px 280px 4px 4px;
+  }
+}
+
+.mehrab-category {
+  border-radius: 60px 60px 4px 4px;
+}
+@media (min-width: 640px) {
+  .mehrab-category {
+    border-radius: 75px 75px 4px 4px;
+  }
 }
 
 :root {

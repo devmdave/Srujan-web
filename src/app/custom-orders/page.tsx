@@ -56,13 +56,19 @@ export default function CustomOrdersPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-2xl mb-12">
-          <span className="text-[11px] font-sans tracking-widest uppercase text-[#717A8C]">
-            Bespoke Commissions
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-serif text-[#1F2430] mt-1 tracking-tight">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="font-gujarati font-medium text-base sm:text-lg tracking-widest text-[#2A3F8F]">
+              સૃજન
+            </span>
+            <span className="text-xs text-[#717A8C]">·</span>
+            <span className="text-[12px] sm:text-[13px] font-body font-semibold tracking-wider uppercase text-[#717A8C]">
+              Bespoke Karigari · Custom Orders
+            </span>
+          </div>
+          <h1 className="text-[32px] sm:text-[44px] font-heading font-medium text-[#1F2430] mt-1 tracking-normal leading-tight">
             Order a Custom Piece
           </h1>
-          <p className="text-xs sm:text-sm text-[#4B5263] mt-2 leading-relaxed">
+          <p className="text-[16px] text-[#4B5263] mt-2 leading-[1.6] font-body font-normal">
             Have a personal thought, a favorite flower, or a gift for someone dear? We paint directly on fabric based on your vision.
           </p>
         </div>
@@ -78,7 +84,7 @@ export default function CustomOrdersPage() {
               >
                 <div>
                   <IconC className="w-4 h-4 text-[#2A3F8F] mb-3" />
-                  <h3 className="font-serif text-base text-[#1F2430] mb-1.5">
+                  <h3 className="font-heading font-medium text-base text-[#1F2430] mb-1.5">
                     {occ.title}
                   </h3>
                   <p className="text-xs text-[#4B5263] leading-relaxed">
@@ -101,7 +107,7 @@ export default function CustomOrdersPage() {
               <span className="text-[10px] uppercase font-semibold tracking-wider text-[#717A8C]">
                 WhatsApp Inquiry Form
               </span>
-              <h2 className="text-xl sm:text-2xl font-serif text-[#1F2430] mt-1">
+              <h2 className="text-xl sm:text-2xl font-heading font-medium text-[#1F2430] mt-1">
                 Tell Us What You Envision
               </h2>
               <p className="text-xs text-[#4B5263] mt-1">
@@ -114,7 +120,7 @@ export default function CustomOrdersPage() {
                 e.preventDefault();
                 window.open(customOrderWhatsAppUrl, "_blank");
               }}
-              className="space-y-4 text-xs"
+              className="space-y-4 text-xs font-body"
             >
               {/* Name */}
               <div>
@@ -207,11 +213,11 @@ export default function CustomOrdersPage() {
                 />
               </div>
 
-              {/* Primary button: Srujan Blue on light background */}
+              {/* Primary button: Nunito Sans 700, 14-15px, no all-caps */}
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3 px-4 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white font-semibold text-xs tracking-wider uppercase transition-colors flex items-center justify-center gap-2"
+                  className="w-full py-3.5 px-4 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white font-body font-bold text-[14px] sm:text-[15px] tracking-normal transition-colors flex items-center justify-center gap-2"
                 >
                   <MessageCircle className="w-4 h-4 fill-white" />
                   <span>Send Inquiry via WhatsApp</span>
@@ -226,7 +232,7 @@ export default function CustomOrdersPage() {
           {/* Right: How Custom Orders Work */}
           <div className="lg:col-span-5 space-y-6">
             <div className="bg-[#FAF6EF] p-6 rounded-xs border border-[#E2DACB]">
-              <h3 className="font-serif text-lg text-[#1F2430] mb-3">
+              <h3 className="font-heading font-medium text-lg text-[#1F2430] mb-3">
                 How Custom Orders Work
               </h3>
 
@@ -263,7 +269,7 @@ export default function CustomOrdersPage() {
 
             {/* Dark Box: Deep Indigo #16204A with white button */}
             <div className="bg-[#16204A] text-white p-6 rounded-xs border border-white/10">
-              <h3 className="font-serif text-base mb-1.5">
+              <h3 className="font-heading font-medium text-base mb-1.5">
                 Prefer Instagram?
               </h3>
               <p className="text-xs text-white/80 mb-4 leading-relaxed">
@@ -274,9 +280,9 @@ export default function CustomOrdersPage() {
                 href={siteConfig.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xs bg-white text-[#16204A] hover:bg-[#FAF6EF] font-semibold text-xs tracking-wider uppercase transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xs bg-white text-[#16204A] hover:bg-[#FAF6EF] font-body font-bold text-[14px] sm:text-[15px] transition-colors"
               >
-                <InstagramIcon className="w-3.5 h-3.5" />
+                <InstagramIcon className="w-4 h-4" />
                 <span>DM @{siteConfig.instagramHandle}</span>
               </a>
             </div>

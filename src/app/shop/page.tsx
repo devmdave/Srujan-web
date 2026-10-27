@@ -65,20 +65,26 @@ function ShopContent() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-2xl mb-10">
-          <span className="text-[11px] font-sans tracking-widest uppercase text-[#717A8C]">
-            Catalog
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-serif text-[#1F2430] mt-1 tracking-tight">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="font-gujarati font-medium text-base sm:text-lg tracking-widest text-[#2A3F8F]">
+              સૃજન
+            </span>
+            <span className="text-xs text-[#717A8C]">·</span>
+            <span className="text-[12px] sm:text-[13px] font-body font-semibold tracking-wider uppercase text-[#717A8C]">
+              Hath Se Banaya · Handpainted Catalog
+            </span>
+          </div>
+          <h1 className="text-[32px] sm:text-[44px] font-heading font-medium text-[#1F2430] mt-1 tracking-normal leading-tight">
             The Collection
           </h1>
-          <p className="text-xs sm:text-sm text-[#4B5263] mt-2 leading-relaxed">
+          <p className="text-[16px] text-[#4B5263] mt-2 leading-[1.6] font-body font-normal">
             Every piece is painted by hand upon order. There are no prices shown here because we tailor the fabric, silhouette, and size to you. Click “DM for Price” to ask the artist directly.
           </p>
 
           {/* Simple DM notice strip */}
-          <div className="mt-4 p-3 bg-[#EFE8DC] border border-[#E2DACB] rounded-xs text-xs text-[#1F2430] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
+          <div className="mt-4 p-3 bg-[#EFE8DC] border border-[#E2DACB] rounded-xs text-[14px] font-body text-[#1F2430] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
             <div className="flex items-center gap-2">
-              <Info className="w-3.5 h-3.5 text-[#2A3F8F] shrink-0" />
+              <Info className="w-4 h-4 text-[#2A3F8F] shrink-0" />
               <span>Click “DM for Price” on any piece to chat on WhatsApp.</span>
             </div>
             <a
@@ -87,7 +93,7 @@ function ShopContent() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1 bg-[#2A3F8F] hover:bg-[#203173] text-white text-[11px] font-semibold tracking-wider uppercase rounded-xs shrink-0 transition-colors"
+              className="px-4 py-2 bg-[#2A3F8F] hover:bg-[#203173] text-white text-[14px] font-body font-bold tracking-normal rounded-xs shrink-0 transition-colors"
             >
               Ask on WhatsApp
             </a>
@@ -232,7 +238,7 @@ function ShopContent() {
         ) : (
           <div className="bg-[#EFE8DC] rounded-xs p-12 text-center border border-[#E2DACB] my-8">
             <Filter className="w-8 h-8 text-[#717A8C] mx-auto mb-3" />
-            <h3 className="font-serif text-lg text-[#1F2430] mb-1">
+            <h3 className="font-heading font-medium text-lg text-[#1F2430] mb-1">
               No matching pieces found
             </h3>
             <p className="text-xs text-[#717A8C] max-w-sm mx-auto mb-5">
@@ -245,7 +251,7 @@ function ShopContent() {
                   setSelectedCategory("all");
                   setSearchQuery("");
                 }}
-                className="px-4 py-2 rounded-xs border border-[#1F2430] text-[#1F2430] text-xs font-semibold"
+                className="px-4 py-2 rounded-xs border border-[#1F2430] text-[#1F2430] font-body font-bold text-[14px] sm:text-[15px]"
               >
                 Clear filters
               </button>
@@ -255,7 +261,7 @@ function ShopContent() {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white text-xs font-semibold"
+                className="px-4 py-2 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white font-body font-bold text-[14px] sm:text-[15px]"
               >
                 Request Custom Motif
               </a>
@@ -274,7 +280,7 @@ export default function ShopPage() {
     <Suspense
       fallback={
         <div className="min-h-screen flex items-center justify-center bg-[#FAF6EF]">
-          <p className="text-xs font-serif text-[#717A8C]">Loading Srujan Collection...</p>
+          <p className="text-sm font-heading font-medium text-[#717A8C]">Loading Srujan Collection...</p>
         </div>
       }
     >

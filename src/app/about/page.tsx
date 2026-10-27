@@ -38,13 +38,19 @@ export default function AboutPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-14">
-          <span className="text-[11px] font-sans tracking-widest uppercase text-[#717A8C]">
-            Our Story
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-serif text-[#1F2430] mt-1 tracking-tight">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="font-gujarati font-medium text-base sm:text-lg tracking-widest text-[#2A3F8F]">
+              સૃજન
+            </span>
+            <span className="text-xs text-[#717A8C]">·</span>
+            <span className="text-[12px] sm:text-[13px] font-body font-semibold tracking-wider uppercase text-[#717A8C]">
+              Kala & Karigari · Our Story
+            </span>
+          </div>
+          <h1 className="text-[32px] sm:text-[44px] font-heading font-medium text-[#1F2430] mt-1 tracking-normal leading-tight">
             Art Built by Hand, One Brushstroke at a Time
           </h1>
-          <p className="text-sm sm:text-base text-[#4B5263] mt-3 font-serif italic leading-relaxed">
+          <p className="text-[16px] sm:text-[18px] text-[#4B5263] mt-3 font-heading italic font-normal leading-[1.6]">
             &ldquo;We wanted clothes that carry the fragrance of wet pigments, the pulse of a human hand, and an individuality no factory machine can reproduce.&rdquo;
           </p>
         </div>
@@ -71,7 +77,7 @@ export default function AboutPage() {
             <span className="text-[10px] uppercase font-semibold tracking-wider text-[#717A8C] block">
               Why We Started
             </span>
-            <h2 className="text-xl sm:text-2xl font-serif text-[#1F2430] leading-snug">
+            <h2 className="text-xl sm:text-2xl font-heading font-medium text-[#1F2430] leading-snug">
               In a world of identical printed garments, we chose the slow craft of fabric painting.
             </h2>
             <p>
@@ -81,7 +87,7 @@ export default function AboutPage() {
               As painters, our canvas had always been stretched paper and linen boards. One morning, we laid a plain raw cotton jabha on the table, picked up camel hair brushes, and painted a peacock plume across the chest. When we wore it out, people stopped to touch the fabric and ask about the strokes.
             </p>
             <p>
-              In Sanskrit, <strong className="text-[#1F2430] font-serif">Srujan (सृजन)</strong> means purposeful creation. We committed to that premise: every garment, tote, and pillow cover leaving our studio would be touched by real brushes and mixed by real hands.
+              In Sanskrit, <strong className="text-[#1F2430] font-heading font-medium">Srujan (<span className="font-gujarati font-medium">સૃજન</span>)</strong> means purposeful creation. We committed to that premise: every garment, tote, and pillow cover leaving our studio would be touched by real brushes and mixed by real hands.
             </p>
           </div>
         </div>
@@ -94,7 +100,7 @@ export default function AboutPage() {
             <span className="text-[10px] uppercase font-semibold tracking-wider text-[#717A8C] block">
               Philosophy
             </span>
-            <h2 className="text-xl sm:text-2xl font-serif text-[#1F2430] leading-snug">
+            <h2 className="text-xl sm:text-2xl font-heading font-medium text-[#1F2430] leading-snug">
               Slight variation is not a flaw — it is the soul of the work.
             </h2>
             <p>
@@ -127,7 +133,7 @@ export default function AboutPage() {
             <span className="text-[10px] uppercase font-semibold tracking-wider text-[#717A8C]">
               Materials
             </span>
-            <h2 className="text-xl sm:text-2xl font-serif text-[#1F2430] mt-1">
+            <h2 className="text-xl sm:text-2xl font-heading font-medium text-[#1F2430] mt-1">
               What Goes Onto the Fabric
             </h2>
           </div>
@@ -139,7 +145,7 @@ export default function AboutPage() {
                 className="bg-[#FAF6EF] p-5 rounded-xs border border-[#E2DACB]"
               >
                 <span className="text-xs font-mono text-[#717A8C]">0{i + 1}</span>
-                <h3 className="font-serif text-base text-[#1F2430] mt-1 mb-1">
+                <h3 className="font-heading font-medium text-base text-[#1F2430] mt-1 mb-1">
                   {mat.title}
                 </h3>
                 <p className="text-xs text-[#4B5263] leading-relaxed">
@@ -152,7 +158,7 @@ export default function AboutPage() {
 
         {/* Bottom Dark Box: Deep Indigo #16204A with white buttons */}
         <div className="bg-[#16204A] text-white p-8 sm:p-12 rounded-xs border border-white/10 text-left sm:text-center max-w-3xl mx-auto">
-          <h2 className="text-2xl font-serif text-white mb-2">
+          <h2 className="text-2xl font-heading font-medium text-white mb-2">
             Talk to the Artist
           </h2>
           <p className="text-xs sm:text-sm text-white/80 max-w-md mx-auto mb-6 leading-relaxed">
@@ -166,15 +172,15 @@ export default function AboutPage() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-xs bg-white text-[#16204A] hover:bg-[#FAF6EF] font-semibold text-xs tracking-wider uppercase inline-flex items-center justify-center gap-2"
+              className="px-5 py-2.5 rounded-xs bg-white text-[#16204A] hover:bg-[#FAF6EF] font-body font-bold text-[14px] sm:text-[15px] inline-flex items-center justify-center gap-2 transition-colors"
             >
-              <MessageCircle className="w-3.5 h-3.5 fill-[#16204A]" />
+              <MessageCircle className="w-4 h-4 fill-[#16204A]" />
               <span>Say Hello on WhatsApp</span>
             </a>
             {/* Outlined secondary button on dark section */}
             <Link
               href="/shop"
-              className="px-5 py-2.5 rounded-xs border border-white text-white hover:bg-white hover:text-[#16204A] font-semibold text-xs tracking-wider uppercase text-center"
+              className="px-5 py-2.5 rounded-xs border border-white text-white hover:bg-white hover:text-[#16204A] font-body font-bold text-[14px] sm:text-[15px] text-center transition-colors"
             >
               Explore Collection
             </Link>

@@ -35,10 +35,10 @@ export default function WishlistDrawer() {
             <div className="flex items-center gap-2.5">
               <Heart className="w-4 h-4 fill-[#2A3F8F] text-[#2A3F8F]" />
               <div>
-                <h2 className="font-serif text-base font-semibold text-[#1F2430]">
+                <h2 className="font-heading font-medium text-[18px] text-[#1F2430]">
                   Saved Pieces ({wishlist.length})
                 </h2>
-                <p className="text-[11px] text-[#717A8C]">Your personal collection</p>
+                <p className="text-[13px] font-body text-[#717A8C]">Your personal collection</p>
               </div>
             </div>
 
@@ -53,28 +53,28 @@ export default function WishlistDrawer() {
           </div>
 
           {/* Body */}
-          <div className="flex-1 overflow-y-auto p-5">
+          <div className="flex-1 overflow-y-auto p-5 font-body">
             {wishlist.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center text-center p-6">
                 <Heart className="w-8 h-8 stroke-1 text-[#717A8C] mb-3" />
-                <h3 className="font-serif text-base text-[#1F2430] mb-1">
+                <h3 className="font-heading font-medium text-[18px] text-[#1F2430] mb-1">
                   Your wishlist is empty
                 </h3>
-                <p className="text-xs text-[#717A8C] max-w-xs mb-6 leading-relaxed">
+                <p className="text-[14px] text-[#717A8C] max-w-xs mb-6 leading-[1.6]">
                   Save pieces while browsing the catalog to ask for custom sizing and prices together.
                 </p>
                 <button
                   type="button"
                   onClick={() => setIsDrawerOpen(false)}
-                  className="px-4 py-2 rounded-xs bg-[#2A3F8F] text-white text-xs font-semibold hover:bg-[#203173] transition-colors"
+                  className="px-5 py-2.5 rounded-xs bg-[#2A3F8F] text-white text-[14px] font-bold hover:bg-[#203173] transition-colors"
                 >
                   Browse Collection
                 </button>
               </div>
             ) : (
               <div className="space-y-4">
-                <div className="bg-[#EFE8DC] p-3 text-xs text-[#1F2430] border border-[#E2DACB] rounded-xs">
-                  <span className="font-semibold text-[#2A3F8F]">Note: </span>
+                <div className="bg-[#EFE8DC] p-3 text-[13px] text-[#1F2430] border border-[#E2DACB] rounded-xs leading-[1.5]">
+                  <span className="font-bold text-[#2A3F8F]">Note: </span>
                   Every piece is painted by hand upon order. You can send all your saved pieces together in one WhatsApp message.
                 </div>
 
@@ -91,17 +91,17 @@ export default function WishlistDrawer() {
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <span className="text-[10px] font-semibold uppercase tracking-wider text-[#717A8C]">
+                        <span className="text-[12px] font-normal text-[#717A8C] block truncate">
                           {item.categoryLabel}
                         </span>
-                        <h4 className="font-serif text-sm text-[#1F2430] truncate">
+                        <h4 className="font-semibold text-[15px] text-[#1F2430] truncate">
                           {item.name}
                         </h4>
                         <div className="mt-0.5">
                           <Link
                             href={`/shop/${item.id}`}
                             onClick={() => setIsDrawerOpen(false)}
-                            className="text-[11px] text-[#2A3F8F] hover:underline inline-flex items-center gap-1"
+                            className="text-[12px] text-[#2A3F8F] hover:underline inline-flex items-center gap-1 font-semibold"
                           >
                             <span>View story</span>
                             <ArrowRight className="w-2.5 h-2.5" />
@@ -125,30 +125,30 @@ export default function WishlistDrawer() {
 
           {/* Footer actions */}
           {wishlist.length > 0 && (
-            <div className="p-4 border-t border-[#E2DACB] bg-[#EFE8DC] space-y-2.5">
-              {/* Primary Srujan Blue button with white text */}
+            <div className="p-4 border-t border-[#E2DACB] bg-[#EFE8DC] space-y-2.5 font-body">
+              {/* Primary button: Nunito Sans 700, 14-15px, no all-caps */}
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white font-semibold text-xs tracking-wide transition-colors"
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white font-bold text-[14px] sm:text-[15px] tracking-normal transition-colors"
               >
                 <MessageCircle className="w-4 h-4 fill-white" />
                 <span>DM Wishlist on WhatsApp</span>
               </a>
 
-              <div className="flex items-center justify-between text-xs pt-1">
+              <div className="flex items-center justify-between text-[13px] pt-1">
                 <button
                   type="button"
                   onClick={clearWishlist}
-                  className="text-[#717A8C] hover:text-[#1F2430] underline"
+                  className="text-[#717A8C] hover:text-[#1F2430] underline font-normal"
                 >
                   Clear all
                 </button>
                 <button
                   type="button"
                   onClick={() => setIsDrawerOpen(false)}
-                  className="text-[#1F2430] font-medium hover:underline"
+                  className="text-[#1F2430] font-semibold hover:underline"
                 >
                   Continue browsing
                 </button>
