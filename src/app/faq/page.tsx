@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { siteConfig } from "@/config/siteConfig";
 import PaintStrokeDivider from "@/components/PaintStrokeDivider";
 import InstagramIcon from "@/components/icons/InstagramIcon";
@@ -74,23 +73,14 @@ export default function FAQPage() {
   });
 
   return (
-    <div className="py-10 sm:py-16 bg-[#FAF6EF] text-[#1F2430]">
+    <div className="py-10 sm:py-16 bg-white text-[#1A1A1A]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-2xl mb-12">
-          <div className="flex items-center gap-2 mb-1">
-            <span className="font-gujarati font-medium text-base sm:text-lg tracking-widest text-[#2A3F8F]">
-              સૃજન
-            </span>
-            <span className="text-xs text-[#717A8C]">·</span>
-            <span className="text-[12px] sm:text-[13px] font-body font-semibold tracking-wider uppercase text-[#717A8C]">
-              Margdarshan · Questions & Care
-            </span>
-          </div>
-          <h1 className="text-[32px] sm:text-[44px] font-heading font-medium text-[#1F2430] mt-1 tracking-normal leading-tight">
+          <h1 className="text-[32px] sm:text-[44px] font-heading font-normal text-[#1A1A1A] mt-1 tracking-normal leading-tight">
             Frequently Asked Questions
           </h1>
-          <p className="text-[16px] text-[#4B5263] mt-2 leading-[1.6] font-body font-normal">
+          <p className="text-[16px] text-[#6B6B6B] mt-2 leading-[1.6] font-body font-normal">
             Everything you need to know about our fabric paints, washing durability, custom commissions, and the WhatsApp ordering process.
           </p>
         </div>
@@ -113,8 +103,8 @@ export default function FAQPage() {
               }}
               className={`px-3 py-1.5 rounded-xs text-xs tracking-wider uppercase transition-colors border ${
                 activeTab === tab.id
-                  ? "bg-[#2A3F8F] text-white border-[#2A3F8F] font-semibold"
-                  : "bg-[#EFE8DC] text-[#1F2430] border-[#E2DACB] hover:border-[#1F2430]/40"
+                  ? "bg-[#7A1F2B] text-white border-[#7A1F2B] font-normal"
+                  : "bg-[#F8EFEC] text-[#1A1A1A] border-[#E5E5E5] hover:border-[#7A1F2B]"
               }`}
             >
               {tab.label}
@@ -129,7 +119,7 @@ export default function FAQPage() {
             return (
               <div
                 key={index}
-                className="bg-[#EFE8DC] rounded-xs border border-[#E2DACB] overflow-hidden"
+                className="bg-[#F8EFEC] rounded-xs border border-[#E5E5E5] overflow-hidden"
               >
                 <button
                   type="button"
@@ -137,18 +127,18 @@ export default function FAQPage() {
                   className="w-full p-4 text-left flex items-center justify-between gap-4 focus:outline-none"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-heading font-medium text-sm sm:text-base text-[#1F2430]">
+                  <span className="font-heading font-normal text-sm sm:text-base text-[#1A1A1A]">
                     {faq.q}
                   </span>
                   <ChevronDown
-                    className={`w-4 h-4 text-[#717A8C] shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-180 text-[#2A3F8F]" : ""
+                    className={`w-4 h-4 text-[#6B6B6B] shrink-0 transition-transform duration-200 ${
+                      isOpen ? "rotate-180 text-[#7A1F2B]" : ""
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 pb-4 pt-1 text-xs text-[#4B5263] leading-relaxed border-t border-[#E2DACB]">
+                  <div className="px-4 pb-4 pt-1 text-xs text-[#6B6B6B] leading-relaxed border-t border-[#E5E5E5]">
                     <p>{faq.a}</p>
                   </div>
                 )}
@@ -157,33 +147,33 @@ export default function FAQPage() {
           })}
         </div>
 
-        {/* Bottom Dark Box: Deep Indigo #16204A with white buttons */}
-        <div className="mt-14 bg-[#16204A] text-white rounded-xs p-8 sm:p-10 border border-white/10 text-left sm:text-center">
-          <h3 className="font-heading font-medium text-xl sm:text-2xl text-white mb-2">
+        {/* Bottom Dark Box: Deep Wine #2A0E13 with white buttons */}
+        <div className="mt-14 bg-[#2A0E13] text-white rounded-xs p-8 sm:p-10 border border-white/10 text-left sm:text-center">
+          <h3 className="font-heading font-normal text-xl sm:text-2xl text-white mb-2">
             Have a question not listed here?
           </h3>
           <p className="text-xs text-white/80 max-w-md mx-auto mb-6 leading-relaxed">
             Message us anytime on WhatsApp. We are happy to advise on fabric care, custom sizes, or delivery dates.
           </p>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
-            {/* White button on dark section: Nunito Sans 700, 14-15px, no all-caps */}
+            {/* White button on dark section */}
             <a
               href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
                 "Hi Srujan, I had a quick question about your hand-painted pieces."
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-xs bg-white text-[#16204A] hover:bg-[#FAF6EF] font-body font-bold text-[14px] sm:text-[15px] tracking-normal inline-flex items-center justify-center gap-2 transition-colors"
+              className="px-6 py-3 rounded-xs bg-white text-[#2A0E13] hover:bg-white/90 font-body font-normal text-[14px] sm:text-[15px] tracking-normal inline-flex items-center justify-center gap-2 transition-colors"
             >
-              <MessageCircle className="w-3.5 h-3.5 fill-[#16204A]" />
+              <MessageCircle className="w-3.5 h-3.5 fill-[#2A0E13]" />
               <span>Ask on WhatsApp</span>
             </a>
-            {/* Outlined white button on dark section: Nunito Sans 700, 14-15px, no all-caps */}
+            {/* Outlined white button on dark section */}
             <a
               href={siteConfig.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-xs border border-white text-white hover:bg-white hover:text-[#16204A] font-body font-bold text-[14px] sm:text-[15px] tracking-normal inline-flex items-center justify-center gap-2 transition-colors"
+              className="px-6 py-3 rounded-xs border border-white text-white hover:bg-white hover:text-[#2A0E13] font-body font-normal text-[14px] sm:text-[15px] tracking-normal inline-flex items-center justify-center gap-2 transition-colors"
             >
               <InstagramIcon className="w-3.5 h-3.5" />
               <span>DM on Instagram</span>
@@ -192,7 +182,7 @@ export default function FAQPage() {
         </div>
       </div>
 
-      <PaintStrokeDivider color="sand" className="mt-16" />
+      <PaintStrokeDivider color="maroon" className="mt-16" />
     </div>
   );
 }

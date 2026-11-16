@@ -1,38 +1,82 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cotton-white: #FAF6EF;
-  --color-warm-sand: #EFE8DC;
-  --color-warm-sand-dark: #E2DACB;
-  --color-charcoal-ink: #1F2430;
-  --color-charcoal-muted: #4B5263;
-  --color-charcoal-light: #717A8C;
-  --color-srujan-blue: #2A3F8F;
-  --color-srujan-blue-hover: #203173;
-  --color-srujan-blue-light: #EBF0FA;
-  --color-deep-indigo: #16204A;
-  --color-deep-indigo-dark: #0F1633;
-  --color-deep-green: #2F5D4B;
+  --color-page: #FFFFFF;
+  --color-navbar-text: #111111;
+  --color-body-text: #1A1A1A;
+  --color-secondary-text: #6B6B6B;
+  --color-border-subtle: #E5E5E5;
+  --color-maroon: #7A1F2B;
+  --color-maroon-hover: #5E1620;
+  --color-blush: #F8EFEC;
+  --color-deep-wine: #2A0E13;
   --color-whatsapp: #25D366;
   --color-whatsapp-hover: #1EBE5D;
 
-  --font-heading: var(--font-heading), "Fraunces", Georgia, serif;
-  --font-body: var(--font-body), "Nunito Sans", system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-heading), "Crimson Pro", Georgia, serif;
+  --font-body: var(--font-body), "Work Sans", system-ui, -apple-system, sans-serif;
   --font-gujarati: var(--font-gujarati), "Noto Serif Gujarati", serif;
 
   /* Aliases for backwards compatibility */
-  --font-serif: var(--font-heading), "Fraunces", Georgia, serif;
-  --font-sans: var(--font-body), "Nunito Sans", system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-heading), "Crimson Pro", Georgia, serif;
+  --font-sans: var(--font-body), "Work Sans", system-ui, -apple-system, sans-serif;
 }
 
-/* Soft, rounded Fraunces typography with serif fallback */
-h1, h2, h3, h4, h5, h6, .font-heading, .font-serif {
-  font-family: var(--font-heading), Georgia, serif;
-  font-variation-settings: "SOFT" 100, "WONK" 0;
+/* Headings: regular font weight only (font-weight: 400) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-text,
+.font-heading,
+.font-serif,
+.crimson-pro {
+  font-family: var(--font-heading), "Crimson Pro", Georgia, serif;
+  font-weight: 400;
 }
 
-.font-body, body, input, select, textarea, button {
-  font-family: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+/* Product names: regular font weight only (font-weight: 400) */
+.product-name {
+  font-family: var(--font-body), "Work Sans", sans-serif;
+  font-weight: 400;
+}
+
+/* Buttons and CTA text: regular font weight only (font-weight: 400) */
+button,
+.btn,
+.button {
+  font-family: var(--font-body), "Work Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 400;
+}
+
+/* Work Sans as global default and for all body, UI, buttons, inputs, product details */
+body,
+input,
+select,
+textarea,
+button,
+.font-body,
+.font-sans,
+.work-sans {
+  font-family: var(--font-body), "Work Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 400;
+}
+
+/* Explicit font utility classes */
+.work-sans {
+  font-family: var(--font-body), "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.crimson-pro {
+  font-family: var(--font-heading), "Crimson Pro", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .font-gujarati {
@@ -65,19 +109,24 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-serif {
 }
 
 :root {
-  --bg-cotton-white: #FAF6EF;
-  --bg-warm-sand: #EFE8DC;
-  --text-charcoal-ink: #1F2430;
-  --color-srujan-blue: #2A3F8F;
-  --color-deep-indigo: #16204A;
-  --color-deep-green: #2F5D4B;
+  --bg-page: #FFFFFF;
+  --text-navbar: #111111;
+  --text-body: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --border-subtle: #E5E5E5;
+  --color-maroon: #7A1F2B;
+  --color-maroon-hover: #5E1620;
+  --bg-blush: #F8EFEC;
+  --bg-deep-wine: #2A0E13;
+  --color-deep-wine: #2A0E13;
   --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #1EBE5D;
 }
 
-/* Base clean layout - No gradients, solid calm background */
+/* Base clean layout - Pure white page background, no gradients, no heavy shadows */
 body {
-  background-color: #FAF6EF;
-  color: #1F2430;
+  background-color: #FFFFFF;
+  color: #1A1A1A;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
@@ -91,13 +140,13 @@ html {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF6EF;
+  background: #FFFFFF;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2A3F8F;
+  background: #7A1F2B;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #203173;
+  background: #5E1620;
 }
 
 /* Subtle editorial stroke underline */
@@ -112,7 +161,7 @@ html {
   bottom: -2px;
   width: 100%;
   height: 2px;
-  background-color: #2A3F8F;
+  background-color: #7A1F2B;
   transition: transform 0.2s ease;
 }
 .brush-underline:hover::after {

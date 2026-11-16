@@ -1,14 +1,14 @@
 import React, { useId } from "react";
 
 interface IndianPatternBgProps {
-  color?: "white" | "blue" | "sand";
+  color?: "white" | "maroon" | "wine" | "border";
   opacity?: number; // e.g. 0.05
   className?: string;
 }
 
 /**
  * Traditional Indian Block-Print & Buta Background Pattern
- * Creates a subtle, faint backdrop for the Footer and "How Ordering Works" section.
+ * Creates a subtle, faint backdrop for the Footer and dark sections.
  */
 export default function IndianPatternBg({
   color = "white",
@@ -18,7 +18,14 @@ export default function IndianPatternBg({
   const rawId = useId();
   const patternId = `indian-bg-pattern-${rawId.replace(/:/g, "")}`;
 
-  const strokeColor = color === "blue" ? "#2A3F8F" : color === "sand" ? "#E2DACB" : "#FFFFFF";
+  const strokeColor =
+    color === "maroon"
+      ? "#7A1F2B"
+      : color === "wine"
+      ? "#2A0E13"
+      : color === "border"
+      ? "#E5E5E5"
+      : "#FFFFFF";
 
   return (
     <div

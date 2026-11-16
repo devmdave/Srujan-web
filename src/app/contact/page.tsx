@@ -1,242 +1,251 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { siteConfig, createWhatsAppUrl } from "@/config/siteConfig";
 import PaintStrokeDivider from "@/components/PaintStrokeDivider";
-import InstagramIcon from "@/components/icons/InstagramIcon";
-import {
-  MessageCircle,
-  Mail,
-  MapPin,
-  Clock,
-} from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 export default function ContactPage() {
   const [senderName, setSenderName] = useState("");
-  const [topic, setTopic] = useState("General Inquiry");
+  const [topic, setTopic] = useState("Price inquiry on a specific design");
   const [message, setMessage] = useState("");
 
   const directWhatsAppLink = createWhatsAppUrl(
-    `Hi Srujan, my name is ${senderName || "a visitor"}. Regarding ${topic}: ${
+    `Hi Srujan, my name is ${senderName || "a visitor"}.\nRegarding: ${topic}\n\n${
       message || "I would love to chat about your hand-painted pieces."
     }`
   );
 
   return (
-    <div className="py-10 sm:py-16 bg-[#FAF6EF] text-[#1F2430]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="max-w-2xl mb-12">
-          <div className="flex items-center gap-2 mb-1">
-            <span className="font-gujarati font-medium text-base sm:text-lg tracking-widest text-[#2A3F8F]">
-              સૃજન
-            </span>
-            <span className="text-xs text-[#717A8C]">·</span>
-            <span className="text-[12px] sm:text-[13px] font-body font-semibold tracking-wider uppercase text-[#717A8C]">
-              Sampark · Contact Studio
-            </span>
-          </div>
-          <h1 className="text-[32px] sm:text-[44px] font-heading font-medium text-[#1F2430] mt-1 tracking-normal leading-tight">
-            Contact the Studio
+    <div className="py-20 sm:py-28 bg-[#FAF7F2] text-[#1A1A1A] min-h-screen">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        {/* Magazine-Style Editorial Opening */}
+        <div className="max-w-4xl mb-16 sm:mb-24">
+          <h1 className="text-[42px] sm:text-[60px] lg:text-[76px] font-heading font-normal text-[#1A1A1A] leading-[1.04] tracking-normal">
+            Connect with the Atelier
           </h1>
-          <p className="text-[16px] text-[#4B5263] mt-2 leading-[1.6] font-body font-normal">
-            Whether you want a quote on an existing piece, have a custom wedding inquiry, or want to discuss fabric painting — reach out directly.
+          <p className="text-[19px] sm:text-[23px] text-[#6B6B6B] font-heading italic mt-5 leading-relaxed max-w-2xl">
+            &ldquo;Every piece we paint begins with a conversation.&rdquo;
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Left Column: Direct Contact Channels */}
-          <div className="lg:col-span-5 space-y-4">
-            {/* WhatsApp Card */}
-            <div className="bg-[#EFE8DC] p-5 rounded-xs border border-[#E2DACB]">
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-xs bg-[#2A3F8F] text-white flex items-center justify-center shrink-0">
-                  <MessageCircle className="w-4 h-4 fill-white" />
-                </div>
-                <div className="flex-1">
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#717A8C]">
-                    Direct Chat
-                  </span>
-                  <h3 className="font-heading font-medium text-base text-[#1F2430] mt-0.5">
-                    WhatsApp
-                  </h3>
-                  <p className="text-xs text-[#4B5263] mt-0.5 leading-relaxed">
-                    Fastest way to talk sizing, fabric shades, and quotes with the artist.
-                  </p>
-                  <a
-                    href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-                      "Hi Srujan, I am reaching out from your website contact page."
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white text-[14px] font-body font-bold tracking-normal transition-colors"
-                  >
-                    <span>Message {siteConfig.whatsappDisplayNumber}</span>
-                  </a>
-                </div>
+        {/* Asymmetric Editorial Spread */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-start">
+          {/* Left Column: Brand Story & Atelier Journal (Cols 1-5) */}
+          <div className="lg:col-span-5 space-y-12">
+            {/* Textile & Atelier Visual Element */}
+            <div className="space-y-3">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F2ECE5] rounded-xs">
+                <Image
+                  src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=1000&q=80"
+                  alt="Hand-painted textile and natural fabric drape in Srujan studio"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  priority
+                />
               </div>
+              <p className="text-[12px] font-body text-[#8C8479] italic leading-normal">
+                Natural cottons, hand-mixed pigments & fine brushes · Ahmedabad & Bengaluru
+              </p>
             </div>
 
-            {/* Instagram Card */}
-            <div className="bg-[#EFE8DC] p-5 rounded-xs border border-[#E2DACB]">
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-xs bg-[#16204A] text-white flex items-center justify-center shrink-0">
-                  <InstagramIcon className="w-4 h-4" />
-                </div>
-                <div className="flex-1">
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#717A8C]">
-                    Visual Portfolio
-                  </span>
-                  <h3 className="font-heading font-medium text-base text-[#1F2430] mt-0.5">
-                    Instagram DMs
-                  </h3>
-                  <p className="text-xs text-[#4B5263] mt-0.5 leading-relaxed">
-                    Send photos, references, or queries directly to our studio inbox.
-                  </p>
-                  <a
-                    href={siteConfig.instagramUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 rounded-xs border border-[#2A3F8F] text-[#2A3F8F] hover:bg-[#2A3F8F] hover:text-white text-[14px] font-body font-bold tracking-normal transition-colors"
-                  >
-                    <span>@{siteConfig.instagramHandle}</span>
-                  </a>
-                </div>
-              </div>
+            {/* Narrative Contact Sections with Whisper-Thin Rules */}
+            <div className="pt-8 border-t border-[#EAE4DC] space-y-2">
+              <h3 className="text-xl sm:text-2xl font-heading font-normal text-[#1A1A1A]">
+                The Atelier
+              </h3>
+              <p className="text-[15px] text-[#1A1A1A] font-body leading-relaxed">
+                {siteConfig.location}
+              </p>
+              <p className="text-[13px] text-[#8C8479] font-body leading-relaxed pt-1">
+                Visits are welcomed by prior WhatsApp appointment to review raw fabrics, placement swatches, and works-in-progress.
+              </p>
             </div>
 
-            {/* Details Card */}
-            <div className="bg-[#FAF6EF] p-5 rounded-xs border border-[#E2DACB] space-y-3 text-xs text-[#4B5263]">
-              <div className="flex items-start gap-2.5">
-                <Mail className="w-3.5 h-3.5 text-[#2A3F8F] shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-[#1F2430] block font-semibold">
-                    Email
-                  </strong>
-                  <a
-                    href={`mailto:${siteConfig.email}`}
-                    className="hover:underline text-[#2A3F8F]"
-                  >
-                    {siteConfig.email}
-                  </a>
-                </div>
+            <div className="pt-8 border-t border-[#EAE4DC] space-y-2">
+              <h3 className="text-xl sm:text-2xl font-heading font-normal text-[#1A1A1A]">
+                Direct Line
+              </h3>
+              <div>
+                <a
+                  href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
+                    "Hi Srujan, I am reaching out from your website contact page."
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-baseline gap-2 text-[18px] sm:text-[20px] font-body font-normal text-[#1A1A1A] hover:text-[#7A1F2B] transition-colors"
+                >
+                  <span>{siteConfig.whatsappDisplayNumber}</span>
+                  <span className="text-[14px] text-[#7A1F2B] transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">
+                    ↗
+                  </span>
+                </a>
               </div>
+              <p className="text-[13px] text-[#8C8479] font-body leading-relaxed pt-1">
+                WhatsApp is our primary medium for quick sizing discussions, motif previews, and direct quotes. Active Monday – Saturday, 10:00 AM – 7:30 PM IST.
+              </p>
+            </div>
 
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-3.5 h-3.5 text-[#2A3F8F] shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-[#1F2430] block font-semibold">
-                    Location
-                  </strong>
-                  <span>{siteConfig.location}</span>
-                  <p className="text-[11px] text-[#717A8C] mt-0.5">
-                    Visits by prior WhatsApp appointment.
-                  </p>
-                </div>
+            <div className="pt-8 border-t border-[#EAE4DC] space-y-2">
+              <h3 className="text-xl sm:text-2xl font-heading font-normal text-[#1A1A1A]">
+                Visual Portfolio
+              </h3>
+              <div>
+                <a
+                  href={siteConfig.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-baseline gap-2 text-[18px] sm:text-[20px] font-body font-normal text-[#1A1A1A] hover:text-[#7A1F2B] transition-colors"
+                >
+                  <span>@{siteConfig.instagramHandle}</span>
+                  <span className="text-[14px] text-[#7A1F2B] transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">
+                    ↗
+                  </span>
+                </a>
               </div>
+              <p className="text-[13px] text-[#8C8479] font-body leading-relaxed pt-1">
+                Explore our working archives, painting videos, or send screenshots of motifs you would like us to interpret.
+              </p>
+            </div>
 
-              <div className="flex items-start gap-2.5">
-                <Clock className="w-3.5 h-3.5 text-[#2A3F8F] shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-[#1F2430] block font-semibold">
-                    Studio Hours
-                  </strong>
-                  <span>Monday – Saturday: 10:00 AM – 7:30 PM IST</span>
-                </div>
+            <div className="pt-8 border-t border-[#EAE4DC] space-y-2">
+              <h3 className="text-xl sm:text-2xl font-heading font-normal text-[#1A1A1A]">
+                Written Inquiries
+              </h3>
+              <div>
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="group inline-flex items-baseline gap-2 text-[16px] sm:text-[17px] font-body font-normal text-[#1A1A1A] hover:text-[#7A1F2B] transition-colors"
+                >
+                  <span>{siteConfig.email}</span>
+                  <span className="text-[14px] text-[#7A1F2B] transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">
+                    ↗
+                  </span>
+                </a>
               </div>
+              <p className="text-[13px] text-[#8C8479] font-body leading-relaxed pt-1">
+                For creative collaborations, bridal trousseau inquiries, and atelier press.
+              </p>
             </div>
           </div>
 
-          {/* Right Column: Message Composer */}
-          <div className="lg:col-span-7 bg-[#EFE8DC] p-6 sm:p-8 rounded-xs border border-[#E2DACB]">
-            <span className="text-[10px] uppercase font-semibold tracking-wider text-[#717A8C]">
-              Direct Message
-            </span>
-            <h2 className="text-xl sm:text-2xl font-heading font-medium text-[#1F2430] mt-1 mb-2">
-              Send a Note to the Artist
-            </h2>
-            <p className="text-xs text-[#4B5263] mb-6 leading-relaxed">
-              Type your note below. We will format it and open WhatsApp so you can send it in one tap.
-            </p>
+          {/* Asymmetric Spacer Column on Desktop (Col 6) */}
+          <div className="hidden lg:block lg:col-span-1" />
+
+          {/* Right Column: Note to the Artist & Minimal Form (Cols 7-12) */}
+          <div className="lg:col-span-6 space-y-10">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-heading font-normal text-[#1A1A1A] leading-tight">
+                A Note to the Artist
+              </h2>
+              <p className="text-[15px] sm:text-[16px] text-[#6B6B6B] font-body leading-relaxed mt-3 max-w-lg">
+                Tell us about an upcoming occasion, a personal motif, or silhouette you envision. We will curate our thoughts and connect with you on WhatsApp.
+              </p>
+            </div>
 
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 window.open(directWhatsAppLink, "_blank");
               }}
-              className="space-y-4 text-xs font-body"
+              className="space-y-10 sm:space-y-12 font-body pt-2"
             >
-              <div>
-                <label className="block font-semibold text-[#1F2430] mb-1">
+              {/* Name Field */}
+              <div className="group">
+                <label
+                  htmlFor="senderName"
+                  className="block text-[11px] sm:text-[12px] uppercase tracking-widest text-[#8C8479] mb-2 font-body font-normal transition-colors group-focus-within:text-[#7A1F2B]"
+                >
                   Your Name
                 </label>
                 <input
+                  id="senderName"
                   type="text"
                   required
-                  placeholder="e.g. Aarav Mehta"
+                  placeholder="Enter your name"
                   value={senderName}
                   onChange={(e) => setSenderName(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xs bg-[#FAF6EF] text-[#1F2430] border border-[#E2DACB] focus:outline-none focus:border-[#2A3F8F]"
+                  className="w-full bg-transparent border-b border-[#D8D2C7] focus:border-[#7A1F2B] py-3 text-[16px] sm:text-[17px] text-[#1A1A1A] placeholder:text-[#B5ADA3] rounded-none focus:outline-none transition-colors"
                 />
               </div>
 
-              <div>
-                <label className="block font-semibold text-[#1F2430] mb-1">
-                  Topic
-                </label>
-                <select
-                  value={topic}
-                  onChange={(e) => setTopic(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xs bg-[#FAF6EF] text-[#1F2430] border border-[#E2DACB] focus:outline-none focus:border-[#2A3F8F] cursor-pointer"
+              {/* Topic / Nature of Inquiry */}
+              <div className="group">
+                <label
+                  htmlFor="topic"
+                  className="block text-[11px] sm:text-[12px] uppercase tracking-widest text-[#8C8479] mb-2 font-body font-normal transition-colors group-focus-within:text-[#7A1F2B]"
                 >
-                  <option value="Price inquiry on a specific design">
-                    Price inquiry on a specific design
-                  </option>
-                  <option value="Custom commission for wedding / gift">
-                    Custom commission for wedding / gift
-                  </option>
-                  <option value="Bulk or corporate hand-painted order">
-                    Bulk or corporate hand-painted order
-                  </option>
-                  <option value="Shipping or Delivery question">
-                    Shipping or Delivery question
-                  </option>
-                  <option value="General question">
-                    General question
-                  </option>
-                </select>
+                  Nature of Inquiry
+                </label>
+                <div className="relative">
+                  <select
+                    id="topic"
+                    value={topic}
+                    onChange={(e) => setTopic(e.target.value)}
+                    className="w-full bg-transparent border-b border-[#D8D2C7] focus:border-[#7A1F2B] py-3 pr-8 text-[16px] sm:text-[17px] text-[#1A1A1A] rounded-none focus:outline-none cursor-pointer appearance-none transition-colors"
+                  >
+                    <option value="Price inquiry on a specific design" className="bg-[#FAF7F2] text-[#1A1A1A]">
+                      Price inquiry on a specific design
+                    </option>
+                    <option value="Custom commission for wedding / gift" className="bg-[#FAF7F2] text-[#1A1A1A]">
+                      Custom commission for wedding / gift
+                    </option>
+                    <option value="Bulk or corporate hand-painted order" className="bg-[#FAF7F2] text-[#1A1A1A]">
+                      Bulk or corporate hand-painted order
+                    </option>
+                    <option value="Shipping or Delivery question" className="bg-[#FAF7F2] text-[#1A1A1A]">
+                      Shipping or Delivery question
+                    </option>
+                    <option value="General question" className="bg-[#FAF7F2] text-[#1A1A1A]">
+                      General question
+                    </option>
+                  </select>
+                  <ChevronDown className="w-4 h-4 text-[#8C8479] absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none" />
+                </div>
               </div>
 
-              <div>
-                <label className="block font-semibold text-[#1F2430] mb-1">
+              {/* Message Field */}
+              <div className="group">
+                <label
+                  htmlFor="message"
+                  className="block text-[11px] sm:text-[12px] uppercase tracking-widest text-[#8C8479] mb-2 font-body font-normal transition-colors group-focus-within:text-[#7A1F2B]"
+                >
                   Your Message
                 </label>
                 <textarea
+                  id="message"
                   rows={4}
                   required
-                  placeholder="Tell us what you would like to know..."
+                  placeholder="Describe the motif, fabric shade, garment silhouette, or custom thought you have in mind..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xs bg-[#FAF6EF] text-[#1F2430] border border-[#E2DACB] focus:outline-none focus:border-[#2A3F8F]"
+                  className="w-full bg-transparent border-b border-[#D8D2C7] focus:border-[#7A1F2B] py-3 text-[16px] sm:text-[17px] text-[#1A1A1A] placeholder:text-[#B5ADA3] rounded-none focus:outline-none transition-colors resize-none leading-relaxed"
                 />
               </div>
 
-              {/* Primary button: Nunito Sans 700, 14-15px, no all-caps */}
-              <div className="pt-2">
+              {/* Minimal Text-Style CTA */}
+              <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full py-3.5 px-4 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white font-body font-bold text-[14px] sm:text-[15px] tracking-normal transition-colors flex items-center justify-center gap-2"
+                  className="group inline-flex items-center gap-2.5 text-[16px] sm:text-[17px] font-body font-normal text-[#7A1F2B] hover:text-[#5E1620] tracking-wide border-b border-[#7A1F2B] hover:border-[#5E1620] pb-1.5 transition-all duration-200 cursor-pointer"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white" />
                   <span>Send via WhatsApp</span>
+                  <span className="text-[17px] transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">
+                    ↗
+                  </span>
                 </button>
+                <p className="text-[12px] text-[#8C8479] mt-3 font-body font-normal leading-relaxed">
+                  Opens a direct WhatsApp conversation with the artist. No pre-payment or automated cart required.
+                </p>
               </div>
             </form>
           </div>
         </div>
       </div>
 
-      <PaintStrokeDivider color="sand" className="mt-16" />
+      <PaintStrokeDivider color="maroon" className="mt-24 sm:mt-32" />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { siteConfig } from "@/config/siteConfig";
 import { DESIGNS, COLLECTIONS } from "@/data/designs";
 import DesignCard from "@/components/DesignCard";
+import HeroSlider from "@/components/HeroSlider";
 import IndianMotifBorder from "@/components/IndianMotifBorder";
 import IndianPatternBg from "@/components/IndianPatternBg";
 import InstagramIcon from "@/components/icons/InstagramIcon";
@@ -13,7 +14,8 @@ import kurtaCategoryImg from "@/assets/category_images/kurta.jpeg";
 import totebagsCategoryImg from "@/assets/category_images/totebags.jpeg";
 import pillowcoverCategoryImg from "@/assets/category_images/pillowcover.jpg";
 import {
-  ArrowRight,
+  Sparkles,
+  Clock,
   MessageCircle,
 } from "lucide-react";
 
@@ -21,7 +23,7 @@ export default function HomePage() {
   // New Arrivals (4 designs for a clean 4-column desktop, 2-column mobile grid)
   const newArrivals = DESIGNS.slice(0, 4);
 
-  // Shop by Category: 6 core categories
+  // Shop by Category: 6 core categories (rendered with circular avatars)
   const categories = [
     {
       id: "t-shirts",
@@ -112,114 +114,47 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="flex flex-col bg-[#FAF6EF] text-[#1F2430]">
-      {/* 1. ARCH-SHAPED HERO SECTION */}
-      <section className="pt-8 pb-12 sm:pt-12 sm:pb-16 border-b border-[#E2DACB]">
+    <div className="flex flex-col bg-white text-[#1A1A1A]">
+      {/* 1. FULL-WIDTH HERO BANNER SLIDER */}
+      <HeroSlider />
+
+      {/* 2. SLIM TRUST STRIP: Handpainted in India | Made to order | DM to order on WhatsApp */}
+      <section className="bg-white border-b border-[#E5E5E5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Column: Short, confident copy with Gujarati wordmark and 1 button */}
-            <div className="lg:col-span-7 space-y-5 sm:space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="font-gujarati font-medium text-base sm:text-lg tracking-widest text-[#2A3F8F]">
-                  સૃજન
-                </span>
-                <span className="text-xs text-[#717A8C]">·</span>
-                <span className="text-[12px] sm:text-[13px] font-body font-semibold tracking-[0.15em] uppercase text-[#717A8C]">
-                  Hath Se Banaya · Handpainted in India
-                </span>
-              </div>
-
-              {/* Hero heading: 40px mobile, 64px desktop, line-height 1.1, normal letter-spacing */}
-              <h1 className="text-[40px] lg:text-[64px] font-heading font-medium text-[#1F2430] tracking-normal leading-[1.1]">
-                Wearable art, <br />
-                <span className="italic font-normal">painted by hand.</span>
-              </h1>
-
-              {/* Body text: Nunito Sans 400, 16px, line-height 1.6 */}
-              <p className="text-[16px] leading-[1.6] text-[#4B5263] max-w-lg font-body font-normal">
-                Every piece is hand-painted with camel hair brush on natural Indian cottons, khadi, and linens. Created for festive mornings, thoughtful gifting, and everyday celebrations.
-              </p>
-
-              {/* One primary Shop Now button: Nunito Sans 700, 14-15px, no all-caps */}
-              <div className="pt-2">
-                <Link
-                  href="/shop"
-                  className="px-7 py-3.5 rounded-xs bg-[#2A3F8F] hover:bg-[#203173] text-white font-body font-bold text-[14px] sm:text-[15px] tracking-normal transition-colors inline-flex items-center justify-center gap-2"
-                >
-                  <span>Shop Now</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-
-              {/* Minimal 3-point feature label row */}
-              <div className="pt-6 border-t border-[#E2DACB] grid grid-cols-3 gap-2 sm:gap-4 text-[#717A8C]">
-                <div>
-                  <span className="block font-heading font-semibold text-[18px] sm:text-[20px] text-[#1F2430]">
-                    100%
-                  </span>
-                  <span className="text-[13px] font-body font-normal text-[#717A8C]">Hath se banaya</span>
-                </div>
-                <div className="border-l border-[#E2DACB] pl-3 sm:pl-4">
-                  <span className="block font-heading font-semibold text-[18px] sm:text-[20px] text-[#1F2430]">
-                    Washable
-                  </span>
-                  <span className="text-[13px] font-body font-normal text-[#717A8C]">Heat-set colors</span>
-                </div>
-                <div className="border-l border-[#E2DACB] pl-3 sm:pl-4">
-                  <span className="block font-heading font-semibold text-[18px] sm:text-[20px] text-[#1F2430]">
-                    Pan-India
-                  </span>
-                  <span className="text-[13px] font-body font-normal text-[#717A8C]">Speed delivery</span>
-                </div>
-              </div>
+          <div className="grid grid-cols-3 divide-x divide-[#E5E5E5] py-3.5 sm:py-4">
+            <div className="flex items-center justify-center gap-1.5 sm:gap-2.5 px-2 text-center">
+              <Sparkles className="w-4 h-4 text-[#7A1F2B] shrink-0 stroke-[1.5]" />
+              <span className="font-body text-[12px] sm:text-[14px] font-medium text-[#1A1A1A] tracking-normal">
+                Handpainted in India
+              </span>
             </div>
-
-            {/* Right Column: Mehrab (Arch) Shape Hero Image */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-[380px] sm:max-w-[420px] aspect-[4/5] mehrab-hero overflow-hidden border border-[#E2DACB] bg-[#EFE8DC]">
-                <Image
-                  src={kurtaCategoryImg}
-                  alt="Srujan hand-painted lotus motif on natural Indian khadi kurta"
-                  fill
-                  priority
-                  loading="eager"
-                  className="object-cover object-center"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
-                />
-                {/* Subtle handcrafted provenance badge */}
-                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-2.5 sm:p-3 bg-[#FAF6EF]/95 backdrop-blur-xs border border-[#E2DACB] rounded-xs flex items-center justify-between text-xs">
-                  <div>
-                    <span className="block font-heading font-medium text-[14px] text-[#1F2430]">
-                      Lotus Blossom Jabha
-                    </span>
-                    <span className="text-[12px] font-body font-normal text-[#717A8C] block">
-                      Permanent pigments on unbleached khadi
-                    </span>
-                  </div>
-                  <span className="text-[11px] uppercase tracking-wider font-body font-bold px-2 py-0.5 rounded-xs bg-[#2A3F8F]/10 text-[#2A3F8F] shrink-0">
-                    ORIGINAL
-                  </span>
-                </div>
-              </div>
+            <div className="flex items-center justify-center gap-1.5 sm:gap-2.5 px-2 text-center">
+              <Clock className="w-4 h-4 text-[#7A1F2B] shrink-0 stroke-[1.5]" />
+              <span className="font-body text-[12px] sm:text-[14px] font-medium text-[#1A1A1A] tracking-normal">
+                Made to order
+              </span>
+            </div>
+            <div className="flex items-center justify-center gap-1.5 sm:gap-2.5 px-2 text-center">
+              <MessageCircle className="w-4 h-4 text-[#7A1F2B] shrink-0 stroke-[1.5]" />
+              <span className="font-body text-[12px] sm:text-[14px] font-medium text-[#1A1A1A] tracking-normal">
+                DM to order on WhatsApp
+              </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. SHOP BY CATEGORY: Row of arch-shaped image icons with small label below each */}
-      <section className="py-12 sm:py-16 bg-[#FAF6EF]">
+      {/* 3. SHOP BY CATEGORY: Row of circular image icons with small label below each */}
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-10">
-            <span className="text-[12px] font-body font-semibold tracking-widest uppercase text-[#717A8C]">
-              Vibhag · Categories
-            </span>
             {/* Section heading: 28px mobile, 40px desktop */}
-            <h2 className="text-[28px] lg:text-[40px] font-heading font-medium text-[#1F2430] leading-tight mt-1">
+            <h2 className="text-[28px] lg:text-[40px] font-heading font-normal text-[#1A1A1A] leading-tight">
               Shop by Category
             </h2>
           </div>
 
-          {/* Row of arch-shaped image icons with label below */}
+          {/* Row of circular image icons with label below */}
           <div className="flex items-start justify-center gap-4 sm:gap-6 md:gap-8 overflow-x-auto pb-4 pt-1 px-2 scrollbar-none">
             {categories.map((cat) => (
               <Link
@@ -227,18 +162,18 @@ export default function HomePage() {
                 href={`/shop?category=${cat.id}`}
                 className="group flex flex-col items-center shrink-0 text-center w-20 sm:w-28 md:w-32 focus:outline-none"
               >
-                {/* Arch-shaped image icon */}
-                <div className="relative w-full aspect-[3/4] mehrab-category overflow-hidden border border-[#E2DACB] bg-[#EFE8DC] group-hover:border-[#2A3F8F] transition-all duration-300 group-hover:-translate-y-1">
+                {/* Circular image icon with Blush backdrop */}
+                <div className="relative w-18 h-18 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden border border-[#E5E5E5] bg-[#F8EFEC] group-hover:border-[#7A1F2B] transition-all duration-300 group-hover:-translate-y-1">
                   <Image
                     src={cat.image}
                     alt={cat.name}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 640px) 80px, (max-width: 768px) 112px, 128px"
+                    sizes="(max-width: 640px) 72px, (max-width: 768px) 96px, 112px"
                   />
                 </div>
                 {/* Small label below */}
-                <span className="font-heading font-medium text-[15px] sm:text-[16px] text-[#1F2430] mt-2.5 group-hover:text-[#2A3F8F] transition-colors line-clamp-1">
+                <span className="font-body font-normal text-[14px] sm:text-[15px] text-[#1A1A1A] mt-2.5 group-hover:text-[#7A1F2B] transition-colors line-clamp-1">
                   {cat.name}
                 </span>
               </Link>
@@ -249,25 +184,22 @@ export default function HomePage() {
 
       {/* Thin Indian Motif Border Divider */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <IndianMotifBorder color="blue" height={14} className="opacity-25" />
+        <IndianMotifBorder color="maroon" height={14} className="opacity-25" />
       </div>
 
-      {/* 3. NEW ARRIVALS: Product grid (4 columns on desktop, 2 on mobile) */}
-      <section className="py-12 sm:py-16 bg-[#FAF6EF]">
+      {/* 4. NEW ARRIVALS: Product grid (4 columns on desktop, 2 on mobile) */}
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-8 sm:mb-10">
             <div>
-              <span className="text-[12px] font-body font-semibold tracking-widest uppercase text-[#717A8C]">
-                Naye Aagman
-              </span>
               {/* Section heading: 28px mobile, 40px desktop */}
-              <h2 className="text-[28px] lg:text-[40px] font-heading font-medium text-[#1F2430] leading-tight mt-1">
+              <h2 className="text-[28px] lg:text-[40px] font-heading font-normal text-[#1A1A1A] leading-tight">
                 New Arrivals
               </h2>
             </div>
             <Link
               href="/shop"
-              className="text-[14px] sm:text-[15px] font-body font-semibold text-[#2A3F8F] hover:underline"
+              className="text-[14px] sm:text-[15px] font-body font-normal text-[#7A1F2B] hover:underline"
             >
               View All Pieces →
             </Link>
@@ -282,39 +214,60 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. THE TWO COLLECTION SECTIONS AS PRODUCT GRIDS */}
+      {/* 5. THE TWO COLLECTION SECTIONS AS PRODUCT GRIDS */}
       {COLLECTIONS.map((collection, index) => {
         const collectionDesigns = DESIGNS.filter(
           (d) => d.collection === collection.id
         ).slice(0, 4);
 
+        const isFestiveDecor =
+          collection.id === "festive-decor" || collection.theme === "dark";
+
         return (
           <React.Fragment key={collection.id}>
             {/* Indian motif border divider between collections */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <IndianMotifBorder color="blue" height={14} className="opacity-25" />
+              <IndianMotifBorder
+                color={isFestiveDecor ? "white" : "maroon"}
+                height={14}
+                className="opacity-25"
+              />
             </div>
 
-            <section className="py-12 sm:py-16 bg-[#FAF6EF]">
+            {/* Collection Section: Deep Wine #2A0E13 for Handmade Festive Decor per spec */}
+            <section
+              className={`py-12 sm:py-16 ${
+                isFestiveDecor ? "bg-[#2A0E13] text-white" : "bg-white text-[#1A1A1A]"
+              }`}
+            >
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Heading Area */}
                 <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
                   <div className="max-w-2xl">
-                    <span className="text-[12px] font-body font-semibold tracking-widest uppercase text-[#717A8C]">
-                      Collection {index + 1}
-                    </span>
                     {/* Collection titles stay uppercase with a little letter-spacing (0.04em) */}
-                    <h2 className="text-[28px] lg:text-[40px] font-heading font-medium text-[#1F2430] mt-1 uppercase tracking-[0.04em] leading-tight">
+                    <h2
+                      className={`text-[28px] lg:text-[40px] font-heading font-normal uppercase tracking-[0.04em] leading-tight ${
+                        isFestiveDecor ? "text-white" : "text-[#1A1A1A]"
+                      }`}
+                    >
                       {collection.title}
                     </h2>
-                    <p className="text-[15px] sm:text-[16px] text-[#4B5263] mt-1.5 font-body font-normal leading-[1.6]">
+                    <p
+                      className={`text-[15px] sm:text-[16px] mt-1.5 font-body font-normal leading-[1.6] ${
+                        isFestiveDecor ? "text-white/80" : "text-[#6B6B6B]"
+                      }`}
+                    >
                       {collection.tagline}
                     </p>
                   </div>
 
                   <Link
                     href={`/shop?collection=${collection.id}`}
-                    className="shrink-0 text-[14px] sm:text-[15px] font-body font-semibold text-[#2A3F8F] hover:underline"
+                    className={`shrink-0 ${
+                      isFestiveDecor
+                        ? "px-4 py-2 rounded-xs bg-white text-[#2A0E13] hover:bg-white/90 font-body font-normal text-[14px] sm:text-[15px] transition-colors"
+                        : "text-[14px] sm:text-[15px] font-body font-normal text-[#7A1F2B] hover:underline"
+                    }`}
                   >
                     View Collection →
                   </Link>
@@ -323,7 +276,11 @@ export default function HomePage() {
                 {/* Uniform Product Cards Grid: 4 columns desktop, 2 on mobile */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                   {collectionDesigns.map((design) => (
-                    <DesignCard key={design.id} design={design} />
+                    <DesignCard
+                      key={design.id}
+                      design={design}
+                      variant={isFestiveDecor ? "dark" : "default"}
+                    />
                   ))}
                 </div>
               </div>
@@ -332,18 +289,15 @@ export default function HomePage() {
         );
       })}
 
-      {/* 5. SHORT "HOW TO ORDER" STRIP: Pick, DM, Delivered */}
-      <section className="relative py-14 sm:py-16 bg-[#16204A] text-white overflow-hidden">
+      {/* 6. SHORT "HOW TO ORDER" STRIP: Pick, DM, Delivered */}
+      <section className="relative py-14 sm:py-16 bg-[#2A0E13] text-white overflow-hidden">
         {/* Faint Indian Pattern Backdrop */}
         <IndianPatternBg color="white" opacity={0.04} />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-10 sm:mb-12">
-            <span className="text-[12px] font-body font-semibold tracking-widest uppercase text-white/70">
-              Asan Vidhi · Simple Flow
-            </span>
             {/* Section heading: 28px mobile, 40px desktop */}
-            <h2 className="text-[28px] lg:text-[40px] font-heading font-medium text-white leading-tight mt-1">
+            <h2 className="text-[28px] lg:text-[40px] font-heading font-normal text-white leading-tight">
               How Ordering Works
             </h2>
             <p className="text-[14px] sm:text-[15px] text-white/75 mt-1.5 font-body font-normal">
@@ -354,10 +308,10 @@ export default function HomePage() {
           {/* 3 Simple Steps: Pick, DM, Delivered */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Step 1: Pick */}
-            <div className="border border-white/10 bg-[#0F1633] p-5 sm:p-6 rounded-xs flex flex-col justify-between">
+            <div className="border border-white/10 bg-white/5 p-5 sm:p-6 rounded-xs flex flex-col justify-between">
               <div>
-                <span className="text-[14px] font-heading font-medium text-white/50 tracking-wider">01</span>
-                <h3 className="font-heading font-medium text-[20px] text-white mt-2 mb-1.5 leading-snug">
+                <span className="text-[14px] font-body font-semibold text-white/50 tracking-wider">01</span>
+                <h3 className="font-heading font-normal text-[20px] text-white mt-2 mb-1.5 leading-snug">
                   Pick a Design
                 </h3>
                 <p className="text-[14px] text-white/80 leading-[1.6] font-body font-normal">
@@ -370,10 +324,10 @@ export default function HomePage() {
             </div>
 
             {/* Step 2: DM */}
-            <div className="border border-white/10 bg-[#0F1633] p-5 sm:p-6 rounded-xs flex flex-col justify-between">
+            <div className="border border-white/10 bg-white/5 p-5 sm:p-6 rounded-xs flex flex-col justify-between">
               <div>
-                <span className="text-[14px] font-heading font-medium text-white/50 tracking-wider">02</span>
-                <h3 className="font-heading font-medium text-[20px] text-white mt-2 mb-1.5 leading-snug">
+                <span className="text-[14px] font-body font-semibold text-white/50 tracking-wider">02</span>
+                <h3 className="font-heading font-normal text-[20px] text-white mt-2 mb-1.5 leading-snug">
                   DM for Price
                 </h3>
                 <p className="text-[14px] text-white/80 leading-[1.6] font-body font-normal">
@@ -386,10 +340,10 @@ export default function HomePage() {
             </div>
 
             {/* Step 3: Delivered */}
-            <div className="border border-white/10 bg-[#0F1633] p-5 sm:p-6 rounded-xs flex flex-col justify-between">
+            <div className="border border-white/10 bg-white/5 p-5 sm:p-6 rounded-xs flex flex-col justify-between">
               <div>
-                <span className="text-[14px] font-heading font-medium text-white/50 tracking-wider">03</span>
-                <h3 className="font-heading font-medium text-[20px] text-white mt-2 mb-1.5 leading-snug">
+                <span className="text-[14px] font-body font-semibold text-white/50 tracking-wider">03</span>
+                <h3 className="font-heading font-normal text-[20px] text-white mt-2 mb-1.5 leading-snug">
                   Handpainted & Delivered
                 </h3>
                 <p className="text-[14px] text-white/80 leading-[1.6] font-body font-normal">
@@ -402,7 +356,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Single primary button on dark: Nunito Sans 700, 14-15px, no all-caps */}
+          {/* Single primary button on dark: white button with Deep Wine text */}
           <div className="mt-8 sm:mt-10 text-center">
             <a
               href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
@@ -410,41 +364,38 @@ export default function HomePage() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xs bg-white text-[#16204A] hover:bg-[#FAF6EF] text-[14px] sm:text-[15px] font-body font-bold tracking-normal transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xs bg-white text-[#2A0E13] hover:bg-white/90 text-[14px] sm:text-[15px] font-body font-normal tracking-normal transition-colors"
             >
-              <MessageCircle className="w-4 h-4 fill-[#16204A]" />
+              <MessageCircle className="w-4 h-4 fill-[#2A0E13]" />
               <span>Chat with the Artist on WhatsApp</span>
             </a>
           </div>
         </div>
       </section>
 
-      {/* 6. CUSTOMER LOVE (Small photo + one line each) */}
-      <section className="py-12 sm:py-16 bg-[#FAF6EF] border-b border-[#E2DACB]">
+      {/* 7. CUSTOMER LOVE (Small photo + one line each) */}
+      <section className="py-12 sm:py-16 bg-white border-b border-[#E5E5E5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-10">
-            <span className="text-[12px] font-body font-semibold tracking-widest uppercase text-[#717A8C]">
-              Pyaar Aur Prerna
-            </span>
             {/* Section heading: 28px mobile, 40px desktop */}
-            <h2 className="text-[28px] lg:text-[40px] font-heading font-medium text-[#1F2430] leading-tight mt-1">
+            <h2 className="text-[28px] lg:text-[40px] font-heading font-normal text-[#1A1A1A] leading-tight">
               Customer Love
             </h2>
           </div>
 
-          {/* 4 Cards: Small photo + one line each */}
+          {/* 4 Cards: Blush #F8EFEC soft section background with thin #E5E5E5 border */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {testimonials.map((t, idx) => (
               <div
                 key={idx}
-                className="border border-[#E2DACB] bg-[#EFE8DC] p-5 rounded-xs flex flex-col justify-between"
+                className="border border-[#E5E5E5] bg-[#F8EFEC] p-5 rounded-xs flex flex-col justify-between"
               >
-                <p className="text-[15px] sm:text-[16px] text-[#1F2430] font-heading italic font-normal leading-[1.6] mb-4">
+                <p className="text-[15px] sm:text-[16px] text-[#1A1A1A] font-heading italic font-normal leading-[1.6] mb-4">
                   &ldquo;{t.quote}&rdquo;
                 </p>
 
-                <div className="pt-3 border-t border-[#E2DACB] flex items-center gap-3">
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#E2DACB] bg-[#FAF6EF] shrink-0">
+                <div className="pt-3 border-t border-[#E5E5E5] flex items-center gap-3">
+                  <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#E5E5E5] bg-white shrink-0">
                     <Image
                       src={t.avatar}
                       alt={t.name}
@@ -454,10 +405,10 @@ export default function HomePage() {
                     />
                   </div>
                   <div className="min-w-0">
-                    <span className="font-heading font-semibold text-[14px] sm:text-[15px] text-[#1F2430] block truncate">
+                    <span className="font-body font-normal text-[14px] sm:text-[15px] text-[#1A1A1A] block truncate">
                       {t.name}
                     </span>
-                    <span className="text-[12px] font-body font-normal text-[#717A8C] block truncate">
+                    <span className="text-[12px] font-body font-normal text-[#6B6B6B] block truncate">
                       {t.setting}
                     </span>
                   </div>
@@ -468,16 +419,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. INSTAGRAM STRIP */}
-      <section className="py-12 sm:py-16 bg-[#FAF6EF]">
+      {/* 8. INSTAGRAM STRIP */}
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-8">
             <div>
-              <span className="text-[12px] font-body font-semibold tracking-widest uppercase text-[#717A8C]">
-                Studio Glimpses
-              </span>
               {/* Section heading: 28px mobile, 40px desktop */}
-              <h2 className="text-[28px] lg:text-[40px] font-heading font-medium text-[#1F2430] leading-tight mt-1">
+              <h2 className="text-[28px] lg:text-[40px] font-heading font-normal text-[#1A1A1A] leading-tight">
                 From Our Studio to Your Home
               </h2>
             </div>
@@ -486,7 +434,7 @@ export default function HomePage() {
               href={siteConfig.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 sm:mt-0 text-[14px] font-body font-semibold text-[#2A3F8F] hover:underline inline-flex items-center gap-1.5"
+              className="mt-2 sm:mt-0 text-[14px] font-body font-normal text-[#7A1F2B] hover:underline inline-flex items-center gap-1.5"
             >
               <InstagramIcon className="w-3.5 h-3.5" />
               <span>@{siteConfig.instagramHandle}</span>
@@ -500,9 +448,9 @@ export default function HomePage() {
                 href={siteConfig.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group border border-[#E2DACB] bg-[#EFE8DC] p-2 rounded-xs block"
+                className="group border border-[#E5E5E5] bg-[#F8EFEC] p-2 rounded-xs block"
               >
-                <div className="relative aspect-square w-full bg-[#FAF6EF] overflow-hidden rounded-xs border border-[#E2DACB]">
+                <div className="relative aspect-square w-full bg-white overflow-hidden rounded-xs border border-[#E5E5E5]">
                   <Image
                     src={shot.img}
                     alt={shot.caption}
@@ -511,7 +459,7 @@ export default function HomePage() {
                     sizes="(max-width: 640px) 50vw, 25vw"
                   />
                 </div>
-                <p className="text-[13px] font-body font-normal text-[#717A8C] mt-2 line-clamp-1">
+                <p className="text-[13px] font-body font-normal text-[#6B6B6B] mt-2 line-clamp-1">
                   {shot.caption}
                 </p>
               </a>

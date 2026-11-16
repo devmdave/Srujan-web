@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Nunito_Sans, Noto_Serif_Gujarati } from "next/font/google";
+import { Crimson_Pro, Work_Sans, Noto_Serif_Gujarati } from "next/font/google";
 import "./globals.css";
 import { WishlistProvider } from "@/context/WishlistContext";
 import Header from "@/components/Header";
@@ -8,17 +8,15 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import WishlistDrawer from "@/components/WishlistDrawer";
 import { siteConfig } from "@/config/siteConfig";
 
-const fraunces = Fraunces({
+const crimsonPro = Crimson_Pro({
   variable: "--font-heading",
   subsets: ["latin"],
-  axes: ["SOFT"],
   display: "swap",
 });
 
-const nunitoSans = Nunito_Sans({
+const workSans = Work_Sans({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
   display: "swap",
 });
 
@@ -73,7 +71,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${nunitoSans.variable} ${notoSerifGujarati.variable}`}
+      className={`${crimsonPro.variable} ${workSans.variable} ${notoSerifGujarati.variable}`}
     >
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -83,7 +81,7 @@ export default function RootLayout({
         <link rel="icon" href="/icon-512.png" type="image/png" sizes="512x512" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body className="min-h-screen bg-[#FAF6EF] text-[#1F2430] font-body text-[16px] leading-[1.6] antialiased flex flex-col selection:bg-[#2A3F8F] selection:text-white">
+      <body className="min-h-screen bg-white text-[#1A1A1A] font-body text-[16px] leading-[1.6] antialiased flex flex-col selection:bg-[#7A1F2B] selection:text-white">
         <WishlistProvider>
           <Header />
           <main className="flex-1">{children}</main>

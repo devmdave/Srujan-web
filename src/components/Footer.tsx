@@ -23,7 +23,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative bg-[#16204A] text-white overflow-hidden">
+    <footer className="relative bg-[#2A0E13] text-white overflow-hidden">
       {/* Faint Indian Pattern Backdrop */}
       <IndianPatternBg color="white" opacity={0.04} />
 
@@ -59,7 +59,7 @@ export default function Footer() {
                 href={siteConfig.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xs border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-[#16204A] transition-colors"
+                className="w-9 h-9 rounded-xs border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-[#2A0E13] transition-colors"
                 aria-label="Instagram profile"
               >
                 <InstagramIcon className="w-4 h-4" />
@@ -68,14 +68,14 @@ export default function Footer() {
                 href={`https://wa.me/${siteConfig.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xs border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-[#16204A] transition-colors"
+                className="w-9 h-9 rounded-xs border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-[#2A0E13] transition-colors"
                 aria-label="WhatsApp chat"
               >
                 <MessageCircle className="w-4 h-4" />
               </a>
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="w-9 h-9 rounded-xs border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-[#16204A] transition-colors"
+                className="w-9 h-9 rounded-xs border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-[#2A0E13] transition-colors"
                 aria-label="Email studio"
               >
                 <Mail className="w-4 h-4" />
@@ -85,7 +85,7 @@ export default function Footer() {
 
           {/* Simple Column 1: Shop */}
           <div className="lg:col-span-3">
-            <h3 className="text-[13px] font-body font-bold tracking-wider uppercase text-white mb-4">
+            <h3 className="text-[13px] font-body font-normal tracking-wider uppercase text-white mb-4">
               Shop
             </h3>
             <ul className="space-y-2 text-[14px] text-white/75 font-body font-normal">
@@ -120,7 +120,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/shop" className="hover:text-white transition-colors font-medium text-white/90">
+                <Link href="/shop" className="hover:text-white transition-colors font-normal text-white/90">
                   All Designs →
                 </Link>
               </li>
@@ -129,7 +129,7 @@ export default function Footer() {
 
           {/* Simple Column 2: Info */}
           <div className="lg:col-span-2">
-            <h3 className="text-[13px] font-body font-bold tracking-wider uppercase text-white mb-4">
+            <h3 className="text-[13px] font-body font-normal tracking-wider uppercase text-white mb-4">
               Info
             </h3>
             <ul className="space-y-2 text-[14px] text-white/75 font-body font-normal">
@@ -158,11 +158,11 @@ export default function Footer() {
 
           {/* Simple Column 3: Contact */}
           <div className="lg:col-span-3">
-            <h3 className="text-[13px] font-body font-bold tracking-wider uppercase text-white mb-4">
+            <h3 className="text-[13px] font-body font-normal tracking-wider uppercase text-white mb-4">
               Contact
             </h3>
             <p className="text-[14px] text-white/75 leading-[1.6] mb-3 font-body font-normal">
-              Click <strong className="text-white font-semibold">“DM for Price”</strong> on any design to discuss sizing, fabric choices, and quotes directly with the artist.
+              Click <span className="text-white font-normal">“DM for Price”</span> on any design to discuss sizing, fabric choices, and quotes directly with the artist.
             </p>
             <div className="space-y-2 text-[14px] text-white/75 font-body font-normal">
               <div className="flex items-center gap-2">
@@ -171,7 +171,7 @@ export default function Footer() {
                   href={`https://wa.me/${siteConfig.whatsappNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:underline text-white font-medium"
+                  className="hover:underline text-white font-normal"
                 >
                   {siteConfig.whatsappDisplayNumber} (WhatsApp)
                 </a>

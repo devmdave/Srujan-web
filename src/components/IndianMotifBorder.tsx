@@ -1,7 +1,7 @@
 import React, { useId } from "react";
 
 interface IndianMotifBorderProps {
-  color?: "blue" | "white" | "indigo" | "sand";
+  color?: "maroon" | "white" | "wine" | "border";
   className?: string;
   height?: number;
 }
@@ -9,24 +9,23 @@ interface IndianMotifBorderProps {
 /**
  * Traditional Indian Block-Print Motif Border Strip
  * Thin, repeated block-print floral vine and bandhani dot pattern
- * Rendered in Srujan Blue or White only per design specification.
  */
 export default function IndianMotifBorder({
-  color = "blue",
+  color = "maroon",
   className = "",
   height = 14,
 }: IndianMotifBorderProps) {
   const rawId = useId();
   const patternId = `motif-border-${rawId.replace(/:/g, "")}`;
 
-  const colorMap = {
-    blue: "#2A3F8F",
+  const colorMap: Record<string, string> = {
+    maroon: "#7A1F2B",
     white: "#FFFFFF",
-    indigo: "#16204A",
-    sand: "#E2DACB",
+    wine: "#2A0E13",
+    border: "#E5E5E5",
   };
 
-  const strokeColor = colorMap[color] || colorMap.blue;
+  const strokeColor = colorMap[color] || colorMap.maroon;
 
   return (
     <div
@@ -60,7 +59,6 @@ export default function IndianMotifBorder({
             />
 
             {/* Central Paisley / Buta & Floral Motif */}
-            {/* Central 4-petal floral rosette with center dot */}
             <circle cx="20" cy="7" r="1.4" fill={strokeColor} />
             <path
               d="M20,3.5 C20.8,4.8 20.8,5.8 20,6 C19.2,5.8 19.2,4.8 20,3.5 Z"

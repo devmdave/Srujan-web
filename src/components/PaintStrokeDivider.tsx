@@ -1,7 +1,7 @@
 import React, { useId } from "react";
 
 interface PaintStrokeDividerProps {
-  color?: "blue" | "indigo" | "white" | "sand";
+  color?: "maroon" | "wine" | "border" | "white";
   className?: string;
   flip?: boolean;
 }
@@ -12,20 +12,20 @@ interface PaintStrokeDividerProps {
  * Used as authentic section dividers across pages.
  */
 export default function PaintStrokeDivider({
-  color = "blue",
+  color = "maroon",
   className = "",
 }: PaintStrokeDividerProps) {
   const rawId = useId();
   const patternId = `divider-motif-${rawId.replace(/:/g, "")}`;
 
-  const colorMap = {
-    blue: "#2A3F8F",
-    indigo: "#16204A",
+  const colorMap: Record<string, string> = {
+    maroon: "#7A1F2B",
+    wine: "#2A0E13",
+    border: "#E5E5E5",
     white: "#FFFFFF",
-    sand: "#E2DACB",
   };
 
-  const strokeColor = colorMap[color] || colorMap.blue;
+  const strokeColor = colorMap[color] || colorMap.maroon;
 
   return (
     <div
